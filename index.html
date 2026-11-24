@@ -180,6 +180,25 @@ pre.sql{background:#f6f7f5;border:1px solid var(--line);padding:12px 14px;font-s
 @media(max-width:700px){.ol-facts,.trigs{grid-template-columns:1fr}.tiers div{grid-template-columns:1fr}}
 @media print{.ol-facts{grid-template-columns:repeat(5,1fr)}.ol-two{grid-template-columns:1fr 1fr}.trigs{grid-template-columns:repeat(5,1fr)}.ol-facts,.trigs,.tiers,.olt{break-inside:avoid}}
 @media print{.pa-item{break-inside:auto!important}.pa-item h3{break-after:avoid}.pi-panel,.pi-two,.pi-stats,.pi-ev,.pi-obj{break-inside:avoid}.lede,.areas{break-inside:auto}.ol-two .rp-svg{max-height:170px}.chart .rp-svg{max-height:190px}#raci-h{break-before:auto}.olt,.trigs{break-inside:auto}.olt tr,.trigs div{break-inside:avoid}}
+.jc-btn{margin-top:10px;font-size:14px;padding:6px 12px}.jc dd b{color:var(--ink)}
+/* common issues */
+.ci{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.ci-c{border:1px solid var(--line);background:var(--paper);display:flex;flex-direction:column}.ci-h{margin:0;padding:7px 12px;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.ci-c.reg .ci-h{background:var(--pale);color:var(--accent)}.ci-c.ops .ci-h{background:#e8eef4;color:var(--slate)}.ci-c.stu .ci-h{background:var(--gold-pale);color:var(--gold)}.ci-c.com .ci-h{background:#e7f2ee;color:var(--teal)}
+.ci-i{padding:8px 12px;border-top:1px solid var(--line);font-size:13.5px}.ci-i:first-of-type{border-top:0}.ci-i b{display:block;font-size:14.5px}.ci-i span{display:block;color:#3a464d;margin-top:2px}
+.ci-i em{display:inline-block;font-style:normal;font-size:11.5px;font-weight:700;padding:1px 8px;border-radius:10px;margin-top:3px}.st-live{background:var(--pale);color:#b4232c}.st-prop{background:var(--gold-pale);color:var(--gold)}.st-hold{background:#e8eef4;color:var(--slate)}
+.ci-flow{list-style:none;margin:12px 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;counter-reset:cf}.ci-flow li{counter-increment:cf;border:1px solid var(--line);border-top:4px solid var(--teal);background:var(--paper);padding:8px 10px;font-size:13px;color:var(--muted)}.ci-flow li:before{content:"Step " counter(cf);display:block;font-size:11px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.06em}.ci-flow b{display:block;color:var(--ink);font-size:15px}
+.wk{display:grid;grid-template-columns:180px 1fr;border:1px solid #e7c9d1;background:var(--paper)}.wk-l{background:var(--pale);padding:12px 14px;display:flex;flex-direction:column;gap:1px}.wk-l p{margin:0 0 4px;font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--accent)}.wk-l b{font-size:22px;color:var(--accent);margin-top:4px}.wk-l span{font-size:12.5px;color:#6d2234}
+.wk-r{padding:12px 14px;display:grid;gap:9px}.wk-t{font-size:16px}.wk-s{display:grid;grid-template-columns:1fr 1fr;gap:10px}.wk-s>div{border:1px solid var(--line);padding:8px 10px;font-size:13.5px}.wk-s .do{background:#e7f2ee}.wk-s .esc{background:var(--gold-pale)}.wk-s h5{margin:0 0 4px;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase}.wk-s .do h5{color:var(--teal)}.wk-s .esc h5{color:var(--gold)}.wk-s ul{margin:0;padding-left:17px}
+.wk-o{display:flex;flex-wrap:wrap;gap:6px}.wk-o span{font-size:12.5px;padding:3px 10px;border:1px solid var(--line);border-radius:12px;background:var(--soft)}.wk-o span.on{background:var(--teal);border-color:var(--teal);color:#fff;font-weight:700}
+.wk .jc-btn{justify-self:start;margin-top:0}
+/* swot */
+.swot{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line)}.swot>div{padding:12px 16px;background:var(--paper)}.swot p{margin:0 0 4px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.swot ul{margin:0;padding-left:18px;font-size:14px}.swot li{margin:3px 0}
+.sw-s{border-right:1px solid var(--line);border-bottom:1px solid var(--line);border-top:5px solid var(--teal)!important}.sw-s p{color:var(--teal)}.sw-w{border-bottom:1px solid var(--line);border-top:5px solid var(--gold)!important}.sw-w p{color:var(--gold)}.sw-o{border-right:1px solid var(--line);border-top:5px solid var(--slate)!important}.sw-o p{color:var(--slate)}.sw-t{border-top:5px solid #b4232c!important}.sw-t p{color:#b4232c}
+.sw-moves{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:10px}.sw-moves div{border:1px solid var(--line);background:var(--soft);padding:9px 12px;font-size:13.5px}.sw-moves b{display:block;font-size:12.5px;letter-spacing:.04em;color:var(--accent)}
+@media(max-width:1000px){.ci{grid-template-columns:repeat(2,minmax(0,1fr))}.ci-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.sw-moves{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.ci,.ci-flow,.sw-moves,.swot,.wk,.wk-s{grid-template-columns:1fr}.sw-s,.sw-o{border-right:0}.sw-o{border-bottom:1px solid var(--line)}}
+@media print{.ci{grid-template-columns:repeat(4,1fr)}.ci-flow{grid-template-columns:repeat(5,1fr)}.swot{grid-template-columns:1fr 1fr}.sw-moves{grid-template-columns:repeat(4,1fr)}.wk{grid-template-columns:150px 1fr}.wk-s{grid-template-columns:1fr 1fr}.ci-c,.swot,.wk,.sw-moves{break-inside:avoid}.wk .jc-btn{display:none}}
 /* sample reports */
 .rp-grid{display:grid;grid-template-columns:230px minmax(0,1fr);gap:20px;align-items:start}
 .rp-pick{display:grid;gap:8px;position:sticky;top:calc(var(--sticky-offset) + 8px)}
@@ -521,6 +540,20 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
   <h3 class="h3" id="sx-trig" data-s="Early signals">Early signals and what each one triggers</h3>
   <div id="ol-trig"></div>
   <p class="src">Method: a cohort model in which about 36% of students complete each year and are replaced by new students. Each scenario sets the change in new students, scholars change at a fixed yearly rate, and billing moves with OPT and scholar volumes. The projection starts from HIO’s published counts and is for planning, not a forecast of Harvard’s enrollment.</p>
+  <h3 class="h3" id="sx-swot" data-s="SWOT">SWOT for HIO operations, from published facts</h3>
+  <p class="lede sm">An outside-in view. Strengths, opportunities and threats rest on published sources. Pressures are ones large international offices commonly face, to be confirmed with the Director in the first 30 days, not judgments of HIO.</p>
+  <div class="swot">
+    <div class="sw-s"><p>Strengths</p><ul><li>Serves 10,158 students and scholars from 150 countries, one central office for every School and the affiliated hospitals</li><li>Demand holding: Harvard reported a record 6,749 international students in fall 2025</li><li>More than 80 years of practice, since 1944</li><li>SEVIS batch processing on an established system, Ellucian ISSM/ISD</li></ul></div>
+    <div class="sw-w"><p>Pressures to confirm</p><ul><li>School data arrives from many systems in different formats</li><li>Four calendars stack into peaks in September, January, March and May</li><li>Manual steps at peak times</li><li>Knowledge held by a few people on critical tasks</li></ul></div>
+    <div class="sw-o"><p>Opportunities</p><ul><li>Automation with a person on every judgment call, about 120 hours a month in this plan</li><li>OPT as its own flow, after a 14.1% national rise in 2025/26</li><li>A crosswalk and School training to raise first-pass validation</li><li>A weekly dashboard with a three-year outlook</li></ul></div>
+    <div class="sw-t"><p>Threats</p><ul><li>New international students fell 17.7% nationally in 2025/26, and a fall 2026 read shows −15%</li><li>Proposed OPT fee of $70,000 per first recommendation</li><li>End of duration of status, paused in court, would add extension filings</li><li>Narrower CPT guidance and visa delays</li></ul></div>
+  </div>
+  <div class="sw-moves">
+    <div><b>Strengths × Opportunities</b><span>Use one central record to automate the repeat work across every School.</span></div>
+    <div><b>Pressures × Opportunities</b><span>Fix School data at the source with the crosswalk and training before each intake.</span></div>
+    <div><b>Strengths × Threats</b><span>Size any federal change within a day from ISSM, so the Director decides on counts.</span></div>
+    <div><b>Pressures × Threats</b><span>Continuity plan and two trained people per process before each peak.</span></div>
+  </div>
 </section>
 
 <!-- ================= E ================= -->
@@ -555,10 +588,12 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
     </div>
     <div>
       <p class="jk">Hospital dispute · $6,200</p>
-      <b>A hospital disputes a charge for a scholar who left two months early.</b>
-      <dl><dt>What the rules leave open</dt><dd>The agreement is silent on partial terms. The work to issue and maintain the record was done in full.</dd>
-      <dt>What I weighed</dt><dd>The relationship, what the agreement says, what HIO charged other hospitals in the same case, and the precedent any choice would set.</dd>
-      <dt>The call</dt><dd>Recommend billing the issuance work in full, prorating the monthly maintenance to the departure date, and adding partial-term language at renewal. The Director decides, because it sets precedent.</dd></dl>
+      <b>A hospital disputes a full-year charge for a scholar who left two months early.</b>
+      <dl><dt>What the rules leave open</dt><dd>The agreement is silent on partial terms. Issuance work was done in full, but the record was closed two months early, so no maintenance work was done for those months.</dd>
+      <dt>What I weighed</dt><dd>Hold the full $6,200, credit the two unused months, or waive more. FY26 practice with two other hospitals was to bill by month, and the invoice is already past 90 days.</dd>
+      <dt>The solution</dt><dd><b>Bill $5,500 and credit $700.</b> Issuance stays at $2,000, and maintenance is billed for the 10 months the record was open. Payment is due in 30 days, and a partial-term clause goes into every hospital agreement at renewal.</dd>
+      <dt>What the Director approves</dt><dd>Two yes or no items: the $700 credit, which is above my proposed $500 credit limit, and the clause for the renewal template.</dd></dl>
+      <button class="btn ghost jc-btn" data-pop="p-memo">Open the one-page decision memo</button>
     </div>
   </div>
   <h3 id="sx-cont" data-s="Continuity" class="h3">Continuity when something breaks</h3>
@@ -599,6 +634,42 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
   <div class="raci-roles" id="raci-roles"></div>
   <div id="raci"></div>
   <p class="src"><b>R</b> does the work · <b>A</b> owns the outcome, one per row · <b>C</b> consulted before · <b>I</b> informed after. Proposed split, to be agreed with the Director.</p>
+  <h3 id="sx-ci" data-s="Common issues" class="h2">Common issues and the repeatable response</h3>
+  <p class="lede sm">Most issues are not new. They come back on a new date with a new name, so each one has a set response, an owner and a measure. The federal items show their status as of November 2026.</p>
+  <div class="ci">
+    <div class="ci-c reg"><p class="ci-h">01 · Federal policy changes</p>
+      <div class="ci-i"><b>CPT narrowed by SEVP</b><em class="st-live">In effect · Aug 2026</em><span>SEVP broadcast messages on August 12 and 24 limited CPT to training required for all students in a program. Review each School’s CPT programs against the guidance, hold requests that do not meet it, and brief the Director with counts by School.</span></div>
+      <div class="ci-i"><b>Proposed OPT fee</b><em class="st-prop">Proposed · Oct 2026</em><span>A DHS proposed rule would have schools pay $70,000 for a first OPT recommendation and $30,000 for later ones. Size the OPT population by School, model the budget with Campus Services Finance, and keep a ready plan if it becomes final.</span></div>
+      <div class="ci-i"><b>End of duration of status</b><em class="st-hold">Paused by court · Sep 2026</em><span>The final rule would replace D/S with fixed admission dates, but a preliminary injunction paused it before the September 15 start. Operate current rules and keep an “if it takes effect” checklist: form end dates, extension filings, ISSM fields.</span></div>
+      <div class="ci-i"><b>Visa delays</b><em class="st-live">Each intake</em><span>Track forms issued against arrivals by School, agree deferral and late-arrival options with Schools before June 30.</span></div>
+    </div>
+    <div class="ci-c ops"><p class="ci-h">02 · SEVIS and data errors</p>
+      <div class="ci-i"><b>Late registration</b><span>Check date ten days before each deadline, named owner per exception, daily list by School.</span></div>
+      <div class="ci-i"><b>School certification record out of date</b><span>Changes such as a new or departing DSO logged the day they happen and updated within the 21 days the rules allow.</span></div>
+      <div class="ci-i"><b>CPT and OPT authorization errors</b><span>A checklist before each authorization, OPT tracked as its own flow, a second check on anything unusual.</span></div>
+      <div class="ci-i"><b>School data drifts from SEVIS</b><span>Crosswalk, first-pass validation rate, mismatches never fixed automatically.</span></div>
+    </div>
+    <div class="ci-c stu"><p class="ci-h">03 · Student and scholar support</p>
+      <div class="ci-i"><b>Cost of living and basic needs</b><span>A current referral list with the right Harvard offices, and front-line staff trained to use it.</span></div>
+      <div class="ci-i"><b>Dependents and families</b><span>Dependent deadlines in the population matrix, family-inclusive orientation material.</span></div>
+      <div class="ci-i"><b>Stress during policy change</b><span>Referral steps to counseling partners, and messages that say only what is known, never false reassurance.</span></div>
+    </div>
+    <div class="ci-c com"><p class="ci-h">04 · Communication and coordination</p>
+      <div class="ci-i"><b>Rumor or real change</b><span>Verify, size, brief, then message. “We do not know yet” is a valid message.</span></div>
+      <div class="ci-i"><b>School staff kept current</b><span>A short weekly update, one status page, training before each intake.</span></div>
+      <div class="ci-i"><b>Many offices, one answer</b><span>A named contact in each partner office and a quarterly check-in across them.</span></div>
+    </div>
+  </div>
+  <ol class="ci-flow"><li><b>Verify</b>Source, date, scope</li><li><b>Size</b>By School, visa type, population</li><li><b>Brief</b>Counts, deadlines, options</li><li><b>Change</b>Rules, templates, notices, test first</li><li><b>Check</b>Every affected record</li></ol>
+  <div class="wk">
+    <div class="wk-l"><p>Worked example</p><b>$6,200</b><span>disputed hospital invoice</span><b>$700</b><span>credit recommended</span><b>10 days</b><span>decision target</span></div>
+    <div class="wk-r"><b class="wk-t">A hospital disputes a full-year charge for a scholar who left two months early</b>
+      <div class="wk-s"><div class="do"><h5>I resolve myself</h5><ul><li>Read the agreement for an early-termination term</li><li>Confirm the work done from the service log and the SEVIS record</li><li>Issue a credit up to my limit, or a revised invoice</li><li>Reply to the hospital with the reasoning</li></ul></div>
+      <div class="esc"><h5>I bring to the Director, with a recommendation</h5><ul><li>The agreement is silent or unclear</li><li>The credit is above my proposed $500 limit</li><li>The case would change how other hospitals are billed</li><li>A legal or relationship risk</li></ul></div></div>
+      <div class="wk-o"><span>Full credit · no work delivered</span><span class="on">Prorate · partial work, this case: bill $5,500</span><span>Hold · the agreement supports the charge</span></div>
+      <button class="btn ghost jc-btn" data-pop="p-memo">Open the one-page decision memo</button></div>
+  </div>
+  <p class="src">Federal items from SEVP broadcast messages 2608-01 and 2608-02, the DHS proposed OPT fee rule of October 8, 2026, and the DHS final rule of July 17, 2026 and its September 2026 injunction, as reported by university international offices. Status can change quickly and would be checked before any message goes out.</p>
   <h3 id="sx-rhy" data-s="Rhythm" class="h2">The operating rhythm</h3>
   <div class="rhythm">
     <div><b>Daily</b><span>Run and review SEVIS batches, clear the School import exceptions, check the queue for items over five days</span></div>
@@ -700,6 +771,19 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
   <div class="pi-panel"><h5>Standards I have written policy to</h5><div class="pi-pills"><span>IRS</span><span>FASB/GASB</span><span>CASE</span><span>HIPAA</span></div></div></div>
   <div class="pi-ev"><h5>Where I have done this</h5><ul><li>Protected confidential faculty records at FAS with role- and hierarchy-based access approved by the Dean of Faculty Affairs.</li><li>Wrote record-keeping policies at UAMS and documented the controls auditors reviewed.</li></ul></div>
   <p class="ex">See the sample <a href="#e" data-rep="sec" data-close>data security review</a>.</p>
+  </div>
+</template>
+<template id="p-memo" data-title="Decision memo · hospital dispute, $6,200">
+  <div class="pi">
+  <p class="pi-obj"><b>Recommendation</b>Credit $700, collect $5,500 within 30 days, and add a partial-term clause to every hospital agreement at renewal.</p>
+  <div class="pi-stats"><div class="acc"><b>$5,500</b><span>collected now</span></div><div><b>$700</b><span>credit, two unused months</span></div><div><b>94 days</b><span>invoice age today</span></div><div><b>2 of 2</b><span>FY26 early departures billed by month</span></div></div>
+  <div class="pi-panel"><h5>What happened</h5><p style="margin:0;font-size:14px">A J-1 research scholar sponsored by an affiliated hospital left after 10 months of a 12-month appointment. HIO closed the SEVIS record when the hospital reported the departure. The hospital disputes the full-year invoice and has not paid. The agreement does not say how partial terms are billed.</p></div>
+  <div class="pi-row"><div class="pi-panel"><h5>The invoice</h5><table class="pi-t"><thead><tr><th>Line</th><th>Billed</th><th>Work done</th></tr></thead><tbody><tr><td>DS-2019 issuance and setup</td><td>$2,000</td><td>In full</td></tr><tr><td>Maintenance, $350 a month × 12</td><td>$4,200</td><td>10 months</td></tr><tr><td><b>Total</b></td><td><b>$6,200</b></td><td><b>$5,500 of work</b></td></tr></tbody></table></div>
+  <div class="pi-panel"><h5>Options</h5><table class="pi-t"><thead><tr><th>Option</th><th>Collect</th><th>Risk</th></tr></thead><tbody><tr><td>A · Hold the full $6,200</td><td>$6,200, if paid</td><td>Billing for work not done. Likely to age past 120 days and strain the relationship</td></tr><tr class="hl"><td><b>B · Credit two months</b></td><td><b>$5,500 now</b></td><td>Low. Matches FY26 practice and the work done</td></tr><tr><td>C · Waive the maintenance</td><td>$2,000</td><td>Undercharges $3,500 and invites the same request from other hospitals</td></tr></tbody></table></div></div>
+  <div class="pi-two"><div class="do"><h5>Why option B</h5><ul><li>It bills exactly the work HIO did, so it is easy to defend.</li><li>It treats this hospital the same as the two FY26 cases.</li><li>It turns a 94-day receivable into cash within 30 days.</li></ul></div><div class="ctl"><h5>What I ask the Director to approve</h5><ul><li><b>Yes or no ·</b> the $700 credit, which is above my proposed $500 credit limit</li><li><b>Yes or no ·</b> the partial-term clause for the hospital renewal template</li></ul></div></div>
+  <div class="pi-panel"><h5>The clause for renewals</h5><p style="margin:0;font-size:14px">“The issuance fee is non-refundable. Maintenance is billed monthly through the month in which HIO closes the SEVIS record. The sponsoring hospital will tell HIO of an early departure within 10 business days.”</p><p class="pi-note">The wording would be reviewed with Campus Services Finance and, if needed, the Office of the General Counsel before it is used.</p></div>
+  <div class="pi-panel"><h5>Next steps once approved</h5><ol class="pi-flow"><li><b>Day 1</b><span>Credit memo issued, revised invoice for $5,500 sent</span></li><li><b>Day 2</b><span>Call with the hospital’s finance contact</span></li><li><b>Day 30</b><span>Payment due, follow-up if not received</span></li><li><b>Renewal</b><span>Clause added to the agreement</span></li></ol></div>
+  <p class="pi-note">Sample case with synthetic figures. The $500 credit limit is a proposed delegation, to be agreed with the Director.</p>
   </div>
 </template>
 <template id="p-sql" data-title="Validation SQL, sample">
@@ -834,7 +918,7 @@ LEFT   JOIN cost_estimate c
     return {years: yrs, list: [
       mk('Holds steady', C.teal, 'New students flat, as Harvard saw in fall 2025. Scholars flat.', [0, 0, 0], 0, [1, 1.03, 1.05, 1.06], 'Hold a team of four, grow OPT capacity, keep the billing plan.'),
       mk('National trend', C.gold, 'New students −15% in 2027, −5% in 2028, flat in 2029, like the IIE fall 2026 read. Scholars −3% a year.', [-.15, -.05, 0], -.03, [1, 1.03, .94, .86], 'Hold four, move about 25 hours a month to OPT and scholar renewals, lower the FY29 billing plan.'),
-      mk('Sharp decline', C.red, 'New students −30% in 2027 after a federal restriction, slow recovery. Scholars −6% a year.', [-.30, 0, .05], -.06, [1, 1.01, .83, .72], 'Pause backfills, add time for policy response and advising, reset the billing plan with Campus Services Finance.', '5 4')
+      mk('Sharp decline', C.red, 'New students −30% in 2027, for example if the proposed OPT fee becomes final, then a slow recovery. Scholars −6% a year.', [-.30, 0, .05], -.06, [1, 1.01, .83, .72], 'Pause backfills, add time for policy response and advising, reset the billing plan with Campus Services Finance.', '5 4')
     ]}; })();
   window.HIO_SCEN = SCEN;
   const R = {};
@@ -846,7 +930,7 @@ LEFT   JOIN cost_estimate c
       ['Five-year trend', vbars(['Fall 2022', 'Fall 2023', 'Fall 2024', 'Fall 2025', 'Fall 2026'], [{n: 'Students', c: C.mar, v: [5120, 5390, 5560, 5610, POP.stu]}, {n: 'Scholars', c: C.slate, v: [4010, 4250, 4470, 4390, POP.sch]}], {stack: 1, h: 210, max: 12000, label: 'Students and scholars by fall term'}) + note('Fall 2026 matches HIO’s published counts. Earlier years are synthetic.')],
       ['Turnaround by week', lines(['Jan 4', 'Jan 11', 'Jan 18', 'Jan 25', 'Feb 1', 'Feb 8', 'Feb 15'], [{n: 'Travel signature, median days', c: C.mar, v: [3, 4, 4, 3, 2, 2, 2], dots: 1}, {n: 'OPT recommendation, median days', c: C.slate, v: [6, 7, 8, 6, 5, 5, 4], dots: 1}], {h: 200, target: 5, tlab: 'standard, 5 business days', label: 'Turnaround by week'})],
       ['Three-year outlook', lines(SCEN.years, SCEN.list.map(x => ({n: x.n, c: x.c, v: x.tot, dots: 1, dash: x.dash})), {h: 200, min: 7000, max: 11000, fmt: n0, label: 'HIO population scenarios'}) + note(`Students and scholars from HIO’s published ${n0(POP.all)}. Nationally, new international students fell 17.7% in 2025/26 (Open Doors 2026). Scenario totals for fall 2029: ${SCEN.list.map(x => x.n.toLowerCase() + ' ' + n0(x.tot[3])).join(', ')}.`)],
-      ['Decisions due', when([['Feb 26', 'Go or no-go on the ISSM release', 'Production stays on the current version until then'], ['Mar 5', 'School template change for spring admits', 'Removes most program-code mismatches'], ['Feb', 'Dispute approach for one hospital invoice, $6,200', 'Agreement and billing history attached']])]]});
+      ['Decisions due', when([['Feb 26', 'Go or no-go on the ISSM release', 'Production stays on the current version until then'], ['Mar 5', 'School template change for spring admits', 'Removes most program-code mismatches'], ['Feb 26', 'Approve a $700 credit on a $6,200 hospital invoice, and a partial-term clause for renewals', 'Recommended. Collects $5,500 within 30 days, matches FY26 practice']])]]});
 
   R.reg = () => ({tier: 'lead', tab: 'Registration', title: 'Spring 2027 SEVIS registration', issue: 'Feb 22, 2027', through: 'through Feb 21', aud: 'Director, advisors, School contacts', id: 'HIO-R-2027-S', src: 'ISSM/ISD registration batch, School enrollment files, SEVIS responses',
     s: [
@@ -875,7 +959,7 @@ LEFT   JOIN cost_estimate c
 
   R.bill = () => ({tier: 'fin', tab: 'Billing and accruals', title: 'Visa, OPT and hospital billing, FY27 to January', issue: 'Feb 5, 2027', through: 'services Jul 1, 2026 to Jan 31, 2027', aud: 'Campus Services Finance and the Director', id: 'HIO-B-2027-01', src: 'ISSM service log, invoice register, hospital confirmations, card statements',
     s: [
-      ['At a glance', glance([['ok', usd(BILL.ytd), `billed, ${p1(BILL.ytd / BILL.ytdPlan - 1)} above plan`], ['info', usd(BILL.accr), 'delivered through January, not yet invoiced, for the Q3 accrual'], ['warn', usd(BILL.age[3][1]), 'over 90 days, 2 hospital invoices']])],
+      ['At a glance', glance([['ok', usd(BILL.ytd), `billed, ${p1(BILL.ytd / BILL.ytdPlan - 1)} above plan`], ['info', usd(BILL.accr), 'delivered through January, not yet invoiced, for the Q3 accrual'], ['warn', usd(BILL.age[3][1]), 'over 90 days in 2 invoices. $3,600 settled and due, $6,200 has a recommended $700 credit']])],
       ['Pace to the year plan', bar(BILL.ytd, BILL.plan, `${usd(BILL.ytd)} of ${usd(BILL.plan)}`, `${p0(BILL.ytd / BILL.plan)} of the plan billed, 58% of the year gone`, C.teal) + row(big('96%', 'individual fees paid at request', 'no follow-up needed', 'ok'), big('34 days', 'median for hospitals to pay', 'target 30', 'warn'), big('3', 'refunds this year', 'all within policy', 'ok'), big('1', 'card dispute', 'documents sent to the bank', 'info'))],
       ['How each fee is collected', strip([['Individual visa and OPT fees', 61900, 'Online at request, automatic receipt'], ['Department-sponsored scholar fees', 61300, 'Internal billing when the DS-2019 request arrives'], ['Affiliated hospital fees', 128400, 'Invoice after the hospital confirms']], [C.slate, C.gold, C.mar])],
       ['Billing by month', vbars(MON.slice(0, 7), [{n: 'Billed, thousands', c: C.mar, v: BILL.mon}], {h: 200, vals: true, fmt: v => '$' + Math.round(v) + 'K', vfmt: v => '$' + v.toFixed(1) + 'K', label: 'Billing by month'})],
