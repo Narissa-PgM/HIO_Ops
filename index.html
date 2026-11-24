@@ -250,6 +250,10 @@ pre.sql{background:#f6f7f5;border:1px solid var(--line);padding:12px 14px;font-s
 .pi-obj{margin:0;background:#e7f2ee;border:1px solid #cfe3dc;padding:9px 12px;font-size:15px;color:#1d5548}.pi-obj b{display:block;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
 .pi-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}.pi-stats div{border:1px solid var(--line);background:#fff;padding:9px 11px}.pi-stats b{display:block;font-size:21px;line-height:1.15}.pi-stats span{font-size:12.5px;color:var(--muted)}.pi-stats .acc{background:var(--pale);border-color:#e7c9d1}.pi-stats .acc b{color:var(--accent)}
 .pi-panel{border:1px solid var(--line);background:#fcfcfb;padding:10px 12px}.pi h5{margin:0 0 7px;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate)}
+.smarter-list{display:grid;grid-template-columns:20px 1fr;gap:4px 8px;margin:0;font-size:12px;line-height:1.45}
+.smarter-list dt{font-weight:700;color:var(--accent);font-size:12px}
+.smarter-list dd{margin:0;color:var(--muted)}
+.smarter-list dd b{color:var(--ink)}
 .pi-t{width:100%;border-collapse:collapse;font-size:13.5px}.pi-t th{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);text-align:left;border-bottom:2px solid var(--line);padding:4px 6px}.pi-t td{border-top:1px solid var(--line);padding:5px 6px;vertical-align:top}.pi-t .own{color:var(--teal);font-weight:700}.pi-t tr.hl td{background:var(--gold-pale)}
 .pi-flow{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;counter-reset:pf}.pi-flow.six{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.pi-flow.six li:after{content:none!important}.pi-flow li{flex:1 1 110px;counter-increment:pf;background:#fff;border:1px solid var(--line);padding:8px 10px;position:relative;font-size:13px}.pi-flow li:before{content:counter(pf);display:block;font-size:11px;font-weight:700;color:var(--accent)}.pi-flow b{display:block;font-size:14px}.pi-flow span{color:var(--muted)}
 .pi-flow li:not(:last-child):after{content:"›";position:absolute;right:-9px;top:50%;transform:translateY(-50%);color:#9aa4a9;font-weight:700;font-size:17px}
@@ -417,13 +421,13 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
     <a class="me" href="#overview">Narissara Khomkhai <small>Associate Director of Operations &amp; Administration · Harvard International Office · work sample</small></a>
     <nav class="idx" aria-label="Sections">
       <a href="#overview">Overview</a>
-      <a href="#s"><b>S</b>pecifically</a>
-      <a href="#m"><b>M</b>easurably</a>
-      <a href="#a"><b>A</b>chievably</a>
-      <a href="#r"><b>R</b>elevantly</a>
-      <a href="#t"><b>T</b>ime-bound</a>
-      <a href="#e"><b>E</b>valuate</a>
-      <a href="#rd"><b>R</b>eadjust</a>
+      <a href="#s">Work areas</a>
+      <a href="#m">Measures</a>
+      <a href="#a">Delivery</a>
+      <a href="#r">Evidence</a>
+      <a href="#t">90 days</a>
+      <a href="#e">Reports</a>
+      <a href="#rd">Operating system</a>
       <a href="#pb">Playbook</a>
     </nav>
   </div>
@@ -491,18 +495,19 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
 
 <!-- ================= S ================= -->
 <section id="s" class="sec wrap" data-s="Work areas">
-  <p class="kick">S · Specifically</p>
+  <p class="kick">Work areas</p>
   <h2>The role in eight work areas</h2>
   <p class="lede sm">Each card names the control objective. Open one for an infographic of how I would run it, the control that keeps it right, and where I have done the same work.</p>
+  <p class="src"><b>SMARTER lives inside each area.</b> Every work-area popup ends with the same seven-point check: Specific, Measurable, Achievable, Relevant, Time-bound, Evaluate, Readjust. The framework is the checklist, not the navigation.</p>
   <div class="areas">
-    <button class="area" data-pop="p-comp"><i>01</i><b>SEVIS data integrity</b><em class="obj">Objective · No form from an unvalidated record</em><span class="chips"><small>Students</small><small>Scholars</small><small>Dependents</small><small>OPT</small></span></button>
-    <button class="area" data-pop="p-sys"><i>02</i><b>Systems and vendors</b><em class="obj">Objective · No release or patch reaches production untested</em><span class="chips"><small>Release gate</small><small>Vendors</small><small>Rollback</small></span></button>
-    <button class="area" data-pop="p-mod"><i>03</i><b>Modernization and integration</b><em class="obj">Objective · No platform replacement without requirements, security and a tested cutover</em><span class="chips"><small>Requirements</small><small>Platform scan</small><small>Integration</small><small>Cutover</small></span></button>
-    <button class="area" data-pop="p-xch"><i>04</i><b>School data exchange</b><em class="obj">Objective · School files pass on first submission</em><span class="chips"><small>Crosswalk</small><small>Validation</small><small>School training</small></span></button>
-    <button class="area" data-pop="p-rep"><i>05</i><b>Reporting and analytics</b><em class="obj">Objective · One number everywhere, documented on request</em><span class="chips"><small>Dashboard</small><small>Saved SQL</small><small>OPT</small><small>Outlook</small></span></button>
-    <button class="area" data-pop="p-fin"><i>06</i><b>Billing and finance</b><em class="obj">Objective · Every dollar traces to a completed case</em><span class="chips"><small>$300K to $500K</small><small>Fees</small><small>Accruals</small><small>Disputes</small></span></button>
-    <button class="area" data-pop="p-team"><i>07</i><b>Team and office operations</b><em class="obj">Objective · Every person has a plan and a named backup</em><span class="chips"><small>3 to 5 staff</small><small>Development</small><small>Office ops</small><small>Critical ops</small></span></button>
-    <button class="area" data-pop="p-sec"><i>08</i><b>Data security</b><em class="obj">Objective · Least privilege, incident-ready, reviewed every quarter</em><span class="chips"><small>Access review</small><small>Incident response</small><small>Training</small><small>Vendors</small></span></button>
+    <button class="area" id="area-sevis" data-s="SEVIS data integrity" data-pop="p-comp"><i>01</i><b>SEVIS data integrity</b><em class="obj">Objective · No form from an unvalidated record</em><span class="chips"><small>Students</small><small>Scholars</small><small>Dependents</small><small>OPT</small></span></button>
+    <button class="area" id="area-systems" data-s="Systems and vendors" data-pop="p-sys"><i>02</i><b>Systems and vendors</b><em class="obj">Objective · No release or patch reaches production untested</em><span class="chips"><small>Release gate</small><small>Vendors</small><small>Rollback</small></span></button>
+    <button class="area" id="area-modernization" data-s="Modernization and integration" data-pop="p-mod"><i>03</i><b>Modernization and integration</b><em class="obj">Objective · No platform replacement without requirements, security and a tested cutover</em><span class="chips"><small>Requirements</small><small>Platform scan</small><small>Integration</small><small>Cutover</small></span></button>
+    <button class="area" id="area-school-data" data-s="School data exchange" data-pop="p-xch"><i>04</i><b>School data exchange</b><em class="obj">Objective · School files pass on first submission</em><span class="chips"><small>Crosswalk</small><small>Validation</small><small>School training</small></span></button>
+    <button class="area" id="area-reporting" data-s="Reporting and analytics" data-pop="p-rep"><i>05</i><b>Reporting and analytics</b><em class="obj">Objective · One number everywhere, documented on request</em><span class="chips"><small>Dashboard</small><small>Saved SQL</small><small>OPT</small><small>Outlook</small></span></button>
+    <button class="area" id="area-billing" data-s="Billing and finance" data-pop="p-fin"><i>06</i><b>Billing and finance</b><em class="obj">Objective · Every dollar traces to a completed case</em><span class="chips"><small>$300K to $500K</small><small>Fees</small><small>Accruals</small><small>Disputes</small></span></button>
+    <button class="area" id="area-team" data-s="Team and office operations" data-pop="p-team"><i>07</i><b>Team and office operations</b><em class="obj">Objective · Every person has a plan and a named backup</em><span class="chips"><small>3 to 5 staff</small><small>Development</small><small>Office ops</small><small>Critical ops</small></span></button>
+    <button class="area" id="area-security" data-s="Data security" data-pop="p-sec"><i>08</i><b>Data security</b><em class="obj">Objective · Least privilege, incident-ready, reviewed every quarter</em><span class="chips"><small>Access review</small><small>Incident response</small><small>Training</small><small>Vendors</small></span></button>
   </div>
 
   <h3 class="h2" id="sx-pop" data-s="Populations">Students, scholars and dependents, each on its own track</h3>
@@ -519,28 +524,59 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
   <div id="geo"></div>
   <p class="src">The hierarchy matters: a region belongs inside one continent, so counts roll up without double counting. In the real extract, country comes from SEVIS country of citizenship; scholars and dependents would be separate columns. Top countries are shown; the full extract covers all 150.</p>
 
-  <h3 class="h2" id="ct-h" data-s="Country trends">Country trends — two published years, then a model</h3>
-  <p class="lede sm">This is a like-for-like comparison of OIRA’s nonresident student counts, not HIO’s sponsored students-and-scholars total. The 2026–2028 columns are a transparent scenario, not a forecast.</p>
-  <div class="gap"><b>Definitions first — and a correction.</b><p>HIO’s 2024/25 figure of <b>10,158</b> is visa-sponsored <b>students and scholars</b>. OIRA’s <b>6,749</b> is <b>nonresident students only</b> at the fall census. The widely repeated “India down 31%” compares HIO’s 788 students <i>and scholars</i> with OIRA’s 545 students. On a like-for-like OIRA basis, India went from <b>578</b> to <b>545</b>, or <b>−5.7%</b>.</p></div>
+  <h3 class="h2" id="ct-history" data-s="OIRA history">OIRA history — total nonresident students</h3>
+  <p class="lede sm">These are the unique University totals from each OIRA Fact Book. They are not sums of country rows, and they are the correct denominator for a trend.</p>
   <div class="rp-tw"><table class="score ct">
-    <thead><tr><th>Country</th><th class="n">Fall 2024</th><th class="n">Fall 2025</th><th class="n">2024→25</th><th class="n">2026P</th><th class="n">2027P</th><th class="n">2028P</th></tr></thead>
+    <thead><tr><th>Academic year</th><th class="n">Nonresident students</th><th class="n">Year over year</th></tr></thead>
     <tbody>
-      <tr><td><b>China</b></td><td class="n">1,390</td><td class="n">1,452</td><td class="n pos">+4.5%</td><td class="n">1,474</td><td class="n">1,496</td><td class="n">1,518</td></tr>
-      <tr><td><b>Canada</b></td><td class="n">751</td><td class="n">746</td><td class="n neg">−0.7%</td><td class="n">742</td><td class="n">738</td><td class="n">734</td></tr>
-      <tr><td><b>India</b></td><td class="n">578</td><td class="n">545</td><td class="n neg">−5.7%</td><td class="n">534</td><td class="n">523</td><td class="n">513</td></tr>
-      <tr><td><b>South Korea</b></td><td class="n">264</td><td class="n">287</td><td class="n pos">+8.7%</td><td class="n">298</td><td class="n">310</td><td class="n">322</td></tr>
-      <tr><td>Other countries <span class="src">(residual)</span></td><td class="n">3,810</td><td class="n">3,719</td><td class="n neg">−2.4%</td><td class="n">3,602</td><td class="n">3,433</td><td class="n">3,263</td></tr>
-      <tr class="total"><td><b>Total nonresident students</b></td><td class="n"><b>6,793</b></td><td class="n"><b>6,749</b></td><td class="n neg"><b>−0.6%</b></td><td class="n"><b>6,650</b></td><td class="n"><b>6,500</b></td><td class="n"><b>6,350</b></td></tr>
+      <tr><td>2019-20</td><td class="n">5,718</td><td class="n">—</td></tr>
+      <tr><td>2020-21</td><td class="n">5,362</td><td class="n neg">−6.2%</td></tr>
+      <tr><td>2021-22</td><td class="n">6,096</td><td class="n pos">+13.7%</td></tr>
+      <tr><td>2022-23</td><td class="n">6,527</td><td class="n pos">+7.1%</td></tr>
+      <tr><td>2023-24</td><td class="n">6,631</td><td class="n pos">+1.6%</td></tr>
+      <tr><td>2024-25</td><td class="n">6,703</td><td class="n pos">+1.1%</td></tr>
+      <tr class="total"><td><b>2025-26</b></td><td class="n"><b>6,749</b></td><td class="n pos"><b>+0.7%</b></td></tr>
     </tbody>
   </table></div>
   <div class="dev">
-    <div><b>China is the growth engine</b><span>+62 students in 2025, or +4.5%; the only top-four country that added meaningfully.</span></div>
-    <div><b>India is a definition story</b><span>−5.7% like-for-like, not −31%. The larger number mixes HIO scholars into the base.</span></div>
-    <div><b>Korea is the second mover</b><span>+8.7%, on a smaller base; Canada is flat at −0.7%.</span></div>
-    <div><b>“Other” absorbed the decline</b><span>The top four were 43.9% of students in 2024 and 44.9% in 2025; the residual fell by 91.</span></div>
+    <div><b>The recovery was 2021–23</b><span>+13.7% and +7.1%; growth has since cooled to +1.6%, +1.1% and +0.7%.</span></div>
+    <div><b>Six-year change</b><span>5,718 → 6,749 is +1,031, or +18.0%; compound growth is about 2.8% a year.</span></div>
+    <div><b>The COVID trough</b><span>2020-21 was the low at 5,362, down 6.2% from 2019-20.</span></div>
+    <div><b>Not a forecast</b><span>One or two years of policy shock can move this more than the trend. Use a range, not a point.</span></div>
   </div>
-  <p class="src"><b>Model, not forecast.</b> 2026–2028 assumes China +1.5%/yr, Canada −0.5%/yr, India −2%/yr, Korea +4%/yr, and a total path of 6,650 → 6,500 → 6,350. “Other” is the residual; it is not a country. Two published years are not enough for a statistical forecast. Treat each projection as a planning midpoint: a reasonable 2028 range is about ±8% around each country and ±5% around the total. Top-country rows are from press reporting of OIRA data; the official <a href="https://oira.harvard.edu/files/2026/02/enrollment_intl_Fact-Book-2025-26.pdf" target="_blank" rel="noopener">Fall 2025 country PDF</a> is linked for the final extract.</p>
-  <p class="src">Sources: OIRA <a href="https://oira.harvard.edu/factbook/fact-book-enrollment/#enr_intl" target="_blank" rel="noopener">Fact Book enrollment, #enr_intl</a> and the <a href="https://oira.harvard.edu/files/2026/02/enrollment_intl_Fact-Book-2025-26.pdf" target="_blank" rel="noopener">country-of-citizenship table, Fall 2025</a>; HIO <a href="https://www.hio.harvard.edu/statistics" target="_blank" rel="noopener">statistics</a>; 2025 top-country counts via <a href="https://www.financialexpress.com/business/investing-abroad-harvard-international-enrolments-hit-record-despite-trump-pressure-4110551/" target="_blank" rel="noopener">Financial Express/PIE</a>; 2024 counts via <a href="https://timesofindia.indiatimes.com/world/us/steve-bannon-says-harvard-is-now-a-disaster-i-say-this-as-a-graduate/articleshow/121369545.cms" target="_blank" rel="noopener">TOI</a>; India comparison via <a href="https://www.business-standard.com/amp/immigration/harvard-sees-31-drop-in-indian-students-foreign-share-hits-new-high-126011400343_1.html" target="_blank" rel="noopener">Business Standard</a>.</p>
+  <div class="rp-tw"><table class="score ct">
+    <thead><tr><th>Planning scenario</th><th class="n">2026-27P</th><th class="n">2027-28P</th><th class="n">2028-29P</th></tr></thead>
+    <tbody>
+      <tr><td><b>Base · +1.0% a year</b></td><td class="n">6,816</td><td class="n">6,884</td><td class="n">6,953</td></tr>
+      <tr><td><b>Low · −1.5% a year</b></td><td class="n">6,648</td><td class="n">6,548</td><td class="n">6,450</td></tr>
+      <tr><td><b>High · +2.5% a year</b></td><td class="n">6,918</td><td class="n">7,091</td><td class="n">7,268</td></tr>
+    </tbody>
+  </table></div>
+  <p class="src"><b>Model note.</b> Base is deliberately below the six-year 2.8% compound rate and near the latest 0.7% growth. Low and high bracket a policy or visa shock. These are planning scenarios, not a statistical forecast. Sources: OIRA Fact Books 2019-20 through 2025-26, Table 1.2; <a href="https://oira.harvard.edu/historical-fact-book-archive/" target="_blank" rel="noopener">historical archive</a>; <a href="https://oira.harvard.edu/factbook/fact-book-enrollment/#enr_intl" target="_blank" rel="noopener">#enr_intl</a>.</p>
+
+  <h3 class="h3" id="ct-country" data-s="Country PDF limits">Country data — what the OIRA PDF actually supports</h3>
+  <p class="lede sm">The OIRA country table publishes <b>country × School</b>, not a unique country total. That changes what can honestly be compared or forecast.</p>
+  <div class="gap"><b>A denominator problem, not a rounding error.</b><p>Summing the School columns gives <b>6,836</b> students, but the University’s unique nonresident total is <b>6,749</b>. The <b>87</b> difference is students registered in more than one School, counted once per School column. The country rows are therefore <b>school-column sums</b>, not unique country headcounts.</p></div>
+  <div class="rp-tw"><table class="score ct">
+    <thead><tr><th>Country</th><th class="n">Sum of School columns</th><th>What that number is</th></tr></thead>
+    <tbody>
+      <tr><td><b>China</b></td><td class="n">1,452</td><td>Country × School sum; may double-count cross-registered students</td></tr>
+      <tr><td><b>Canada</b></td><td class="n">746</td><td>Country × School sum</td></tr>
+      <tr><td><b>India</b></td><td class="n">545</td><td>Country × School sum</td></tr>
+      <tr><td><b>South Korea</b></td><td class="n">287</td><td>Country × School sum</td></tr>
+      <tr><td>All other countries</td><td class="n">3,806</td><td>Residual of the school-column total</td></tr>
+      <tr class="total"><td><b>Sum of School columns</b></td><td class="n"><b>6,836</b></td><td>Not a unique student count</td></tr>
+      <tr><td><b>University total</b></td><td class="n"><b>6,749</b></td><td>Unique nonresident students, fall 2025</td></tr>
+      <tr><td><b>Double-counted difference</b></td><td class="n">+87</td><td>Students in more than one School</td></tr>
+    </tbody>
+  </table></div>
+  <div class="dev">
+    <div><b>What is published</b><span>Country by School, plus School totals and the unique University total.</span></div>
+    <div><b>What is not published</b><span>A unique country-of-citizenship headcount for each country.</span></div>
+    <div><b>Why forecasts failed</b><span>The earlier table mixed country school-sums with the unique 6,749 denominator. That is why the numbers did not reconcile.</span></div>
+    <div><b>What I would request</b><span>OIRA unique country totals for fall 2019–2025, with one definition: primary citizenship, unique student, fall census. Then the trend and scenario are defensible.</span></div>
+  </div>
+  <p class="src"><b>No country forecast until the denominator is fixed.</b> The 1,452 / 746 / 545 / 287 figures match the sums of the School columns, not unique headcounts. HIO’s 10,158 is visa-sponsored students <i>and scholars</i>; OIRA’s 6,749 is nonresident students only. Do not compare either to the other without a crosswalk. Sources: <a href="https://oira.harvard.edu/factbook/fact-book-enrollment/#enr_intl" target="_blank" rel="noopener">OIRA #enr_intl</a> · <a href="https://oira.harvard.edu/files/2026/02/enrollment_intl_Fact-Book-2025-26.pdf" target="_blank" rel="noopener">Fall 2025 country PDF</a> · <a href="https://www.hio.harvard.edu/statistics" target="_blank" rel="noopener">HIO statistics</a>.</p>
 
   <h3 class="h2" id="xw" data-s="Record to form">From a School record to a clean I-20 or DS-2019</h3>
   <p class="lede sm">Most form errors start in the file a School sends. Every record passes five steps before an advisor drafts a form, and anything that fails goes back to the School contact with the reason. Counts are from the sample <a href="#e" data-rep="xch">data exchange reconciliation</a>.</p>
@@ -576,7 +612,7 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
 
 <!-- ================= M ================= -->
 <section id="m" class="sec wrap" data-s="Ten measures">
-  <p class="kick">M · Measurably</p>
+  <p class="kick">Measures</p>
   <h2>Ten measures, a baseline and a target for each</h2>
   <p class="lede sm">Baselines are synthetic. In the role I would set real ones in the first 30 days and agree the targets with the Director. Definitions are in the <button class="tm" data-t="dict">data dictionary</button>.</p>
   <div class="rp-tw"><table class="score">
@@ -607,7 +643,7 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
 
 <!-- ================= A ================= -->
 <section id="a" class="sec wrap" data-s="Automation">
-  <p class="kick">A · Achievably</p>
+  <p class="kick">Delivery system</p>
   <h2>120 hours a month back to the team, with a person on every judgment call</h2>
   <p class="lede sm">Five automations move the manual load from 310 to 190 hours a month. None of them makes a status decision. Each one prepares the work and routes the exceptions to a person.</p>
   <div class="chart" data-chart="auto"></div>
@@ -664,7 +700,7 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
 
 <!-- ================= R ================= -->
 <section id="r" class="sec wrap" data-s="Evidence">
-  <p class="kick">R · Relevantly</p>
+  <p class="kick">Evidence</p>
   <h2>Where I have already done this work</h2>
   <div class="rp-tw"><table class="score fit-table">
     <thead><tr><th>What HIO needs</th><th>Where I have done it</th></tr></thead>
@@ -717,7 +753,7 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
 
 <!-- ================= T ================= -->
 <section id="t" class="sec wrap" data-s="First 90 days">
-  <p class="kick">T · Time-bound</p>
+  <p class="kick">First 90 days</p>
   <h2>First 90 days, two lanes</h2>
   <p class="lede sm">Steady-state operations cannot slip while the improvements land. Lane A keeps the office running, Lane B delivers the changes, and each phase ends with a gate the Director can check.</p>
   <div class="lane a"><p class="lane-h">Lane A · Steady-state operations, cannot slip</p>
@@ -785,7 +821,7 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
 
 <!-- ================= E ================= -->
 <section id="e" class="sec wrap" data-s="Seven reports">
-  <p class="kick">E · Evaluate</p>
+  <p class="kick">Sample reports</p>
   <h2>Seven sample reports for three audiences</h2>
   <p class="lede sm">Leadership sees results and decisions, with problems already worked. Finance sees billing tied to the service log. The team works from the full queue. All reports are dated February 2027, as they would look about six weeks into the role.</p>
   <div id="rp-host"></div>
@@ -793,7 +829,7 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
 
 <!-- ================= R (readjust) ================= -->
 <section id="rd" class="sec wrap" data-s="Change routine">
-  <p class="kick">R · Readjust</p>
+  <p class="kick">Operating system</p>
   <h2>When something changes, a set routine</h2>
   <p class="lede sm">HIO works in a regulatory setting that can change quickly. A change in federal guidance gets the same five steps every time, so the Director has numbers within two days.</p>
   <ol class="steps">
@@ -1326,12 +1362,93 @@ LEFT   JOIN cost_estimate c
   const dictHTML = () => '<dl class="dict">' + Object.values(T).map(t => `<dt>${t[0]}</dt><dd>${t[1]}</dd>`).join('') + '</dl><p class="src">Plain-language definitions for this work sample. Federal rules and HIO procedures govern.</p>';
   // ---------- popup layer with a back stack ----------
   const dlg = $('#pop'), body = $('.pop-body', dlg), ttl = $('#pop-t'), back = $('.pop-back', dlg); let stack = [];
+  const eS = s => String(s).replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+  const SMARTER = {
+    'p-comp': {
+      s: 'No form is issued from a record that has not passed the checks for its population.',
+      m: '100% registered by the federal deadline; batch responses reviewed within one business day.',
+      a: 'Five checks, a population owner and a test environment before any batch.',
+      r: 'Federal status, travel and every downstream service depend on record integrity.',
+      t: 'Spring registration complete by February 25; day-90 gate for clean batches.',
+      e: 'Daily batch review and a weekly exception count by reason and owner.',
+      rd: 'New guidance enters the five-step change routine before any template changes.'
+    },
+    'p-sys': {
+      s: 'No release or vendor patch reaches production without a passed gate and rollback.',
+      m: '100% of releases gated; zero open critical defects at go-live.',
+      a: 'Test register, rollback test, vendor evidence and a named business owner.',
+      r: 'A bad release can stop SEVIS batches and put federal deadlines at risk.',
+      t: 'Spring and fall release windows; no cutover during peak.',
+      e: 'Test results, defect severity and a post-release review.',
+      rd: 'No-go, patch, or accept the risk in writing with the Director.'
+    },
+    'p-mod': {
+      s: 'Replace or integrate only after requirements, an architecture review and a tested cutover.',
+      m: 'Six gates from baseline to hypercare; options memo by day 90.',
+      a: 'HUIT/HEART, ITCRB/MYTP, security, accessibility and vendor review.',
+      r: 'ISSM is the system of record for immigration status and batches.',
+      t: 'Discovery in weeks 4–10; no cutover during August, September or January.',
+      e: 'Gate reviews, pilot results and benefits tracking.',
+      rd: 'Stop or re-scope if cost, security or integration risk changes the case.'
+    },
+    'p-xch': {
+      s: 'Every School file passes validation before a form is drafted.',
+      m: '85% first-pass by month 12; every returned record has a reason and owner.',
+      a: 'Crosswalk, validation rules, School training and a named contact.',
+      r: 'Most form errors start in the School file, not the SEVIS form.',
+      t: 'Before each intake and before the peak registration file.',
+      e: 'First-pass rate and top errors by School each week.',
+      rd: 'New program code or file format updates the crosswalk before use.'
+    },
+    'p-rep': {
+      s: 'One number everywhere, with a written definition and an owner.',
+      m: '18 saved views; ad hoc requests under 100 a year; every number reconciled.',
+      a: 'Data dictionary, saved SQL, warehouse and a reporting owner.',
+      r: 'The Director, Schools, Finance and legal requests all use the same data.',
+      t: 'Weekly dashboard; monthly refresh; quarterly definition review.',
+      e: 'Definitions, lineage, row counts and report usage.',
+      rd: 'New request becomes a saved view or a documented one-off.'
+    },
+    'p-fin': {
+      s: 'Every dollar traces to a completed case and an agreed fee.',
+      m: '$300K–$500K billed; over-90-day receivables under 10%.',
+      a: 'Service log, hospital confirmation, accruals and a dispute path.',
+      r: 'Revenue, audit trail and hospital relationships depend on clean billing.',
+      t: 'Monthly close; quarterly accrual; annual fee review.',
+      e: 'Aging, disputes, write-offs and collection time.',
+      rd: 'Dispute becomes a credit memo, a hold or a written exception.'
+    },
+    'p-team': {
+      s: 'Every person has a plan, a backup and a clear owner for each process.',
+      m: '3–5 staff; two trained people per critical process; Tier 1–2 SLA at 90%+.',
+      a: 'Cross-training, onboarding, one-on-ones and a capacity model.',
+      r: 'The team is the constraint; absence cannot stop batches or billing.',
+      t: '30/60/90 onboarding; reviews twice a year; peak plan before each season.',
+      e: 'Queue, goals, development plans and service levels.',
+      rd: 'Absence or volume change rebalances work and pauses non-critical projects.'
+    },
+    'p-sec': {
+      s: 'Least privilege, classified data and an incident-ready office.',
+      m: '100% access review; 24-hour triage; 100% training; zero unowned vendor accounts.',
+      a: 'Security Insiders, MFA, access recertification, vendor review and tabletop.',
+      r: 'Passport, immigration-status and financial data are high-consequence records.',
+      t: 'Quarterly access review; yearly training and tabletop before peak.',
+      e: 'Access completion, training, incidents and time-to-revoke.',
+      rd: 'An incident triggers containment, notification and a post-incident review.'
+    }
+  };
+  const smarterPanel = id => {
+    const d = SMARTER[id];
+    if (!d) return '';
+    const rows = [['S', 'Specific', d.s], ['M', 'Measurable', d.m], ['A', 'Achievable', d.a], ['R', 'Relevant', d.r], ['T', 'Time-bound', d.t], ['E', 'Evaluate', d.e], ['R', 'Readjust', d.rd]];
+    return `<div class="pi-panel smarter"><h5>SMARTER check for this area</h5><dl class="smarter-list">${rows.map(([k, n, v]) => `<dt>${k}</dt><dd><b>${n}.</b> ${eS(v)}</dd>`).join('')}</dl></div>`;
+  };
   const render = item => {
     dlg.classList.toggle('wide', !!(item.wide || item.rep || item.sec));
     if (item.rep) { ttl.textContent = item.title; body.innerHTML = HIO_REPORTS.html(item.rep) + `<p class="pop-go-w"><button type="button" class="pop-go" data-go="#e" data-gorep="${item.rep}">Show it among the seven reports ›</button></p>`; }
     else if (item.sec) { const c = secClone(item.sec); ttl.textContent = c.title; body.innerHTML = c.html + `<p class="pop-go-w"><button type="button" class="pop-go" data-go="#${item.sec}">Show where this sits on the page ›</button></p>`; }
     else if (item.id === 'p-dict' || item.term === 'dict') { ttl.textContent = 'Data dictionary'; body.innerHTML = dictHTML(); }
-    else { const tp = document.getElementById(item.id); ttl.textContent = tp.dataset.title; body.innerHTML = ''; body.appendChild(tp.content.cloneNode(true)); charts(body); }
+    else { const tp = document.getElementById(item.id); ttl.textContent = tp.dataset.title; body.innerHTML = ''; body.appendChild(tp.content.cloneNode(true)); const panel = smarterPanel(item.id); if (panel) { const obj = body.querySelector('.pi-obj'); if (obj) obj.insertAdjacentHTML('afterend', panel); else body.insertAdjacentHTML('afterbegin', panel); } charts(body); }
     window.HIO_TAG && HIO_TAG(body); back.hidden = stack.length < 2; body.scrollTop = 0;
   };
   const secClone = id => {
@@ -1675,7 +1792,7 @@ LEFT   JOIN cost_estimate c
   const dd = $('#dd');
   if (dd) {
     const secs = $$('main > section[data-s]');
-    const map = {}; secs.forEach(sec => { map[sec.id] = [[sec.id, sec.dataset.s], ...$$('[data-s]', sec).map(h => [h.id, h.dataset.s])]; });
+    const map = {}; secs.forEach(sec => { map[sec.id] = [[sec.id, sec.dataset.s], ...$$('[data-s]', sec).filter(h => sec.id !== 's' || h.classList.contains('area')).map(h => [h.id, h.dataset.s])]; });
     $$('.idx a').forEach(a => { const id = a.getAttribute('href').slice(1); if (!map[id] || map[id].length < 2) return; const w = document.createElement('span'); w.className = 'ni'; a.parentNode.insertBefore(w, a); w.appendChild(a); const b = document.createElement('button'); b.type = 'button'; b.className = 'ni-c'; b.setAttribute('aria-label', 'Show parts of ' + a.textContent); b.setAttribute('aria-expanded', 'false'); b.dataset.sec = id; b.innerHTML = '▾'; w.appendChild(b); w.dataset.sec = id; });
     let openId = null, tmr = null;
     const curSub = id => { const y = scrollY + $('.top').getBoundingClientRect().height + 40; let on = map[id][0][0]; map[id].forEach(x => { const el = document.getElementById(x[0]); if (el && el.getBoundingClientRect().top + scrollY <= y) on = x[0]; }); return on; };
