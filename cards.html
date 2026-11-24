@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposed HIO operating model · work sample by Narissara Khomkhai</title>
+<style>
+  :root{
+    --ink:#1a1a1a; --muted:#5b6470; --line:#e3e6ea; --bg:#ffffff;
+    --crimson:#8e263e; --crimson-soft:#f6e9ec;
+    --teal:#0f6e6e; --teal-soft:#e3f1f1;
+    --amber:#8a5a00; --amber-soft:#fdf1dc;
+    --green:#1f6b3a; --green-soft:#e6f2ea;
+    --blue:#2b4c7e; --blue-soft:#e8eef7;
+    --radius:14px; --shadow:0 10px 30px rgba(20,30,50,.12);
+    --font: Cambria, "Cambria Math", Georgia, "Times New Roman", serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:var(--font);color:var(--ink);background:#f4f5f7;line-height:1.45}
+  .wrap{max-width:1150px;margin:0 auto;padding:28px 20px 90px}
+
+  /* header */
+  .site-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:8px;flex-wrap:wrap}
+  .site-head h1{font-size:22px;margin:0 0 4px}
+  .site-head p{margin:0;color:var(--muted);font-size:14px}
+  .badge{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--crimson);padding:6px 10px;border-radius:999px;font-weight:700;white-space:nowrap}
+  .asof{font-size:12px;color:var(--muted);margin:14px 0 18px;padding:10px 12px;background:#fff;border:1px solid var(--line);border-radius:10px}
+  .asof strong{color:var(--ink)}
+
+  /* card grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+  .card{
+    background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);
+    padding:16px 16px 14px;text-align:left;cursor:pointer;position:relative;
+    display:flex;flex-direction:column;gap:9px;transition:box-shadow .12s ease, border-color .12s ease;
+  }
+  .card:hover{box-shadow:var(--shadow);border-color:#cfd4da}
+  .card:focus-visible{outline:3px solid var(--crimson);outline-offset:2px}
+  .card .kicker{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .card h3{margin:0;font-size:16px;line-height:1.25}
+  .card .obj{font-size:12px;color:var(--teal);font-weight:650;line-height:1.35}
+  .card .mini-row{display:flex;gap:6px;flex-wrap:wrap}
+  .chip{font-size:11.5px;padding:3px 8px;border-radius:999px;background:#f1f2f4;color:#39424d;font-weight:600}
+  .card .open{font-size:12.5px;color:var(--crimson);font-weight:700;margin-top:auto}
+
+  /* modal */
+  dialog{
+    width:min(900px,94vw);max-height:90vh;border:none;border-radius:18px;padding:0;
+    box-shadow:0 24px 60px rgba(10,20,40,.35);background:var(--bg);color:var(--ink);
+  }
+  dialog::backdrop{background:rgba(15,20,30,.55);backdrop-filter:blur(2px)}
+  .modal-head{
+    display:flex;justify-content:space-between;align-items:center;gap:12px;
+    padding:16px 20px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);
+    border-radius:18px 18px 0 0;z-index:2;
+  }
+  .modal-head h2{margin:0;font-size:17px}
+  .modal-head .kicker{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .close{
+    border:1px solid var(--line);background:#fff;border-radius:10px;width:34px;height:34px;
+    font-size:16px;cursor:pointer;color:#333;display:grid;place-items:center;flex:none;
+  }
+  .close:hover{background:#f6f7f8}
+  .modal-body{padding:18px 20px 24px;overflow:auto;max-height:calc(90vh - 64px)}
+
+  /* blocks */
+  .infographic{display:grid;gap:16px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:640px){.row2{grid-template-columns:1fr}}
+
+  .panel{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:#fcfcfd}
+  .panel h4{margin:0 0 10px;font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+
+  .obj-line{background:var(--teal-soft);border:1px solid #c9e0e0;border-radius:10px;padding:9px 12px;font-size:13px;color:#0c4f4f}
+  .obj-line strong{letter-spacing:.04em;text-transform:uppercase;font-size:11px}
+
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px}
+  .stat .n{font-size:22px;font-weight:800;letter-spacing:-.01em}
+  .stat .l{font-size:12px;color:var(--muted);margin-top:2px}
+  .stat.accent{border-color:#f0c9cf;background:var(--crimson-soft)}
+  .stat.accent .n{color:var(--crimson)}
+  .stat.blue{border-color:#c9d6ea;background:var(--blue-soft)}
+  .stat.blue .n{color:var(--blue)}
+
+  /* flow */
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch}
+  .step{flex:1 1 120px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;position:relative}
+  .step .d{font-size:11px;font-weight:800;color:var(--crimson);letter-spacing:.04em}
+  .step .t{font-size:13.5px;font-weight:700;margin-top:2px}
+  .step .s{font-size:12px;color:var(--muted);margin-top:3px}
+  .step::after{content:"›";position:absolute;right:-11px;top:50%;transform:translateY(-50%);color:#c3c9d1;font-weight:800;font-size:18px}
+  .flow .step:last-child::after{content:""}
+
+  /* two col */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  @media(max-width:640px){.two{grid-template-columns:1fr}}
+  .two > div{padding:12px 14px}
+  .two .do{background:var(--teal-soft);border-right:1px solid var(--line)}
+  .two .ctl{background:var(--amber-soft)}
+  @media(max-width:640px){.two .do{border-right:none;border-bottom:1px solid var(--line)}}
+  .two h5{margin:0 0 8px;font-size:11px;letter-spacing:.07em;text-transform:uppercase}
+  .two .do h5{color:var(--teal)}
+  .two .ctl h5{color:var(--amber)}
+  .two ul{margin:0;padding-left:16px;font-size:13px}
+  .two li{margin:3px 0}
+
+  .pills{display:flex;flex-wrap:wrap;gap:6px}
+  .pill{font-size:12px;padding:5px 10px;border-radius:999px;background:var(--green-soft);color:var(--green);font-weight:650;border:1px solid #cfe6d8}
+
+  .evidence{background:#f7f8fa;border:1px dashed #cfd4da;border-radius:12px;padding:12px 14px}
+  .evidence h4{margin:0 0 8px;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+  .evidence ul{margin:0;padding-left:16px;font-size:13px;color:#2c333b}
+  .evidence li{margin:4px 0}
+
+  /* bars */
+  .bars{display:grid;gap:9px}
+  .bar{display:grid;grid-template-columns:160px 1fr 58px;gap:10px;align-items:center;font-size:12.5px}
+  .bar .track{background:#eceef1;border-radius:999px;height:12px;overflow:hidden}
+  .bar .fill{display:block;height:100%;border-radius:999px;background:var(--teal)}
+  .bar .v{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+  @media(max-width:640px){.bar{grid-template-columns:120px 1fr 50px}}
+
+  /* tables */
+  table.matrix{width:100%;border-collapse:collapse;font-size:12.5px}
+  table.matrix th,table.matrix td{border:1px solid var(--line);padding:7px 9px;text-align:left}
+  table.matrix th{background:#f4f5f7;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+  table.matrix td.owner{font-weight:700;color:var(--teal)}
+  table.matrix tr.opt td{background:#fff7e6}
+
+  table.measures{width:100%;border-collapse:collapse;font-size:13px}
+  table.measures th,table.measures td{border-bottom:1px solid var(--line);padding:8px 6px;text-align:left}
+  table.measures th{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+  table.measures td.num{text-align:right;font-variant-numeric:tabular-nums}
+  .tgt{color:var(--green);font-weight:700}
+
+  /* project estimates table */
+  table.proj{width:100%;border-collapse:collapse;font-size:12.5px}
+  table.proj th,table.proj td{border:1px solid var(--line);padding:8px 9px;text-align:left;vertical-align:top}
+  table.proj th{background:#f4f5f7;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+  table.proj td.hrs{font-variant-numeric:tabular-nums;white-space:nowrap}
+  .lane{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px}
+  .lane.ops{background:var(--teal-soft);color:var(--teal)}
+  .lane.mod{background:var(--blue-soft);color:var(--blue)}
+
+  /* risks */
+  .risks{display:grid;gap:8px}
+  .risk{display:grid;grid-template-columns:1.1fr 1fr 1.2fr;gap:10px;font-size:12.5px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+  .risk .h{font-weight:800;color:var(--crimson)}
+  .risk .m{color:var(--amber);font-weight:650}
+  .risk .r{color:#2c333b}
+  @media(max-width:640px){.risk{grid-template-columns:1fr}}
+
+  /* risk appetite tiers */
+  .tiers{display:grid;gap:8px}
+  .tier{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:center;font-size:12.5px}
+  .tier .tag{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;padding:5px 8px;border-radius:8px;text-align:center}
+  .tier.high .tag{background:var(--crimson-soft);color:var(--crimson)}
+  .tier.mid .tag{background:var(--amber-soft);color:var(--amber)}
+  .tier.low .tag{background:var(--green-soft);color:var(--green)}
+  @media(max-width:640px){.tier{grid-template-columns:1fr}}
+
+  /* triggers */
+  .triggers{display:flex;flex-wrap:wrap;gap:6px}
+  .trig{font-size:12px;padding:6px 10px;border-radius:10px;background:#fff;border:1px solid #f0c9cf;color:#7a1523;font-weight:650}
+
+  /* 90-day two-lane */
+  .lanes{display:grid;gap:12px}
+  .lane-block{border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .lane-block .lh{padding:8px 12px;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+  .lane-block.ops .lh{background:var(--teal-soft);color:var(--teal)}
+  .lane-block.mod .lh{background:var(--blue-soft);color:var(--blue)}
+  .lane-block .lb{padding:12px}
+  .gates{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  @media(max-width:640px){.gates{grid-template-columns:1fr}}
+  .gate{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+  .gate .g{font-size:11px;font-weight:800;color:var(--crimson);letter-spacing:.04em}
+  .gate ul{margin:6px 0 0;padding-left:16px;font-size:12.5px}
+  .gate li{margin:2px 0}
+
+  .note{font-size:11.5px;color:var(--muted);margin-top:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="site-head">
+    <div>
+      <h1>Proposed operating model for the Harvard International Office</h1>
+      <p>Work sample by Narissara Khomkhai · Application for Associate Director of Operations &amp; Administration</p>
+    </div>
+    <span class="badge">Synthetic data · not an HIO or Harvard document</span>
+  </header>
+
+  <div class="asof">
+    <strong>HIO baseline:</strong> 10,158 visa-sponsored students and scholars (5,627 students, 4,531 scholars) from 150 countries, from HIO's statistics page (hio.harvard.edu/statistics), which notes the counts are for reference and does not stamp a year on them. All other HIO figures are synthetic.
+    <br><strong>Published context:</strong> Open Doors 2026 reports 1,146,163 international students in the U.S. in 2025/26, down 2.7%, with new international students down 17.7% and OPT up 14.1% to 335,785. IIE's fall 2026 snapshot shows total international students down 9% and new students down 15%. Harvard reported a record 6,749 international students in fall 2025, 28% of enrollment. OPT is tracked as its own flow for that reason, and card 11 turns these figures into a three-year outlook.
+  </div>
+
+  <!-- ============ CARDS ============ -->
+  <div class="grid" id="cardGrid">
+
+    <button class="card" data-modal="m-sevis">
+      <span class="kicker">01 · Compliance</span>
+      <h3>SEVIS record integrity</h3>
+      <div class="obj">Objective: no form issued from an unvalidated record.</div>
+      <div class="mini-row"><span class="chip">Students</span><span class="chip">Scholars</span><span class="chip">Dependents</span><span class="chip">OPT</span></div>
+      <span class="open">Open infographic →</span>
+    </button>
+
+    <button class="card" data-modal="m-systems">
+      <span class="kicker">02 · Systems</span>
+      <h3>ISSM ownership, release gate &amp; vendors</h3>
+      <div class="obj">Objective: no release or patch reaches production untested.</div>
+      <div class="mini-row"><span class="chip">Testing</span><span class="chip">Vendors</span><span class="chip">Rollback</span></div>
+      <span class="open">Open infographic →</span>
+    </button>
+
+    <button class="card" data-modal="m-schools">
+      <span class="kicker">03 · Data exchange</span>
+      <h3>Clean School data on arrival</h3>
+      <div class="obj">Objective: School files pass validation on first submission.</div>
+      <div class="mini-row"><span class="chip">Crosswalk</span><span class="chip">Validation</span><span class="chip">School training</span></div>
+      <span class="open">Open infographic →</span>
+    </button>
+
+    <button class="card" data-modal="m-reporting">
+      <span class="kicker">04 · Reporting</span>
+      <h3>Leadership numbers &amp; SQL</h3>
+      <div class="obj">Objective: one number everywhere, documented on request.</div>
+      <div class="mini-row"><span class="chip">Dashboard</span><span class="chip">Saved views</span><span class="chip">OPT</span></div>
+      <span class="open">Open infographic →</span>
+    </button>
+
+    <button class="card" data-modal="m-billing">
+      <span class="kicker">05 · Finance</span>
+      <h3>Billing &amp; hospital disputes</h3>
+      <div class="obj">Objective: every dollar traces to a completed case.</div>
+      <div class="mini-row"><span class="chip">$300–500K/yr</span><span class="chip">Accruals</span><span class="chip">Aging</span></div>
+      <span class="open">Open infographic →</span>
+    </button>
+
+    <button class="card" data-modal="m-team">
+      <span class="kicker">06 · Team</span>
+      <h3>Team, development &amp; office ops</h3>
+      <div class="obj">Objective: every person has a plan and a named backup.</div>
+      <div class="mini-row"><span class="chip">3–5 staff</span><span class="chip">1:1s</span><span class="chip">On/offboarding</span></div>
+      <span class="open">Open infographic →</span>
+    </button>
+
+    <button class="card" data-modal="m-security">
+      <span class="kicker">07 · Security</span>
+      <h3>Data security &amp; access</h3>
+      <div class="obj">Objective: least privilege, reviewed every quarter.</div>
+      <div class="mini-row"><span class="chip">Least privilege</span><span class="chip">Quarterly review</span></div>
+      <span class="open">Open infographic →</span>
+    </button>
+
+    <button class="card" data-modal="m-continuity">
+      <span class="kicker">08 · Continuity</span>
+      <h3>Critical-operations continuity</h3>
+      <div class="obj">Objective: a federal deadline never misses because of an outage.</div>
+      <div class="mini-row"><span class="chip">Outage</span><span class="chip">Backups</span><span class="chip">Peaks</span></div>
+      <span class="open">Open infographic →</span>
+    </button>
+
+    <button class="card" data-modal="m-plan">
+      <span class="kicker">09 · Execution</span>
+      <h3>90-day plan: two lanes + time estimates</h3>
+      <div class="obj">Objective: operations never stop while we improve them.</div>
+      <div class="mini-row"><span class="chip">Steady-state</span><span class="chip">Modernization</span><span class="chip">Hours</span></div>
+      <span class="open">Open infographic →</span>
+    </button>
+
+    <button class="card" data-modal="m-measures">
+      <span class="kicker">10 · Measures</span>
+      <h3>Nine measures + control objectives</h3>
+      <div class="obj">Objective: targets agreed with the Director in 30 days.</div>
+      <div class="mini-row"><span class="chip">Baselines</span><span class="chip">Day 90</span><span class="chip">Month 12</span></div>
+      <span class="open">Open infographic →</span>
+    </button>
+    <button class="card" data-modal="m-outlook">
+      <span class="kicker">11 · Outlook</span>
+      <h3>Three-year outlook from published data</h3>
+      <div class="obj">Objective: plans set before the census, not after it.</div>
+      <div class="mini-row"><span class="chip">Open Doors 2026</span><span class="chip">Scenarios</span><span class="chip">Triggers</span></div>
+      <span class="open">Open infographic →</span>
+    </button>
+  </div>
+
+  <!-- ============ MODALS ============ -->
+
+  <!-- 1 SEVIS -->
+  <dialog id="m-sevis" aria-labelledby="t-sevis">
+    <div class="modal-head">
+      <div><div class="kicker">01 · Compliance</div><h2 id="t-sevis">SEVIS record integrity — students, scholars, dependents, OPT</h2></div>
+      <button class="close" data-close aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="infographic">
+        <div class="obj-line"><strong>Control objective</strong> — No I-20 or DS-2019 is issued from a record that has not passed the per-population checks.</div>
+
+        <div class="stats">
+          <div class="stat accent"><div class="n">10,158</div><div class="l">visa-sponsored people</div></div>
+          <div class="stat"><div class="n">5,627</div><div class="l">international students</div></div>
+          <div class="stat"><div class="n">4,531</div><div class="l">international scholars</div></div>
+          <div class="stat"><div class="n">150</div><div class="l">countries</div></div>
+        </div>
+
+        <div class="panel">
+          <h4>Population matrix — each gets its own track</h4>
+          <table class="matrix">
+            <thead><tr><th>Population</th><th>Form</th><th>Key deadline</th><th>Owner</th></tr></thead>
+            <tbody>
+              <tr><td>F-1 students</td><td>I-20</td><td>Registration each term</td><td class="owner">Advisor</td></tr>
+              <tr><td>J-1 students / scholars</td><td>DS-2019</td><td>Program &amp; exchange category</td><td class="owner">Advisor</td></tr>
+              <tr><td>H-1B faculty and researchers</td><td>Petition records</td><td>Extension before the end date</td><td class="owner">Scholar advisor</td></tr>
+              <tr><td>F-2 / J-2 dependents</td><td>Dependent I-20 / DS-2019</td><td>Tied to principal</td><td class="owner">Advisor</td></tr>
+              <tr class="opt"><td><strong>OPT (F-1)</strong></td><td>Recommendation + authorization</td><td>Post-completion reporting</td><td class="owner">Advisor + Ops</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="panel">
+          <h4>OPT as a distinct data flow</h4>
+          <div class="flow">
+            <div class="step"><div class="d">1</div><div class="t">Recommend</div><div class="s">DSO recommendation entered in SEVIS</div></div>
+            <div class="step"><div class="d">2</div><div class="t">File</div><div class="s">Student files with USCIS within 30 days; USCIS decides</div></div>
+            <div class="step"><div class="d">3</div><div class="t">Report</div><div class="s">Employment + address updates</div></div>
+            <div class="step"><div class="d">4</div><div class="t">Bill / track</div><div class="s">OPT fee + service log</div></div>
+          </div>
+          <p class="note">OPT was the fastest-growing national segment in 2025/26 (+14.1%, Open Doors 2026), so it gets its own measure and its own billing line.</p>
+        </div>
+
+        <div class="row2">
+          <div class="two">
+            <div class="do">
+              <h5>What I would run</h5>
+              <ul>
+                <li>Term calendar of every deadline</li>
+                <li>Pre-batch checks per population</li>
+                <li>Next-business-day review of every batch response</li>
+              </ul>
+            </div>
+            <div class="ctl">
+              <h5>Control that keeps it right</h5>
+              <ul>
+                <li>Check date 10 days before each deadline</li>
+                <li>Every error resubmitted or assigned</li>
+                <li>Turnaround logged and measured</li>
+              </ul>
+            </div>
+          </div>
+          <div class="panel">
+            <h4>Turnaround target</h4>
+            <div class="bars">
+              <div class="bar"><span>SEVIS responses reviewed</span><span class="track"><span class="fill" style="width:91%"></span></span><span class="v">91% → 100%</span></div>
+              <div class="bar"><span>In SEVIS by deadline</span><span class="track"><span class="fill" style="width:99%"></span></span><span class="v">99.2% → 100%</span></div>
+              <div class="bar"><span>OPT recommendations on time</span><span class="track"><span class="fill" style="width:84%"></span></span><span class="v">84% → 95%</span></div>
+            </div>
+            <p class="note">Synthetic baseline; real baselines set in first 30 days.</p>
+          </div>
+        </div>
+
+        <div class="evidence">
+          <h4>Where I have done this</h4>
+          <ul>
+            <li>Nearly 20 years of record integrity under audit (UAMS, FAS Faculty Affairs).</li>
+            <li>SEVIS rules are new to me. I am a U.S. citizen, eligible for DSO and ARO designation, and the SEVP training plan is dated (see the Execution card).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 2 SYSTEMS -->
+  <dialog id="m-systems" aria-labelledby="t-systems">
+    <div class="modal-head">
+      <div><div class="kicker">02 · Systems</div><h2 id="t-systems">ISSM ownership, release gate &amp; vendors</h2></div>
+      <button class="close" data-close aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="infographic">
+        <div class="obj-line"><strong>Control objective</strong> — No release or vendor patch reaches production without a passed test, a tested rollback, and a Director sign-off.</div>
+
+        <div class="panel">
+          <h4>Release gate</h4>
+          <div class="flow">
+            <div class="step"><div class="d">STEP 1</div><div class="t">Defects</div><div class="s">Critical/major fixed or accepted in writing</div></div>
+            <div class="step"><div class="d">STEP 2</div><div class="t">Test pass</div><div class="s">Registration, forms, batch tests</div></div>
+            <div class="step"><div class="d">STEP 3</div><div class="t">Rollback</div><div class="s">Tested before go-live</div></div>
+            <div class="step"><div class="d">STEP 4</div><div class="t">Sign-off</div><div class="s">Staff told; Director signs</div></div>
+          </div>
+        </div>
+
+        <div class="row2">
+          <div class="panel">
+            <h4>Vendor register (quarterly)</h4>
+            <div class="pills">
+              <span class="pill">Contract</span><span class="pill">SLA</span><span class="pill">Named contact</span>
+              <span class="pill">Patch calendar</span><span class="pill">Last test result</span><span class="pill">Outage log</span>
+            </div>
+            <p class="note">Covers ISSM plus scheduling, training and tax-preparation platforms.</p>
+          </div>
+          <div class="two">
+            <div class="do">
+              <h5>What I would run</h5>
+              <ul>
+                <li>~150-case test register</li>
+                <li>One configuration log</li>
+                <li>Quarterly planning with HUIT + vendor</li>
+              </ul>
+            </div>
+            <div class="ctl">
+              <h5>Control that keeps it right</h5>
+              <ul>
+                <li>Every rule change: date, reason, owner</li>
+                <li>No patch without a test pass</li>
+                <li>Outages briefed same day</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="evidence">
+          <h4>Where I have done this</h4>
+          <ul>
+            <li>Two platform conversions (Raiser's Edge → SunGard Advance, now Ellucian, at UAMS; Raiser's Edge → Agilon at Phillips Academy), working with the vendors through migration, testing and cutover, 10 years of history each.</li>
+            <li>Acceptance, smoke and stress tests on key reports at FAS.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 3 SCHOOLS -->
+  <dialog id="m-schools" aria-labelledby="t-schools">
+    <div class="modal-head">
+      <div><div class="kicker">03 · Data exchange</div><h2 id="t-schools">Clean School data on arrival — and trained School staff</h2></div>
+      <button class="close" data-close aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="infographic">
+        <div class="obj-line"><strong>Control objective</strong> — School files pass validation on first submission; mismatches go to a person, never auto-fixed.</div>
+
+        <div class="panel">
+          <h4>From School file to SEVIS — one path</h4>
+          <div class="flow">
+            <div class="step"><div class="d">1</div><div class="t">Slate / SIS</div><div class="s">School sends file</div></div>
+            <div class="step"><div class="d">2</div><div class="t">Crosswalk</div><div class="s">School codes → SEVIS codes</div></div>
+            <div class="step"><div class="d">3</div><div class="t">Validate</div><div class="s">Match, DOB, name, funding</div></div>
+            <div class="step"><div class="d">4</div><div class="t">Form</div><div class="s">I-20 / DS-2019 drafted</div></div>
+          </div>
+        </div>
+
+        <div class="row2">
+          <div class="two">
+            <div class="do">
+              <h5>What I would run</h5>
+              <ul>
+                <li>One crosswalk per School</li>
+                <li>Funding checked before any form</li>
+                <li>Manual fixes logged</li>
+              </ul>
+            </div>
+            <div class="ctl">
+              <h5>Control that keeps it right</h5>
+              <ul>
+                <li>Mismatches go to a person — never auto-fixed</li>
+                <li>Repeat error → note back to the School</li>
+                <li>Template fixed at the source</li>
+                <li><strong>Two-sided quality metric:</strong> auto-match rate <em>and</em> first-pass validation rate</li>
+              </ul>
+            </div>
+          </div>
+          <div class="panel">
+            <h4>School-staff training before each intake</h4>
+            <div class="pills">
+              <span class="pill">What fields mean</span>
+              <span class="pill">Top 5 errors</span>
+              <span class="pill">Who to call</span>
+              <span class="pill">One-page guide per School</span>
+            </div>
+            <p class="note">Recurring issues fixed in training, not just in the file.</p>
+          </div>
+        </div>
+
+        <div class="evidence">
+          <h4>Where I have done this</h4>
+          <ul>
+            <li>FAS Faculty DataHub pilot — 7 sources unified, data dictionary.</li>
+            <li>Trained users at each of three system conversions, including the move to HART self-service for deans, chairs and administrators.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 4 REPORTING -->
+  <dialog id="m-reporting" aria-labelledby="t-reporting">
+    <div class="modal-head">
+      <div><div class="kicker">04 · Reporting</div><h2 id="t-reporting">Leadership numbers, SQL &amp; ad-hoc requests</h2></div>
+      <button class="close" data-close aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="infographic">
+        <div class="obj-line"><strong>Control objective</strong> — The same number is used everywhere, and every legal/compliance answer is logged and reviewed before release.</div>
+
+        <div class="stats">
+          <div class="stat accent"><div class="n">300–400</div><div class="l">ad-hoc requests / yr before</div></div>
+          <div class="stat"><div class="n">&lt;100</div><div class="l">after saved views</div></div>
+          <div class="stat"><div class="n">7</div><div class="l">sources unified</div></div>
+          <div class="stat blue"><div class="n">+14%</div><div class="l">national OPT growth</div></div>
+        </div>
+
+        <div class="panel">
+          <h4>OPT is tracked as its own flow</h4>
+          <div class="pills">
+            <span class="pill">Recommendation volume</span>
+            <span class="pill">Authorization turnaround</span>
+            <span class="pill">Employment reporting</span>
+            <span class="pill">OPT fee billed</span>
+          </div>
+          <p class="note">So the Director sees OPT growth in the same place as student and scholar counts.</p>
+        </div>
+
+        <div class="row2">
+          <div class="two">
+            <div class="do">
+              <h5>What I would run</h5>
+              <ul>
+                <li>Weekly leadership dashboard</li>
+                <li>Saved SQL views for repeat requests</li>
+                <li>Year-end stats matching published counts</li>
+                <li>Survey design and analysis where program data needs it</li>
+              </ul>
+            </div>
+            <div class="ctl">
+              <h5>Control that keeps it right</h5>
+              <ul>
+                <li>Same number everywhere</li>
+                <li>Legal/compliance answers logged &amp; reviewed</li>
+                <li>Decisions listed at the bottom of the dashboard</li>
+              </ul>
+            </div>
+          </div>
+          <div class="panel">
+            <h4>Tools</h4>
+            <div class="pills">
+              <span class="pill">SQL</span><span class="pill">Python</span><span class="pill">R</span>
+              <span class="pill">Power BI</span><span class="pill">Oracle BI</span><span class="pill">Crystal Reports</span>
+            </div>
+            <p class="note">Plus survey design/analysis where program data needs it.</p>
+          </div>
+        </div>
+
+        <div class="evidence">
+          <h4>Where I have done this</h4>
+          <ul>
+            <li>All Faculty Affairs reporting and dean/visiting-committee materials.</li>
+            <li>Back-end reports for 50+ departments; ad-hoc requests fell from 300–400 a year to under 100.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 5 BILLING -->
+  <dialog id="m-billing" aria-labelledby="t-billing">
+    <div class="modal-head">
+      <div><div class="kicker">05 · Finance</div><h2 id="t-billing">Billing, accruals &amp; independent dispute resolution</h2></div>
+      <button class="close" data-close aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="infographic">
+        <div class="obj-line"><strong>Control objective</strong> — Every dollar billed traces to a completed case; disputes are resolved on evidence, not on pressure.</div>
+
+        <div class="stats">
+          <div class="stat accent"><div class="n">$300–500K</div><div class="l">annual billing</div></div>
+          <div class="stat"><div class="n">10 days</div><div class="l">invoice target</div></div>
+          <div class="stat"><div class="n">60 days</div><div class="l">receivables follow-up</div></div>
+        </div>
+
+        <div class="panel">
+          <h4>Validate → Confirm → Invoice → Accrue</h4>
+          <div class="flow">
+            <div class="step"><div class="d">1</div><div class="t">Validate</div><div class="s">Matches a completed ISSM case</div></div>
+            <div class="step"><div class="d">2</div><div class="t">Confirm</div><div class="s">Hospital confirms before invoice</div></div>
+            <div class="step"><div class="d">3</div><div class="t">Invoice</div><div class="s">Traceable to the case</div></div>
+            <div class="step"><div class="d">4</div><div class="t">Accrue</div><div class="s">Quarter-end to Campus Services Finance</div></div>
+          </div>
+        </div>
+
+        <div class="row2">
+          <div class="two">
+            <div class="do">
+              <h5>What I would run</h5>
+              <ul>
+                <li>Monthly receivables aging</li>
+                <li>I resolve routine disputes myself</li>
+                <li>Credit-card disputes: assess + document</li>
+              </ul>
+            </div>
+            <div class="ctl">
+              <h5>Control that keeps it right</h5>
+              <ul>
+                <li>Escalate only sensitive/precedent cases</li>
+                <li>Every dollar traces to a completed case</li>
+                <li>Contract + billing history checked first</li>
+              </ul>
+            </div>
+          </div>
+          <div class="panel">
+            <h4>Fee design, not just reconciliation</h4>
+            <div class="pills">
+              <span class="pill">How fees are set</span><span class="pill">When collected</span>
+              <span class="pill">Client payment experience</span><span class="pill">Staff role</span>
+            </div>
+            <p class="note">With Campus Services Finance for banking &amp; back-end controls.</p>
+          </div>
+        </div>
+
+        <div class="evidence">
+          <h4>Where I have done this</h4>
+          <ul>
+            <li>Campaign reporting reconciled to the GL with the Comptroller's office.</li>
+            <li>20,000+ gift transactions a year at UAMS, and piloted and managed online giving with iModules and CyberSource, front end and back end.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 6 TEAM -->
+  <dialog id="m-team" aria-labelledby="t-team">
+    <div class="modal-head">
+      <div><div class="kicker">06 · Team</div><h2 id="t-team">Team, staff development &amp; office operations</h2></div>
+      <button class="close" data-close aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="infographic">
+        <div class="obj-line"><strong>Control objective</strong> — Every person has a development plan and a named backup; every process has an owner.</div>
+
+        <div class="row2">
+          <div class="two">
+            <div class="do">
+              <h5>What I would run</h5>
+              <ul>
+                <li>One queue with owners &amp; ages</li>
+                <li>Weekly huddle on priorities</li>
+                <li>Named backups for batches/billing</li>
+              </ul>
+            </div>
+            <div class="ctl">
+              <h5>Control that keeps it right</h5>
+              <ul>
+                <li>Development plan per person, 2×/yr</li>
+                <li>Issues addressed early, documented</li>
+                <li>Goals tied to the nine measures</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h4>Office operations owned through the team</h4>
+            <div class="pills">
+              <span class="pill">Onboarding / offboarding</span>
+              <span class="pill">Technology refresh</span>
+              <span class="pill">Records retention &amp; archiving</span>
+              <span class="pill">Invoice processing</span>
+              <span class="pill">Appointment scheduling</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h4>Risk appetite by work type</h4>
+          <div class="tiers">
+            <div class="tier high"><span class="tag">High risk</span><span>Federal deadline, SEVIS batch integrity, DSO signing — <strong>zero tolerance, dual control, Director sign-off</strong>.</span></div>
+            <div class="tier mid"><span class="tag">Medium risk</span><span>Billing, School data exchange, reporting — <strong>single owner + documented review</strong>.</span></div>
+            <div class="tier low"><span class="tag">Low risk</span><span>Internal formatting, guides, meeting cadence — <strong>single owner, no dual control</strong>.</span></div>
+          </div>
+        </div>
+
+        <div class="evidence">
+          <h4>Where I have done this</h4>
+          <ul>
+            <li>As Associate Director at UAMS from 2008 to 2016, hired, supervised, reviewed and mentored staff.</li>
+            <li>Led a team of three through a campaign + database conversion at once.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 7 SECURITY -->
+  <dialog id="m-security" aria-labelledby="t-security">
+    <div class="modal-head">
+      <div><div class="kicker">07 · Security</div><h2 id="t-security">Data security &amp; least-privilege access</h2></div>
+      <button class="close" data-close aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="infographic">
+        <div class="obj-line"><strong>Control objective</strong> — Every account holds only the access its role requires, reviewed quarterly.</div>
+
+        <div class="panel">
+          <h4>Access cycle</h4>
+          <div class="flow">
+            <div class="step"><div class="d">Q</div><div class="t">Review</div><div class="s">Every ISSM account vs. role</div></div>
+            <div class="step"><div class="d">1 wk</div><div class="t">Remove</div><div class="s">On role change, with HR/HUIT</div></div>
+            <div class="step"><div class="d">Yr</div><div class="t">Train</div><div class="s">Security training tracked to completion</div></div>
+            <div class="step"><div class="d">Log</div><div class="t">Vendors</div><div class="s">Time-limited, logged</div></div>
+          </div>
+        </div>
+
+        <div class="row2">
+          <div class="two">
+            <div class="do">
+              <h5>What I would run</h5>
+              <ul>
+                <li>Least privilege by role</li>
+                <li>School contacts read-only, own students</li>
+              </ul>
+            </div>
+            <div class="ctl">
+              <h5>Control that keeps it right</h5>
+              <ul>
+                <li>Quarterly access review</li>
+                <li>Vendor access time-limited &amp; logged</li>
+              </ul>
+            </div>
+          </div>
+          <div class="panel">
+            <h4>Policy standards I've written to</h4>
+            <div class="pills">
+              <span class="pill">IRS</span><span class="pill">FASB/GASB</span><span class="pill">CASE</span><span class="pill">HIPAA</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="evidence">
+          <h4>Where I have done this</h4>
+          <ul>
+            <li>Role- and hierarchy-based access for confidential faculty records at FAS.</li>
+            <li>Record-keeping policies and documented controls auditors reviewed (UAMS).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 8 CONTINUITY -->
+  <dialog id="m-continuity" aria-labelledby="t-continuity">
+    <div class="modal-head">
+      <div><div class="kicker">08 · Continuity</div><h2 id="t-continuity">Critical-operations continuity</h2></div>
+      <button class="close" data-close aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="infographic">
+        <div class="obj-line"><strong>Control objective</strong> — A federal deadline is never missed because a system or a person is unavailable.</div>
+
+        <div class="panel">
+          <h4>When something breaks at a peak</h4>
+          <div class="flow">
+            <div class="step"><div class="d">1</div><div class="t">Run</div><div class="s">Named backup runs the batch</div></div>
+            <div class="step"><div class="d">2</div><div class="t">Call</div><div class="s">Vendor / HUIT engaged</div></div>
+            <div class="step"><div class="d">3</div><div class="t">Pause</div><div class="s">Non-urgent work stopped</div></div>
+            <div class="step"><div class="d">4</div><div class="t">Brief</div><div class="s">Director told same day</div></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h4>What triggers the routine</h4>
+          <div class="triggers">
+            <span class="trig">SEVP broadcast</span>
+            <span class="trig">Federal rule or policy change</span>
+            <span class="trig">Court order affecting sponsorship</span>
+            <span class="trig">Vendor critical patch</span>
+            <span class="trig">Federal deadline within 10 days</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h4>Risks I would watch</h4>
+          <div class="risks">
+            <div class="risk"><span class="h">Registration misses deadline</span><span class="m">&lt;90% registered 10 days in</span><span class="r">Daily list per School, named follow-up</span></div>
+            <div class="risk"><span class="h">ISSM release breaks batches</span><span class="m">Critical defect in test</span><span class="r">No-go, stay on current, retest after patch</span></div>
+            <div class="risk"><span class="h">School data drifts</span><span class="m">Match rate &lt;90%</span><span class="r">Fix crosswalk, feedback to School</span></div>
+            <div class="risk"><span class="h">Receivables age</span><span class="m">Invoice &gt;60 days</span><span class="r">Contact hospital, then dispute steps</span></div>
+            <div class="risk"><span class="h">Outage / absence at peak</span><span class="m">Missed batch window</span><span class="r">Continuity plan; Director briefed same day</span></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h4>The five-step regulatory response</h4>
+          <div class="flow">
+            <div class="step"><div class="d">Day 0</div><div class="t">Log it</div><div class="s">Guidance, source, effective date</div></div>
+            <div class="step"><div class="d">Day 1</div><div class="t">Size it</div><div class="s">Query ISSM by School &amp; visa type</div></div>
+            <div class="step"><div class="d">Day 2</div><div class="t">Brief</div><div class="s">Counts, deadlines, options</div></div>
+            <div class="step"><div class="d">Day 3–5</div><div class="t">Change</div><div class="s">Rules, templates, notices in test first</div></div>
+            <div class="step"><div class="d">Day 10</div><div class="t">Check</div><div class="s">Confirm every affected record</div></div>
+          </div>
+        </div>
+
+        <p class="note">Tested once a year and before each registration peak.</p>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 9 EXECUTION -->
+  <dialog id="m-plan" aria-labelledby="t-plan">
+    <div class="modal-head">
+      <div><div class="kicker">09 · Execution</div><h2 id="t-plan">First 90 days — two lanes, with time estimates</h2></div>
+      <button class="close" data-close aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="infographic">
+        <div class="obj-line"><strong>Control objective</strong> — Steady-state operations never stop while modernization projects land, and every project has an owner, an effort estimate and an end date.</div>
+
+        <div class="lanes">
+          <div class="lane-block ops">
+            <div class="lh">Lane A · Steady-state operations (cannot slip)</div>
+            <div class="lb">
+              <div class="gates">
+                <div class="gate"><div class="g">DAYS 1–30</div><ul><li>Meet School, HUIT, Finance, hospital contacts</li><li>Map federal + HIO calendar with owners</li><li>Set real baselines (2-week time sample)</li></ul></div>
+                <div class="gate"><div class="g">DAYS 31–60</div><ul><li>Run weekly leadership dashboard</li><li>Tie billing to service log</li><li>First School-training session</li></ul></div>
+                <div class="gate"><div class="g">DAYS 61–90</div><ul><li>First quarterly access review + accrual</li><li>Team trained on new steps</li><li>90-day review vs. targets</li></ul></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lane-block mod">
+            <div class="lh">Lane B · Modernization projects (must land)</div>
+            <div class="lb">
+              <table class="proj">
+                <thead><tr><th>Project</th><th>Effort</th><th>Elapsed</th><th>Owner</th></tr></thead>
+                <tbody>
+                  <tr><td>School crosswalk + import validation</td><td class="hrs">8 person-days</td><td class="hrs">Weeks 3–6</td><td>Ops lead + HUIT</td></tr>
+                  <tr><td>ISSM release gate + ~150-case test register</td><td class="hrs">6 person-days</td><td class="hrs">Weeks 3–7</td><td>AD + vendor</td></tr>
+                  <tr><td>Leadership dashboard v1</td><td class="hrs">5 person-days</td><td class="hrs">Weeks 4–8</td><td>AD</td></tr>
+                  <tr><td>Billing tied to service log</td><td class="hrs">4 person-days</td><td class="hrs">Weeks 5–8</td><td>Ops lead + Finance</td></tr>
+                  <tr><td>Automation 1 — School import</td><td class="hrs">6 person-days</td><td class="hrs">Weeks 6–9</td><td>Ops lead</td></tr>
+                  <tr><td>Automation 2 — registration checks</td><td class="hrs">5 person-days</td><td class="hrs">Weeks 8–11</td><td>Ops lead</td></tr>
+                </tbody>
+              </table>
+              <p class="note">Total ≈ 34 person-days on Lane B over 12 weeks (~2.8 person-days/week), on top of steady-state work. Lane A adds ~22 person-days. Combined ≈ 56 person-days over 12 weeks (~4.7/week) — fits a 3–5 person team.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h4>SEVP / DSO training — planned, dated</h4>
+          <div class="pills">
+            <span class="pill">SEVP: SEVIS Training for School Officials (before day 1)</span>
+            <span class="pill">NAFSA F-1 Advising: Getting Started</span>
+            <span class="pill">NAFSA J-1 Advising: Getting Started (by day 30)</span>
+            <span class="pill">Shadow advisors through spring registration</span>
+            <span class="pill">Signing duties only when Director approves</span>
+          </div>
+          <p class="note">SEVP course before day 1, NAFSA courses by day 30, completion certificates kept on file.</p>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 10 MEASURES -->
+  <dialog id="m-measures" aria-labelledby="t-measures">
+    <div class="modal-head">
+      <div><div class="kicker">10 · Measures</div><h2 id="t-measures">Nine measures, baselines and targets</h2></div>
+      <button class="close" data-close aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="infographic">
+        <div class="obj-line"><strong>Control objective</strong> — Every target is agreed with the Director in the first 30 days; baselines are real, not synthetic, from month two onward.</div>
+
+        <div class="panel">
+          <table class="measures">
+            <thead><tr><th>Measure</th><th class="num">Baseline</th><th class="num">Day 90</th><th class="num">Month 12</th></tr></thead>
+            <tbody>
+              <tr><td>Students in SEVIS by federal deadline</td><td class="num">99.2%</td><td class="num tgt">100%</td><td class="num tgt">100%</td></tr>
+              <tr><td>SEVIS responses reviewed within 1 business day</td><td class="num">91%</td><td class="num tgt">100%</td><td class="num tgt">100%</td></tr>
+              <tr><td>School records matched automatically</td><td class="num">86%</td><td class="num tgt">93%</td><td class="num tgt">96%</td></tr>
+              <tr><td>School files passing validation on first submission</td><td class="num">—</td><td class="num tgt">70%</td><td class="num tgt">85%</td></tr>
+              <tr><td>Travel signature, median business days</td><td class="num">3</td><td class="num tgt">2</td><td class="num tgt">2</td></tr>
+              <tr><td>OPT recommendation, median business days</td><td class="num">6</td><td class="num tgt">5</td><td class="num tgt">4</td></tr>
+              <tr><td>Billable services invoiced within 10 days</td><td class="num">78%</td><td class="num tgt">90%</td><td class="num tgt">95%</td></tr>
+              <tr><td>Hospital receivables over 90 days</td><td class="num">$18,400</td><td class="num tgt">under $10K</td><td class="num tgt">under $5K</td></tr>
+              <tr><td>Quarters with complete ISSM access review</td><td class="num">2 of 4</td><td class="num tgt">on time</td><td class="num tgt">4 of 4</td></tr>
+              <tr><td>Manual operations hours / month</td><td class="num">310</td><td class="num tgt">250</td><td class="num tgt">190</td></tr>
+            </tbody>
+          </table>
+          <p class="note">Baselines synthetic for illustration; real baselines set in the first 30 days and agreed with the Director.</p>
+        </div>
+
+        <div class="evidence">
+          <h4>How the measures are governed</h4>
+          <ul>
+            <li>Reviewed weekly (dashboard), monthly (billing/receivables), quarterly (accrual + access).</li>
+            <li>Any measure off-target two periods in a row gets a named owner and a dated recovery step.</li>
+            <li>Published context (Open Doors 2026, IIE fall 2026 snapshot) shown alongside, so trends are read in context.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- 11 OUTLOOK -->
+  <dialog id="m-outlook" aria-labelledby="t-outlook">
+    <div class="modal-head">
+      <div><div class="kicker">11 · Outlook</div><h2 id="t-outlook">Three-year outlook from published data</h2></div>
+      <button class="close" data-close aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="infographic">
+        <div class="obj-line"><strong>Control objective</strong> — Staffing, systems and the billing plan are set from scenarios before each census, and updated when an early signal moves.</div>
+        <div class="stats">
+          <div class="stat"><div class="n">1,146,163</div><div class="l">U.S. international students 2025/26, −2.7%</div></div>
+          <div class="stat accent"><div class="n">−17.7%</div><div class="l">new international students 2025/26</div></div>
+          <div class="stat blue"><div class="n">335,785</div><div class="l">on OPT 2025/26, +14.1%</div></div>
+          <div class="stat accent"><div class="n">−9% / −15%</div><div class="l">total / new, IIE fall 2026 snapshot</div></div>
+          <div class="stat"><div class="n">6,749</div><div class="l">Harvard international students, fall 2025, a record</div></div>
+        </div>
+        <div class="panel">
+          <h4>HIO students and scholars, three scenarios (from the published 10,158)</h4>
+          <div class="bars">
+            <div class="bar"><span>Holds steady · 2029</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="v">10,158</span></div>
+            <div class="bar"><span>National trend · 2029</span><span class="track"><span class="fill" style="width:88.6%;background:#a5762a"></span></span><span class="v">8,998</span></div>
+            <div class="bar"><span>Sharp decline · 2029</span><span class="track"><span class="fill" style="width:80.9%;background:#8e263e"></span></span><span class="v">8,215</span></div>
+          </div>
+          <table class="measures" style="margin-top:10px">
+            <thead><tr><th>Scenario</th><th>Assumption</th><th class="num">OPT recs 2029</th><th class="num">Billing FY29</th><th>Plan</th></tr></thead>
+            <tbody>
+              <tr><td>Holds steady</td><td>New students flat, scholars flat</td><td class="num">1,463</td><td class="num">$426,300</td><td>Team of four, grow OPT capacity</td></tr>
+              <tr><td>National trend</td><td>New −15%, −5%, flat; scholars −3%/yr</td><td class="num">1,187</td><td class="num">$377,800</td><td>Move ~25 hrs/month to OPT and scholar renewals</td></tr>
+              <tr><td>Sharp decline</td><td>New −30% then slow recovery; scholars −6%/yr</td><td class="num">994</td><td class="num">$337,200</td><td>Pause backfills, reset billing plan with Finance</td></tr>
+            </tbody>
+          </table>
+          <p class="note">Cohort model: about 36% of students complete each year and are replaced by new students. Billing moves with OPT and scholar volumes. A planning projection, not a forecast of Harvard's enrollment.</p>
+        </div>
+        <div class="panel">
+          <h4>Early signals and triggers</h4>
+          <div class="risks">
+            <div class="risk"><span class="h">May 1 deposits</span><span class="m">New admits &gt;10% below last year</span><span class="r">Switch to the national-trend staffing and billing plan</span></div>
+            <div class="risk"><span class="h">June 30 forms issued</span><span class="m">&gt;15% behind last year by week</span><span class="r">Check visa appointment waits with Schools</span></div>
+            <div class="risk"><span class="h">October census</span><span class="m">Arrivals below forms issued</span><span class="r">Reforecast billing and spring load</span></div>
+            <div class="risk"><span class="h">Mid-November Open Doors</span><span class="m">National new enrollment down again</span><span class="r">Update the outlook for the Director</span></div>
+          </div>
+        </div>
+        <div class="evidence">
+          <h4>Sources</h4>
+          <ul>
+            <li>IIE Open Doors 2026 (released Nov 16, 2026) and Open Doors 2025 Fast Facts.</li>
+            <li>IIE Fall 2026 Snapshot on international enrollment.</li>
+            <li>Harvard enrollment data reported by Bloomberg, January 2026. HIO statistics page.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+</div>
+
+<script>
+  document.querySelectorAll('[data-modal]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const d=document.getElementById(btn.dataset.modal);
+      if(d){ d.showModal(); }
+    });
+  });
+  document.querySelectorAll('dialog').forEach(d=>{
+    d.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>d.close()));
+    d.addEventListener('click',e=>{
+      const r=d.getBoundingClientRect();
+      if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom){ d.close(); }
+    });
+  });
+</script>
+</body>
+</html>

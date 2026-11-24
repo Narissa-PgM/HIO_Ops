@@ -124,6 +124,62 @@ pre.sql{background:#f6f7f5;border:1px solid var(--line);padding:12px 14px;font-s
 @media(max-width:1000px){.gap-steps,.dev{grid-template-columns:repeat(2,minmax(0,1fr))}.jc{grid-template-columns:1fr}}
 @media(max-width:700px){.gap-steps,.dev{grid-template-columns:1fr}.banner{font-size:12.5px;text-align:center}}
 @media print{.gap-steps{grid-template-columns:repeat(4,1fr)}.dev{grid-template-columns:repeat(4,1fr)}.jc{grid-template-columns:1fr 1fr}.jc,.dev,.gap{break-inside:avoid}}
+.subidx{display:flex;gap:2px;flex-wrap:nowrap;overflow-x:auto;padding:0 0 6px;scrollbar-width:none;justify-content:flex-end}.subidx::-webkit-scrollbar{display:none}
+.subidx a{white-space:nowrap;text-decoration:none;font-size:13px;color:var(--muted);padding:3px 9px;border:1px solid var(--line);border-radius:14px;background:var(--paper)}.subidx a.on{background:var(--pale);border-color:var(--accent);color:var(--accent)}
+.subidx a:first-child{font-weight:700}
+.pops{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.pop-c{background:var(--paper);border:1px solid var(--line);border-top:5px solid var(--mar,#8e263e);padding:12px 16px}.pop-c.sc{border-top-color:var(--slate)}.pop-c.dp{border-top-color:var(--gold)}
+.pop-c p{margin:0;font-size:12.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--accent)}.pop-c.sc p{color:var(--slate)}.pop-c.dp p{color:var(--gold)}
+.pop-c>b{display:block;font-size:30px;line-height:1.1;margin:2px 0 6px}.pop-c dl{margin:0;display:grid;grid-template-columns:78px 1fr;gap:3px 8px;font-size:14px}.pop-c dt{font-weight:700;color:var(--muted);font-size:12.5px}.pop-c dd{margin:0}
+.offops{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.offops div{background:var(--soft);border:1px solid var(--line);padding:10px 12px}.offops b{display:block;font-size:15px}.offops span{font-size:13.5px}
+.dev.cont div{border-top-color:var(--accent)}.dev.cont b{color:var(--accent)}
+.vreg{font-size:14px}
+@media(max-width:1000px){.subidx{justify-content:flex-start}.pops,.offops{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.pops,.offops{grid-template-columns:1fr}.pop-c dl{grid-template-columns:70px 1fr}}
+@media print{.subidx{display:none}.pops{grid-template-columns:repeat(3,1fr)}.offops{grid-template-columns:repeat(4,1fr)}.pops,.offops,.vreg{break-inside:avoid}}
+:root{--sticky-offset:64px}
+@media print{#raci{break-inside:auto!important}.raci tr{break-inside:avoid}.raci thead{display:table-header-group}}
+.ni{display:inline-flex;align-items:center;position:relative}.ni a{padding-right:2px!important}
+.ni-c{background:none;border:0;padding:4px 5px 4px 1px;color:var(--muted);font-size:12px;line-height:1}.ni-c:hover,.ni.open .ni-c{color:var(--accent)}.ni.open>a{color:var(--accent)}
+.dd{position:fixed;z-index:40;min-width:220px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--accent);box-shadow:0 10px 28px rgba(0,0,0,.14);padding:6px 0}
+.dd a{display:flex;align-items:center;gap:9px;padding:7px 16px 7px 14px;text-decoration:none;color:var(--ink);font-size:14.5px;white-space:nowrap}.dd a i{width:7px;height:7px;border-radius:50%;background:#c3cac6;flex:none}
+.dd a.top{font-weight:700}.dd a:hover{background:var(--pale)}.dd a.on{color:var(--accent)}.dd a.on i{background:var(--accent);box-shadow:0 0 0 3px #f1dfe4}
+@media(max-width:1000px){:root{--sticky-offset:92px}}
+@media print{.dd,.ni-c{display:none}}
+/* infographic popups */
+.pi{display:grid;gap:12px}
+.pi-obj{margin:0;background:#e7f2ee;border:1px solid #cfe3dc;padding:9px 12px;font-size:15px;color:#1d5548}.pi-obj b{display:block;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+.pi-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}.pi-stats div{border:1px solid var(--line);background:#fff;padding:9px 11px}.pi-stats b{display:block;font-size:21px;line-height:1.15}.pi-stats span{font-size:12.5px;color:var(--muted)}.pi-stats .acc{background:var(--pale);border-color:#e7c9d1}.pi-stats .acc b{color:var(--accent)}
+.pi-panel{border:1px solid var(--line);background:#fcfcfb;padding:10px 12px}.pi h5{margin:0 0 7px;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate)}
+.pi-t{width:100%;border-collapse:collapse;font-size:13.5px}.pi-t th{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);text-align:left;border-bottom:2px solid var(--line);padding:4px 6px}.pi-t td{border-top:1px solid var(--line);padding:5px 6px;vertical-align:top}.pi-t .own{color:var(--teal);font-weight:700}.pi-t tr.hl td{background:var(--gold-pale)}
+.pi-flow{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;counter-reset:pf}.pi-flow li{flex:1 1 110px;counter-increment:pf;background:#fff;border:1px solid var(--line);padding:8px 10px;position:relative;font-size:13px}.pi-flow li:before{content:counter(pf);display:block;font-size:11px;font-weight:700;color:var(--accent)}.pi-flow b{display:block;font-size:14px}.pi-flow span{color:var(--muted)}
+.pi-flow li:not(:last-child):after{content:"›";position:absolute;right:-9px;top:50%;transform:translateY(-50%);color:#9aa4a9;font-weight:700;font-size:17px}
+.pi-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pi-two{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line)}.pi-two>div{padding:10px 12px}.pi-two .do{background:#e7f2ee}.pi-two .ctl{background:var(--gold-pale);border-left:1px solid var(--line)}.pi-two .do h5{color:var(--teal)}.pi-two .ctl h5{color:var(--gold)}.pi-two ul{margin:0;padding-left:17px;font-size:13.5px}.pi-two li{margin:3px 0}
+.pi-pills{display:flex;flex-wrap:wrap;gap:6px}.pi-pills span{font-size:12.5px;padding:3px 10px;border:1px solid #cfe3dc;background:#e7f2ee;color:#1d5548;border-radius:12px}
+.pi-note{font-size:12.5px;color:var(--muted);margin:7px 0 0}
+.pi-ev{border:1px dashed #c9cfcc;background:#f8f9f8;padding:10px 12px}.pi-ev ul{margin:0;padding-left:17px;font-size:13.5px}.pi-ev li{margin:3px 0}
+.pi .ex{margin:0}
+@media(max-width:700px){.pi-row,.pi-two{grid-template-columns:1fr}.pi-two .ctl{border-left:0;border-top:1px solid var(--line)}}
+/* area cards with objectives */
+.area em.obj{font-style:normal;font-size:13.5px;color:var(--teal);border-top:0;padding-top:0;margin-top:0}
+.area .chips{display:flex;flex-wrap:wrap;gap:4px}.area .chips small{font-size:11.5px;background:var(--soft);border:1px solid var(--line);padding:1px 8px;border-radius:10px;color:#3a464d}
+.area:after{content:"Open infographic ›"}
+/* lanes and gantt */
+.lane{border:1px solid var(--line);background:var(--paper);margin-top:12px}.lane-h{margin:0;padding:7px 14px;font-size:12.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}.lane.a .lane-h{background:#e7f2ee;color:var(--teal)}.lane.b .lane-h{background:#e8eef4;color:var(--slate)}.lane>.phases,.lane>.gantt,.lane>.src{margin:12px 14px}
+.gt{font-size:13.5px;overflow-x:auto}.gt-h,.gt-r{display:grid;grid-template-columns:minmax(200px,1.4fr) minmax(260px,2fr) 80px minmax(150px,1fr);gap:10px;align-items:center;padding:5px 0;border-bottom:1px solid var(--line);min-width:700px}.gt-h{font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.gt-wk{display:grid;grid-template-columns:repeat(12,1fr);gap:2px}.gt-h .gt-wk i{font-style:normal;text-align:center}.gt-r .gt-wk i{height:16px;background:#eef0ee}.gt-r .gt-wk i.on{background:var(--slate)}.gt-r.tot{border-bottom:0}
+@media print{.pi-row{grid-template-columns:1fr 1fr}.lane{break-inside:avoid}.gt-h,.gt-r{min-width:0}}
+.ctx{margin-top:12px;display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-left:5px solid var(--slate);background:var(--paper);padding:10px 14px;font-size:15px}.ctx>b{flex:none;font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--slate);padding-top:2px}
+.ol-facts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.ol-facts div{border:1px solid var(--line);border-top:4px solid var(--slate);background:var(--paper);padding:10px 12px}.ol-facts div.dn{border-top-color:#b4232c}.ol-facts div.up{border-top-color:var(--teal)}.ol-facts b{display:block;font-size:24px;line-height:1.15}.ol-facts .dn b{color:#b4232c}.ol-facts span{display:block;font-size:13.5px}.ol-facts small{display:block;font-size:11.5px;color:var(--muted);margin-top:4px}
+.ol-two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.olt{font-size:14px}
+.trigs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.trigs div{border:1px solid var(--line);background:var(--paper);padding:10px 12px;font-size:13.5px}.trigs time{display:inline-block;background:var(--slate);color:#fff;font-size:12px;font-weight:700;padding:2px 8px}.trigs b{display:block;margin:5px 0 4px;font-size:14.5px}.trigs span{display:block;margin-top:4px}.trigs i{display:block;font-style:normal;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.tiers{display:grid;gap:8px}.tiers div{display:grid;grid-template-columns:90px 1fr;gap:12px;align-items:center;border:1px solid var(--line);background:var(--paper);padding:9px 12px;font-size:14.5px}.tiers b{text-align:center;font-size:12px;letter-spacing:.07em;text-transform:uppercase;padding:4px 0}.t-hi b{background:var(--pale);color:#b4232c}.t-md b{background:var(--gold-pale);color:var(--gold)}.t-lo b{background:#e7f2ee;color:var(--teal)}
+@media(max-width:1000px){.ol-facts{grid-template-columns:repeat(2,minmax(0,1fr))}.ol-two{grid-template-columns:1fr}.trigs{grid-template-columns:repeat(2,minmax(0,1fr))}.ctx{flex-direction:column;gap:2px}}
+@media(max-width:700px){.ol-facts,.trigs{grid-template-columns:1fr}.tiers div{grid-template-columns:1fr}}
+@media print{.ol-facts{grid-template-columns:repeat(5,1fr)}.ol-two{grid-template-columns:1fr 1fr}.trigs{grid-template-columns:repeat(5,1fr)}.ol-facts,.trigs,.tiers,.olt{break-inside:avoid}}
+@media print{.pa-item{break-inside:auto!important}.pa-item h3{break-after:avoid}.pi-panel,.pi-two,.pi-stats,.pi-ev,.pi-obj{break-inside:avoid}.lede,.areas{break-inside:auto}.ol-two .rp-svg{max-height:170px}.chart .rp-svg{max-height:190px}#raci-h{break-before:auto}.olt,.trigs{break-inside:auto}.olt tr,.trigs div{break-inside:avoid}}
 /* sample reports */
 .rp-grid{display:grid;grid-template-columns:230px minmax(0,1fr);gap:20px;align-items:start}
 .rp-pick{display:grid;gap:8px;position:sticky;top:calc(var(--sticky-offset) + 8px)}
@@ -183,6 +239,37 @@ body.rp-print .rp-cover{padding-top:120px}body.rp-print .rp-cover h3{font-size:3
 @media(max-width:900px){.rp-rule{grid-template-columns:1fr}.rp-grp{grid-column:1/-1}}
 body.rp-print.hio .rp-svg{max-height:140px}body.rp-print.hio .rp-head h3{font-size:22px}body.rp-print.hio .rp-tile b{font-size:17px}body.rp-print.hio .rp-sec{margin-top:8px}body.rp-print.hio .rp-sum li{margin:1px 0}body.rp-print.hio .rp-t td{padding-top:3px;padding-bottom:3px}
 body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-print.hio .rp-note{break-before:avoid}
+/* ===== infographic reports ===== */
+.ig .rp-head h3{margin-bottom:6px}
+.ig-meta{display:flex;flex-wrap:wrap;gap:4px 18px;margin:0 0 4px;font-size:13.5px;color:var(--muted)}.ig-meta b{color:var(--ink);font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;margin-right:4px}
+.ig-glance{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.ig-g{display:grid;grid-template-columns:34px 1fr;grid-template-rows:auto auto;column-gap:10px;align-items:start;padding:12px 14px;border:1px solid var(--line);border-left:6px solid var(--slate);background:#fff}
+.ig-g i{grid-row:1/3;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:700;font-size:17px;color:#fff;background:var(--slate);font-family:Arial,sans-serif}
+.ig-g b{font-size:24px;line-height:1.1}.ig-g span{font-size:14px;color:#3a464d}
+.ig-g.ok{border-left-color:#2f7d6d}.ig-g.ok i{background:#2f7d6d}.ig-g.warn{border-left-color:#a5762a}.ig-g.warn i{background:#a5762a}.ig-g.bad{border-left-color:#b4232c}.ig-g.bad i{background:#b4232c}.ig-g.bad b{color:#b4232c}
+.ig-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;align-items:stretch;margin-top:8px}
+.ig-ring{text-align:center;border:1px solid var(--line);background:#fff;padding:8px 6px}.ig-ring svg{width:104px;height:104px;display:block;margin:0 auto}.ig-rt{font-size:22px;font-weight:700;fill:#1f2a30;font-family:Cambria,Georgia,serif}.ig-ring b{display:block;font-size:13.5px}.ig-ring small{display:block;font-size:12px;color:var(--muted)}
+.ig-big{border:1px solid var(--line);border-top:4px solid var(--slate);background:#fff;padding:12px 12px;display:flex;flex-direction:column;justify-content:center}.ig-big b{font-size:28px;line-height:1.1}.ig-big span{font-size:13.5px;font-weight:700}.ig-big small{font-size:12px;color:var(--muted)}
+.ig-big.ok{border-top-color:#2f7d6d}.ig-big.warn{border-top-color:#a5762a}.ig-big.bad{border-top-color:#b4232c}.ig-big.bad b{color:#b4232c}.ig-big.info{border-top-color:var(--slate)}
+.ig-bar{display:grid;grid-template-columns:1fr;gap:4px;margin:2px 0 4px}.ig-bar span{font-weight:700;font-size:15px}.ig-bar div{height:18px;background:#e8ebe9;position:relative}.ig-bar div i{display:block;height:100%}.ig-bar div:after{content:"";position:absolute;left:58.3%;top:-4px;bottom:-4px;border-left:2px dashed #1f2a30}.ig-bar small{font-size:12.5px;color:var(--muted)}
+.ig-prog{display:grid;gap:7px}.ig-pr{display:grid;grid-template-columns:210px 1fr 60px;gap:10px;align-items:center;font-size:14px}.ig-pr>div{display:flex;height:24px;background:#eef0ee}.ig-pr>div i{display:flex;align-items:center;justify-content:center;color:#fff;font-style:normal;font-size:12px;font-weight:700;overflow:hidden}.ig-pr>b{text-align:right}
+.ig-checks{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.ig-checks li{display:grid;grid-template-columns:26px 1fr;gap:8px;align-items:start;border:1px solid var(--line);background:#fff;padding:8px 10px}
+.ig-checks i{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:700;color:#fff;font-family:Arial,sans-serif;font-size:14px;background:#2f7d6d}.ig-checks .warn i{background:#a5762a}.ig-checks .bad i{background:#b4232c}.ig-checks b{display:block;font-size:14px}.ig-checks small{font-size:12.5px;color:var(--muted)}
+.ig-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}.ig-c{border:1px solid var(--line);border-top:4px solid var(--slate);background:#fff;padding:10px 12px}.ig-c em{display:block;font-style:normal;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--slate)}.ig-c b{display:block;font-size:15px;line-height:1.3;margin:3px 0}.ig-c span{font-size:13px;color:var(--muted)}
+.ig-c.bad{border-top-color:#b4232c}.ig-c.bad em{color:#b4232c}.ig-c.warn{border-top-color:#a5762a}.ig-c.warn em{color:#a5762a}.ig-c.ok{border-top-color:#2f7d6d}.ig-c.ok em{color:#2f7d6d}
+.ig-when{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}.ig-when li{border:1px solid var(--line);background:#fff;padding:10px 12px;position:relative}.ig-when time{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:12.5px;padding:2px 8px;margin-bottom:6px}.ig-when b{display:block;font-size:14.5px;line-height:1.3}.ig-when small{font-size:12.5px;color:var(--muted)}
+.ig-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;counter-reset:st}.ig-steps li{counter-increment:st;position:relative;border:1px solid var(--line);border-left:0;background:#fff;padding:10px 10px 10px 12px}.ig-steps li:first-child{border-left:1px solid var(--line)}.ig-steps li:before{content:counter(st);display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--slate);color:#fff;font-size:12px;font-weight:700;margin-bottom:4px}
+.ig-steps b{display:block;font-size:15px}.ig-steps span{display:block;font-size:13px}.ig-steps small{display:block;font-size:12px;color:var(--teal);margin-top:3px}
+.ig-strip{display:flex;height:34px;border:1px solid var(--line)}.ig-strip i{display:flex;align-items:center;justify-content:center;color:#fff;font-style:normal}.ig-strip b{font-size:14px}
+.ig-strip-k{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:8px}.ig-strip-k div{display:grid;grid-template-columns:14px 1fr;column-gap:8px;font-size:13px}.ig-strip-k i{grid-row:1/4;width:14px;height:14px;margin-top:3px}.ig-strip-k b{font-size:14px}.ig-strip-k span{font-weight:700}.ig-strip-k small{color:var(--muted)}
+.ig .rp-foot{font-size:11.5px}
+@media(max-width:900px){.ig-glance{grid-template-columns:1fr}.ig-checks{grid-template-columns:1fr}.ig-pr{grid-template-columns:1fr 50px}.ig-pr>span{grid-column:1/-1}.ig-steps{grid-template-columns:1fr}.ig-steps li,.ig-steps li:first-child{border-left:1px solid var(--line);border-top:0}.ig-steps li:first-child{border-top:1px solid var(--line)}.ig-strip-k{grid-template-columns:1fr}.ig-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+body.rp-print .ig-glance{grid-template-columns:repeat(3,1fr)!important}body.rp-print .ig-checks{grid-template-columns:repeat(2,1fr)!important}body.rp-print .ig-steps{grid-template-columns:repeat(5,1fr)!important}body.rp-print .ig-row{grid-template-columns:repeat(4,1fr)!important}body.rp-print .ig-ring svg{width:80px;height:80px}body.rp-print .ig-g b{font-size:19px}body.rp-print .ig-big b{font-size:21px}
+.ig-hb{display:grid;gap:6px}.ig-hr{display:grid;grid-template-columns:minmax(120px,240px) 1fr;gap:10px;align-items:center;font-size:14px}.ig-hr>span{text-align:right;color:#3a464d}.ig-hr>div{display:flex;align-items:center;gap:8px}.ig-hr i{display:block;height:20px;border-radius:2px}.ig-hr b{font-size:13.5px;white-space:nowrap}
+@media(max-width:700px){.ig-hr{grid-template-columns:1fr;gap:2px}.ig-hr>span{text-align:left;font-size:13px}.ig .rp-sec{overflow-x:auto}.ig .rp-svg{min-width:520px}.ig .rp-leg{min-width:0}}
+body.rp-print .ig-hr i{height:14px}body.rp-print .ig-hb{gap:3px}
+body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-print .ig-pr>span{grid-column:auto!important}body.rp-print .ig-strip-k{grid-template-columns:repeat(3,1fr)!important}body.rp-print .ig-hr{grid-template-columns:200px 1fr!important}body.rp-print .ig-hr>span{text-align:right!important}body.rp-print .ig-steps li{border-top:1px solid var(--line)!important;border-left:0!important}body.rp-print .ig-steps li:first-child{border-left:1px solid var(--line)!important}body.rp-print .ig .rp-svg{min-width:0!important}
+@media print{.ig-pr{grid-template-columns:200px 1fr 50px}.ig-pr>span{grid-column:auto}.ig-hr{grid-template-columns:200px 1fr}.ig-hr>span{text-align:right}.ig-strip-k{grid-template-columns:repeat(3,1fr)}.ig-glance{grid-template-columns:repeat(3,1fr)}.ig-checks{grid-template-columns:repeat(2,1fr)}.ig-row{grid-template-columns:repeat(4,1fr)}.ig-steps{grid-template-columns:repeat(5,1fr)}.ig .rp-svg{min-width:0}}
 </style>
 </head>
 <body>
@@ -206,7 +293,7 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
 
 <main id="main">
 <!-- ================= OVERVIEW ================= -->
-<section id="overview" class="sec wrap">
+<section id="overview" class="sec wrap" data-s="Summary">
   <p class="kick">Proposed operating model for the Harvard International Office · prepared by an applicant</p>
   <h1>Accurate records, current systems and a team that stays ahead of the calendar</h1>
   <p class="lede">HIO is the link between Harvard’s international students and scholars and the federal agencies that govern their status. This role keeps the <button class="tm" data-t="sevis">SEVIS</button> records, the <button class="tm" data-t="issm">ISSM/ISD</button> system, the billing and the operations team behind that work accurate and on time. Below is how I would run it, with seven sample reports built on synthetic data sized to HIO.</p>
@@ -217,9 +304,10 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
     <div><b>4,531</b><span>international scholars</span></div>
     <div><b>150</b><span>countries represented</span></div>
   </div>
-  <p class="src">Published counts from HIO’s statistics page (hio.harvard.edu/statistics), which notes they are for reference and not official University data. Every other figure here is synthetic.</p>
+  <p class="src">Published counts from HIO’s statistics page (hio.harvard.edu/statistics), which notes they are for reference and not official University data. Every other HIO figure here is synthetic.</p>
+  <div class="ctx"><b>Context for planning</b><span>Nationally, international enrollment fell <b>2.7%</b> in 2025/26 and new international students fell <b>17.7%</b>, while OPT rose <b>14.1%</b> (Open Doors 2026). Harvard reported a record <b>6,749</b> international students in fall 2025. <a href="#sx-out">See the three-year outlook</a>.</span></div>
 
-  <h3 class="h2">If you have five minutes</h3>
+  <h3 id="sx-5" data-s="Five minutes" class="h2">If you have five minutes</h3>
   <div class="path">
     <a href="#e" data-rep="lead"><span>1</span><b>Leadership dashboard</b><small>One page for the Director: registration, service levels, billing and the decisions due</small></a>
     <a href="#e" data-rep="reg"><span>2</span><b>Spring registration report</b><small>Daily progress to the federal deadline, every exception with an owner</small></a>
@@ -227,14 +315,14 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
     <a href="#r"><span>4</span><b>Fit and one honest gap</b><small>Where I have done this work, and how I close the SEVIS gap</small></a>
   </div>
 
-  <h3 class="h2">What I would do first</h3>
+  <h3 id="sx-first" data-s="First moves" class="h2">What I would do first</h3>
   <ol class="first">
     <li><b>Protect the federal calendar.</b> Map every registration, reporting and batch deadline for the year, with an owner and a check before each one.</li>
     <li><b>Make the School data clean on arrival.</b> One crosswalk from each School’s Slate or SIS codes to SEVIS, so records match before any I-20 or DS-2019 is drafted.</li>
     <li><b>Give the Director one view.</b> A weekly leadership dashboard and a release gate for every ISSM upgrade, so decisions come with numbers.</li>
   </ol>
 
-  <h3 class="h2">Mission and values in the daily work</h3>
+  <h3 id="sx-mv" data-s="Mission and values" class="h2">Mission and values in the daily work</h3>
   <div class="mission">
     <p>HIO supports Harvard’s teaching and research mission by serving international students and scholars and acting as their liaison with U.S. government agencies. Harvard’s five community values set how that work is done.</p>
   </div>
@@ -248,35 +336,64 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
 </section>
 
 <!-- ================= S ================= -->
-<section id="s" class="sec wrap">
+<section id="s" class="sec wrap" data-s="Work areas">
   <p class="kick">S · Specifically</p>
   <h2>The role in seven work areas</h2>
-  <p class="lede sm">Each card names what I would own and the control that keeps it right. Open a card for how I would run it and where I have done the same work.</p>
+  <p class="lede sm">Each card names the control objective. Open one for an infographic of how I would run it, the control that keeps it right, and where I have done the same work.</p>
   <div class="areas">
-    <button class="area" data-pop="p-comp"><i>1</i><b>SEVIS data integrity</b><span>Registration, record updates, DSO and ARO duties, travel signatures</span><em>Control · no batch goes out unchecked and every SEVIS response is reviewed</em></button>
-    <button class="area" data-pop="p-sys"><i>2</i><b>ISSM/ISD ownership</b><span>Configuration, upgrades, vendor and HUIT coordination</span><em>Control · a written release gate before production</em></button>
-    <button class="area" data-pop="p-xch"><i>3</i><b>School data exchange</b><span>Slate and School systems, imports, automation</span><em>Control · one crosswalk, mismatches go to a person</em></button>
-    <button class="area" data-pop="p-rep"><i>4</i><b>Reporting and analytics</b><span>Leadership dashboards, statistical reports, SQL for legal and compliance requests</span><em>Control · every number ties to a saved query</em></button>
-    <button class="area" data-pop="p-fin"><i>5</i><b>Billing and finance</b><span>Visa, OPT and hospital billing, fee collection and the payer experience, accruals, disputes</span><em>Control · every invoice ties to a completed case</em></button>
-    <button class="area" data-pop="p-team"><i>6</i><b>Team and office operations</b><span>A team of three to five, training, process improvement</span><em>Control · one queue, owners and ages visible</em></button>
-    <button class="area" data-pop="p-sec"><i>7</i><b>Data security</b><span>Security lead with the Security Insiders group</span><em>Control · quarterly access review, least privilege</em></button>
+    <button class="area" data-pop="p-comp"><i>01</i><b>SEVIS data integrity</b><em class="obj">Objective · No form from an unvalidated record</em><span class="chips"><small>Students</small><small>Scholars</small><small>Dependents</small><small>OPT</small></span></button>
+    <button class="area" data-pop="p-sys"><i>02</i><b>Systems and vendors</b><em class="obj">Objective · No release or patch reaches production untested</em><span class="chips"><small>Release gate</small><small>Vendors</small><small>Rollback</small></span></button>
+    <button class="area" data-pop="p-xch"><i>03</i><b>School data exchange</b><em class="obj">Objective · School files pass on first submission</em><span class="chips"><small>Crosswalk</small><small>Validation</small><small>School training</small></span></button>
+    <button class="area" data-pop="p-rep"><i>04</i><b>Reporting and analytics</b><em class="obj">Objective · One number everywhere, documented on request</em><span class="chips"><small>Dashboard</small><small>Saved SQL</small><small>OPT</small><small>Outlook</small></span></button>
+    <button class="area" data-pop="p-fin"><i>05</i><b>Billing and finance</b><em class="obj">Objective · Every dollar traces to a completed case</em><span class="chips"><small>$300K to $500K</small><small>Fees</small><small>Accruals</small><small>Disputes</small></span></button>
+    <button class="area" data-pop="p-team"><i>06</i><b>Team and office operations</b><em class="obj">Objective · Every person has a plan and a named backup</em><span class="chips"><small>3 to 5 staff</small><small>Development</small><small>Office ops</small></span></button>
+    <button class="area" data-pop="p-sec"><i>07</i><b>Data security</b><em class="obj">Objective · Least privilege, reviewed every quarter</em><span class="chips"><small>Access review</small><small>Training</small><small>Vendors</small></span></button>
   </div>
 
-  <h3 class="h2" id="xw">From a School record to a clean I-20 or DS-2019</h3>
+  <h3 class="h2" id="sx-pop" data-s="Populations">Students, scholars and dependents, each on its own track</h3>
+  <p class="lede sm">Students are the largest group, but scholars and dependents have different forms, deadlines and data. A separate track for each means a student deadline never crowds out a scholar one, and dependents are never an afterthought in the batch.</p>
+  <div class="pops">
+    <div class="pop-c st"><p>Students · F-1 and J-1</p><b>5,627</b><dl><dt>Forms</dt><dd>I-20, student DS-2019</dd><dt>Deadlines</dt><dd>Registration within 30 days of each start, OPT windows, program extensions before the end date</dd><dt>Data</dt><dd>School enrollment, program, funding</dd><dt>Owner</dt><dd>Advisors, with operations for batches</dd></dl></div>
+    <div class="pop-c sc"><p>Scholars · J-1 and H-1B</p><b>4,531</b><dl><dt>Forms</dt><dd>Scholar DS-2019 by J category, H-1B petition support</dd><dt>Deadlines</dt><dd>Validation within 30 days of program begin, category end dates, extensions before expiry</dd><dt>Data</dt><dd>Appointment, department funding, host contact</dd><dt>Owner</dt><dd>Scholar advisors, with departments</dd></dl></div>
+    <div class="pop-c dp"><p>Dependents · F-2 and J-2</p><b>about 2,300</b><dl><dt>Forms</dt><dd>Dependent I-20 or DS-2019, issued with the principal</dd><dt>Deadlines</dt><dd>Updated in the same batch as any change to the principal’s record</dd><dt>Data</dt><dd>Relationship, passport, funding counted in the principal’s cost</dd><dt>Owner</dt><dd>The principal’s advisor</dd></dl></div>
+  </div>
+  <p class="src">Student and scholar totals are HIO’s published counts. The dependent count is synthetic. Control: one population matrix, each track with its own form type, deadline list and owner, reviewed at the same weekly huddle.</p>
+  <h3 class="h2" id="xw" data-s="Record to form">From a School record to a clean I-20 or DS-2019</h3>
   <p class="lede sm">Most form errors start in the file a School sends. Every record passes five steps before an advisor drafts a form, and anything that fails goes back to the School contact with the reason. Counts are from the sample <a href="#e" data-rep="xch">data exchange reconciliation</a>.</p>
   <div class="pipe" id="pipe"></div>
-  <h3 class="h3">The crosswalk: one row per School program</h3>
+  <h3 id="sx-xw2" data-s="Crosswalk" class="h3">The crosswalk: one row per School program</h3>
   <div id="xwalk"></div>
   <p class="src">Program codes, lengths and CIP choices are illustrative, not Harvard’s. Real values come from each School’s registrar and the SEVIS code tables, and every change to the crosswalk is logged with a date and an approver.</p>
-  <h3 class="h3">Six sample records through the checks</h3>
+  <h3 id="sx-rec" data-s="Sample records" class="h3">Six sample records through the checks</h3>
   <div id="xrec"></div>
   <div class="dl" style="margin-top:12px"><button class="btn ghost" data-pop="p-sql">See the validation SQL</button></div>
+  <h3 class="h3" id="sx-trn" data-s="School training">Training the School staff who fill the template</h3>
+  <p class="lede sm">A template only works if admissions and department staff know how to fill it. Repeat errors get fixed in the training, not only in the file.</p>
+  <div class="dev">
+    <div><b>Before each intake</b><span>A short session for School contacts: what each field means, the top five errors last cycle, and who to call.</span></div>
+    <div><b>A quick guide per School</b><span>One page with that School’s program codes, cost table and file dates.</span></div>
+    <div><b>Every return explained</b><span>Each record sent back carries the reason in plain words, and the School contact sees their trend.</span></div>
+    <div><b>A question log</b><span>School questions and repeat errors are logged, and the next session starts with them.</span></div>
+  </div>
+  <h3 class="h3" id="sx-ven" data-s="Vendors">One register for every platform and vendor</h3>
+  <p class="lede sm">ISSM is the core system, but scheduling, training, tax and payment platforms also keep the office running. No vendor installs or patches without a test pass and a rollback plan, and an outage is announced to the office the same day with a named owner.</p>
+  <div class="rp-tw"><table class="score vreg">
+    <thead><tr><th>Platform</th><th>What it does for HIO</th><th>Outage response agreed</th><th>Change calendar</th><th>Last test</th><th>Owner</th></tr></thead>
+    <tbody>
+      <tr><td><b>ISSM/ISD</b> · Ellucian</td><td>Records, forms and SEVIS batches</td><td>4 business hours for critical</td><td>Spring and fall releases</td><td><span class="rp-st warn">Feb 18 · 1 critical</span></td><td>Associate Director</td></tr>
+      <tr><td><b>Appointment scheduling</b></td><td>Advising and travel signature hours</td><td>Next business day</td><td>Vendor monthly</td><td><span class="rp-st ok">Jan 12 · pass</span></td><td>Operations</td></tr>
+      <tr><td><b>Online training platform</b></td><td>Staff and School contact training</td><td>Next business day</td><td>Vendor quarterly</td><td><span class="rp-st ok">Dec 4 · pass</span></td><td>Operations</td></tr>
+      <tr><td><b>Nonresident tax software</b></td><td>Tax filing support for students and scholars</td><td>Same day in tax season</td><td>Yearly, before February</td><td><span class="rp-st ok">Jan 26 · pass</span></td><td>Associate Director</td></tr>
+      <tr><td><b>Online payment</b></td><td>Individual visa and OPT fees</td><td>4 business hours</td><td>With Campus Services Finance</td><td><span class="rp-st ok">Jan 8 · pass</span></td><td>Associate Director</td></tr>
+    </tbody>
+  </table></div>
+  <p class="src">Platform names other than Ellucian are generic and the entries are synthetic. The register is reviewed every quarter with HUIT.</p>
 </section>
 
 <!-- ================= M ================= -->
-<section id="m" class="sec wrap">
+<section id="m" class="sec wrap" data-s="Ten measures">
   <p class="kick">M · Measurably</p>
-  <h2>Nine measures, a baseline and a target for each</h2>
+  <h2>Ten measures, a baseline and a target for each</h2>
   <p class="lede sm">Baselines are synthetic. In the role I would set real ones in the first 30 days and agree the targets with the Director. Definitions are in the <button class="tm" data-t="dict">data dictionary</button>.</p>
   <div class="rp-tw"><table class="score">
     <thead><tr><th>Measure</th><th class="n">Baseline</th><th class="n">Day 90</th><th class="n">Month 12</th></tr></thead>
@@ -284,6 +401,7 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
       <tr><td>Students <button class="tm" data-t="reg">registered</button> in SEVIS by the federal deadline</td><td class="n">99.2%</td><td class="n">100%</td><td class="n">100%</td></tr>
       <tr><td>SEVIS <button class="tm" data-t="batch">batch</button> responses reviewed within one business day</td><td class="n">91%</td><td class="n">100%</td><td class="n">100%</td></tr>
       <tr><td>School records matched automatically</td><td class="n">86%</td><td class="n">93%</td><td class="n">96%</td></tr>
+      <tr><td>School files passing validation on first submission</td><td class="n">not tracked</td><td class="n">70%</td><td class="n">85%</td></tr>
       <tr><td><button class="tm" data-t="sig">Travel signature</button>, median business days</td><td class="n">3</td><td class="n">2</td><td class="n">2</td></tr>
       <tr><td><button class="tm" data-t="opt">OPT</button> recommendation, median business days</td><td class="n">6</td><td class="n">5</td><td class="n">4</td></tr>
       <tr><td>Billable services invoiced within 10 days</td><td class="n">78%</td><td class="n">90%</td><td class="n">95%</td></tr>
@@ -296,7 +414,7 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
 </section>
 
 <!-- ================= A ================= -->
-<section id="a" class="sec wrap">
+<section id="a" class="sec wrap" data-s="Automation">
   <p class="kick">A · Achievably</p>
   <h2>120 hours a month back to the team, with a person on every judgment call</h2>
   <p class="lede sm">Five automations move the manual load from 310 to 190 hours a month. None of them makes a status decision. Each one prepares the work and routes the exceptions to a person.</p>
@@ -312,15 +430,22 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
       <tr><td><b>Total</b></td><td class="n"><b>120</b></td><td></td></tr>
     </tbody>
   </table></div>
-  <h3 class="h3">Developing the team that does the work</h3>
+  <h3 id="sx-dev" data-s="Developing the team" class="h3">Developing the team that does the work</h3>
   <div class="dev">
-    <div><b>Clear goals</b><span>Each person’s goals tie to the nine measures, agreed in the first month.</span></div>
+    <div><b>Clear goals</b><span>Each person’s goals tie to the ten measures, agreed in the first month.</span></div>
     <div><b>Regular coaching</b><span>One-on-ones every two weeks, with the queue and one growth topic.</span></div>
     <div><b>Growth paths</b><span>A development plan per person, from NAFSA courses to SEVIS batch and billing cross-training.</span></div>
     <div><b>Fair reviews</b><span>Mid-year and year-end reviews through Harvard’s process, with the team’s improvements credited by name.</span></div>
   </div>
   <p class="src">Experience behind it: as Associate Director at UAMS from 2008 to 2016, I hired, supervised, reviewed and mentored staff.</p>
-  <h3 class="h3">How the plan stays achievable</h3>
+  <h3 class="h3" id="sx-off" data-s="Office operations">Office operations, owned through the team</h3>
+  <div class="offops">
+    <div><b>Onboarding and offboarding</b><span>With HR and HUIT, access granted on day one and removed within a week of leaving</span></div>
+    <div><b>Records retention</b><span>A retention and archiving schedule with a named owner, checked yearly</span></div>
+    <div><b>Technology refresh</b><span>Laptops, scanners and signature tools replaced on a set cycle</span></div>
+    <div><b>Office invoices</b><span>Purchases and vendor invoices processed and coded on time</span></div>
+  </div>
+  <h3 id="sx-ach" data-s="Keeping it achievable" class="h3">How the plan stays achievable</h3>
   <ul class="ticks">
     <li>No system change during arrival peaks in August, September and January.</li>
     <li>Every change is tried in the test environment first, one change at a time.</li>
@@ -329,7 +454,7 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
 </section>
 
 <!-- ================= R ================= -->
-<section id="r" class="sec wrap">
+<section id="r" class="sec wrap" data-s="Evidence">
   <p class="kick">R · Relevantly</p>
   <h2>Where I have already done this work</h2>
   <div class="rp-tw"><table class="score fit">
@@ -340,15 +465,19 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
       <tr><td><b>SQL reporting and ad-hoc requests</b></td><td>Wrote back-end reports in <b>SQL</b>, Python, R and Crystal Reports for 50+ Faculty Affairs departments. Ad-hoc requests fell from 300 to 400 a year to under 100 after the DataHub went live.</td></tr>
       <tr><td><b>Leadership reporting</b></td><td>Produced all Faculty Affairs reporting and meeting materials for deans, visiting committees and the governance office, in Oracle BI and Power BI.</td></tr>
       <tr><td><b>Billing, payments and reconciliation</b></td><td>Campaign reporting at Phillips Academy reconciled to the General Ledger with the Comptroller’s office. At UAMS, 20,000+ gift transactions a year, and piloted and managed online giving with iModules and CyberSource, front end and back end.</td></tr>
-      <tr><td><b>Regulated data</b></td><td>Wrote record-keeping policies meeting IRS, FASB/GASB, CASE and HIPAA standards and documented the controls auditors reviewed. Protected confidential faculty records at FAS with role- and hierarchy-based access.</td></tr>
+      <tr><td><b>Regulated data and records retention</b></td><td>Wrote record-keeping policies meeting IRS, FASB/GASB, CASE and HIPAA standards and documented the controls auditors reviewed. Protected confidential faculty records at FAS with role- and hierarchy-based access.</td></tr>
       <tr><td><b>Supervising and developing staff</b></td><td>As Associate Director at UAMS from 2008 to 2016, hired, supervised, reviewed and mentored staff, and led a team of three through a campaign and a database conversion at the same time. Trained users on every new system and report.</td></tr>
+      <tr><td><b>Training School and department staff</b></td><td>Trained users at each of three system conversions, including the move of departmental reporting to HART self-service for deans, chairs and administrators across 50+ departments.</td></tr>
+      <tr><td><b>Vendor management</b></td><td>Worked with the vendors through setup, data migration, testing and cutover on two platform conversions, and with iModules and CyberSource on the UAMS online giving pilot.</td></tr>
+      <tr><td><b>Faculty and appointment records</b></td><td>Supported faculty searches, offer letters, and appointment and promotion processes at FAS Faculty Affairs.</td></tr>
+      <tr><td><b>Surveys and program data</b></td><td>Delivered 360° evaluations across residency, faculty and patient-satisfaction programs at the UAMS College of Medicine, cleaning and analyzing the survey data in SAS and SPSS.</td></tr>
       <tr><td><b>Process redesign</b></td><td>Redesigned Faculty Affairs appointment and promotion processes at FAS. Plans work in Jira and Trello.</td></tr>
       <tr><td><b>International partners</b></td><td>International Coordinator at UNCTAD Trade Point Thailand, serving small and medium-sized businesses and partner contacts across countries.</td></tr>
     </tbody>
   </table></div>
-  <div class="gap">
+  <div class="gap" id="sx-gap" data-s="SEVIS gap">
     <b>One honest gap · SEVIS and DSO practice</b>
-    <p>I have not served as a DSO or ARO, and the role depends on that service. I would close the gap on a fixed schedule and take on signing duties only after designation and the Director’s approval.</p>
+    <p>I have not served as a DSO or ARO, and the role depends on that service. I am a U.S. citizen, so I am eligible for DSO and ARO designation and need no visa sponsorship. I would close the gap on a fixed schedule and take on signing duties only after designation and the Director’s approval.</p>
     <ol class="gap-steps">
       <li><span>Before day 1</span><b>SEVP’s free DSO training</b>SEVIS Training for School Officials and the SEVP External Training Application courses</li>
       <li><span>Days 1 to 30</span><b>NAFSA e-Learning</b>F-1 Advising: Getting Started and J-1 Advising: Getting Started</li>
@@ -360,23 +489,42 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
 </section>
 
 <!-- ================= T ================= -->
-<section id="t" class="sec wrap">
+<section id="t" class="sec wrap" data-s="First 90 days">
   <p class="kick">T · Time-bound</p>
-  <h2>First 90 days, three gates</h2>
+  <h2>First 90 days, two lanes</h2>
+  <p class="lede sm">Steady-state operations cannot slip while the improvements land. Lane A keeps the office running, Lane B delivers the changes, and each phase ends with a gate the Director can check.</p>
+  <div class="lane a"><p class="lane-h">Lane A · Steady-state operations, cannot slip</p>
   <div class="phases">
-    <div><span>Days 1 to 30</span><b>Learn and baseline</b><ul><li>Meet each School contact, HUIT, Campus Services Finance and the hospitals</li><li>Map the federal and HIO calendar with owners</li><li>Set real baselines for the nine measures</li><li>SEVP training for school officials</li></ul><em>Gate · baselines and calendar approved by the Director</em></div>
-    <div><span>Days 31 to 60</span><b>Fix the flow</b><ul><li>Build the School crosswalk and import validation</li><li>Write the ISSM release gate and test plan</li><li>Start the weekly leadership dashboard</li><li>Tie billing to the service log</li></ul><em>Gate · first clean registration batch and a release decision made with the gate</em></div>
-    <div><span>Days 61 to 90</span><b>Run and hand over</b><ul><li>Two automations live with guardrails</li><li>First quarterly access review and accrual</li><li>Team trained on the new steps and quick guides</li><li>90-day review against the targets</li></ul><em>Gate · day 90 targets met or a written reason and a new date</em></div>
-  </div>
-  <h3 class="h2" id="wheel-h">Four calendars on one wheel</h3>
+    <div><span>Days 1 to 30</span><b>Learn and baseline</b><ul><li>Meet each School contact, HUIT, Campus Services Finance and the hospitals</li><li>Map the federal and HIO calendar with owners</li><li>Set real baselines for the ten measures from a two-week time sample</li><li>SEVP and NAFSA training</li></ul><em>Gate · baselines and calendar approved by the Director</em></div>
+    <div><span>Days 31 to 60</span><b>Run the rhythm</b><ul><li>Weekly leadership dashboard</li><li>First School training session before the next intake</li><li>Shadow advisors through registration and OPT</li></ul><em>Gate · first clean registration batch on the new checks</em></div>
+    <div><span>Days 61 to 90</span><b>Hold and hand over</b><ul><li>First quarterly access review and accrual</li><li>Team trained on the new steps and quick guides</li><li>90-day review against the targets</li></ul><em>Gate · day 90 targets met, or a written reason and a new date</em></div>
+  </div></div>
+  <div class="lane b"><p class="lane-h">Lane B · Improvement projects, must land</p>
+  <div class="gantt" id="gantt"></div>
+  <p class="src">Effort is in person-days. Lane B totals 34 person-days over 12 weeks, about 3 a week, or 14% of a four-person team’s 240 person-days. Lane A adds about 22 person-days of new work. Estimates would be confirmed with the team in week 1.</p></div>
+  <h3 class="h2" id="wheel-h" data-s="Calendar wheel">Four calendars on one wheel</h3>
   <p class="lede sm">The federal calendar, Harvard’s academic calendar, the Schools’ admissions cycle and HIO’s own operations land on the same weeks. The darker the band, the heavier that calendar is in the month. Choose a month to see what overlaps and how the office stays ahead of it.</p>
   <div class="wheel"><div class="wheel-svg" id="wheel"></div><div class="wheel-panel" id="wpanel" aria-live="polite"></div></div>
   <div class="chart" id="overlap"></div>
   <p class="src">Months are approximate for a large F and J program. Federal timing follows SEVP and USCIS rules as summarized here. School dates differ, so the registration calendar runs by School, not by one date.</p>
+  <h3 class="h2" id="sx-out" data-s="Three-year outlook">Three-year outlook, built on published data</h3>
+  <p class="lede sm">Planning starts from the latest published numbers and three scenarios, so staffing, systems and the billing plan are set before the census, not after it.</p>
+  <div class="ol-facts">
+    <div><b>1,146,163</b><span>international students in the U.S. in 2025/26, down 2.7%</span><small>Open Doors 2026</small></div>
+    <div class="dn"><b>−17.7%</b><span>new international students in 2025/26</span><small>Open Doors 2026</small></div>
+    <div class="up"><b>335,785</b><span>on OPT in 2025/26, up 14.1%</span><small>Open Doors 2026</small></div>
+    <div class="dn"><b>−9% · −15%</b><span>total and new international students, fall 2026 early read</span><small>IIE fall 2026 snapshot</small></div>
+    <div class="up"><b>6,749</b><span>Harvard international students in fall 2025, 28%, a record</span><small>Harvard data, reported by Bloomberg</small></div>
+  </div>
+  <div class="ol-two"><div class="chart" id="ol-nat"></div><div class="chart" id="ol-hio"></div></div>
+  <div id="ol-table"></div>
+  <h3 class="h3" id="sx-trig" data-s="Early signals">Early signals and what each one triggers</h3>
+  <div id="ol-trig"></div>
+  <p class="src">Method: a cohort model in which about 36% of students complete each year and are replaced by new students. Each scenario sets the change in new students, scholars change at a fixed yearly rate, and billing moves with OPT and scholar volumes. The projection starts from HIO’s published counts and is for planning, not a forecast of Harvard’s enrollment.</p>
 </section>
 
 <!-- ================= E ================= -->
-<section id="e" class="sec wrap">
+<section id="e" class="sec wrap" data-s="Seven reports">
   <p class="kick">E · Evaluate</p>
   <h2>Seven sample reports for three audiences</h2>
   <p class="lede sm">Leadership sees results and decisions, with problems already worked. Finance sees billing tied to the service log. The team works from the full queue. All reports are dated February 2027, as they would look about six weeks into the role.</p>
@@ -384,7 +532,7 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
 </section>
 
 <!-- ================= R (readjust) ================= -->
-<section id="rd" class="sec wrap">
+<section id="rd" class="sec wrap" data-s="Change routine">
   <p class="kick">R · Readjust</p>
   <h2>When something changes, a set routine</h2>
   <p class="lede sm">HIO works in a regulatory setting that can change quickly. A change in federal guidance gets the same five steps every time, so the Director has numbers within two days.</p>
@@ -395,7 +543,7 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
     <li><span>Days 3 to 5</span><b>Change</b>Update rules, templates and notices in the test environment first.</li>
     <li><span>Day 10</span><b>Check</b>Confirm every affected record and note what to keep.</li>
   </ol>
-  <h3 class="h3">Two judgment calls the routine does not settle</h3>
+  <h3 id="sx-jc" data-s="Judgment calls" class="h3">Two judgment calls the routine does not settle</h3>
   <p class="lede sm">Most of the work follows a set cycle. These two sample situations, from the sample reports, show how I decide when the rules leave room.</p>
   <div class="jc">
     <div>
@@ -413,7 +561,21 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
       <dt>The call</dt><dd>Recommend billing the issuance work in full, prorating the monthly maintenance to the departure date, and adding partial-term language at renewal. The Director decides, because it sets precedent.</dd></dl>
     </div>
   </div>
-  <h3 class="h3">Risks I would watch</h3>
+  <h3 id="sx-cont" data-s="Continuity" class="h3">Continuity when something breaks</h3>
+  <p class="lede sm">If ISSM is down or a key person is out during a registration peak, the federal deadline does not move. A one-page continuity plan answers four questions, and it is tested once a year and before each peak.</p>
+  <div class="dev cont">
+    <div><b>Who runs the batch</b><span>A named backup for every batch and billing run, trained and with access already granted</span></div>
+    <div><b>Who calls the vendor</b><span>The register lists the contact and the agreed outage response for each platform</span></div>
+    <div><b>What gets paused</b><span>Non-urgent changes and reports stop, deadlines and signatures continue</span></div>
+    <div><b>How the Director is told</b><span>Same day, with the impact on deadlines and the expected fix time</span></div>
+  </div>
+  <h3 id="sx-tier" data-s="Risk tiers" class="h3">How much risk each kind of work can carry</h3>
+  <div class="tiers">
+    <div class="t-hi"><b>High</b><span><strong>Federal deadlines, SEVIS batches, DSO and ARO signatures.</strong> Zero tolerance, a second person checks, and the Director signs any exception.</span></div>
+    <div class="t-md"><b>Medium</b><span><strong>Billing, School data exchange, leadership numbers.</strong> One owner and a documented review before release.</span></div>
+    <div class="t-lo"><b>Low</b><span><strong>Guides, formatting, meeting rhythm.</strong> One owner, changed as needed.</span></div>
+  </div>
+  <h3 id="sx-risk" data-s="Risks" class="h3">Risks I would watch</h3>
   <div class="rp-tw"><table class="score">
     <thead><tr><th>Risk</th><th>Early signal</th><th>Response</th></tr></thead>
     <tbody>
@@ -421,22 +583,23 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
       <tr><td>An ISSM release breaks SEVIS batches</td><td>A critical defect in testing</td><td>No-go, stay on the current version, retest after the patch</td></tr>
       <tr><td>School data drifts from SEVIS codes</td><td>Automatic match rate under 90%</td><td>Fix the crosswalk and send template feedback to the School</td></tr>
       <tr><td>Hospital receivables age</td><td>Any invoice over 60 days</td><td>Contact the hospital, then the dispute steps with the Director</td></tr>
+      <tr><td>System outage or key-person absence at a peak</td><td>Vendor status alert or a missed batch window</td><td>Run the continuity plan: backup runs the batch, vendor called, non-urgent work paused, Director briefed the same day</td></tr>
       <tr><td>Peak workload or a team absence</td><td>Queue items older than five days</td><td>Named backups and a pause on non-urgent changes</td></tr>
     </tbody>
   </table></div>
 </section>
 
 <!-- ================= PLAYBOOK ================= -->
-<section id="pb" class="sec wrap">
+<section id="pb" class="sec wrap" data-s="Partners">
   <p class="kick">Playbook</p>
   <h2>Who HIO works with, and what flows between them</h2>
   <div class="chart hubw" id="hub"></div>
-  <h3 class="h2" id="raci-h">Who does what · <button class="tm" data-t="raci">RACI</button></h3>
+  <h3 class="h2" id="raci-h" data-s="RACI">Who does what · <button class="tm" data-t="raci">RACI</button></h3>
   <p class="lede sm">One accountable owner for each process. Choose a role to see its part.</p>
   <div class="raci-roles" id="raci-roles"></div>
   <div id="raci"></div>
   <p class="src"><b>R</b> does the work · <b>A</b> owns the outcome, one per row · <b>C</b> consulted before · <b>I</b> informed after. Proposed split, to be agreed with the Director.</p>
-  <h3 class="h2">The operating rhythm</h3>
+  <h3 id="sx-rhy" data-s="Rhythm" class="h2">The operating rhythm</h3>
   <div class="rhythm">
     <div><b>Daily</b><span>Run and review SEVIS batches, clear the School import exceptions, check the queue for items over five days</span></div>
     <div><b>Weekly</b><span>Leadership dashboard, team huddle on priorities, service levels against the standard</span></div>
@@ -444,7 +607,7 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
     <div><b>Quarterly</b><span>Accrual to Campus Services Finance, ISSM access review, release planning with HUIT and the vendor</span></div>
     <div><b>Yearly</b><span>Year-end statistics, data security training, review of procedures and quick guides</span></div>
   </div>
-  <h3 class="h2">Take it with you</h3>
+  <h3 id="sx-dl" data-s="Downloads" class="h2">Take it with you</h3>
   <div class="dl">
     <a class="btn" href="HIO_Work_Sample.pdf" target="_blank" rel="noopener">Work sample · PDF</a>
     <a class="btn" href="HIO_Sample_Reports.pdf" target="_blank" rel="noopener">Seven sample reports · PDF</a>
@@ -457,63 +620,87 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
 
 <!-- ================= POPUP CONTENT ================= -->
 <template id="p-comp" data-title="SEVIS data integrity">
-  <p class="pl">SEVIS is the record of each student’s and scholar’s status, so an error is a person’s problem, not a data problem. I would run it as a controlled cycle.</p>
-  <h4>How I would run it</h4>
-  <ul><li>A term calendar of every registration and reporting deadline, with a check date ten days before each one.</li><li>Checks before each <button class="tm" data-t="batch">batch</button>: enrolled in the School’s system, U.S. address present, program end date in the future, reduced course load authorized.</li><li>Every SEVIS batch response reviewed the next business day, and every error resubmitted or assigned.</li><li><button class="tm" data-t="sig">Travel signature</button> hours and a log, so turnaround is measured.</li></ul>
-  <h4>Where I have done this</h4>
-  <p>Nearly twenty years of record integrity under audit, from 20,000+ gift transactions a year under IRS and CASE rules at UAMS to faculty appointment records at FAS. The SEVIS rules are new to me, and the plan to learn them is in <a href="#r" data-close>Relevantly</a>.</p>
+  <div class="pi">
+  <p class="pi-obj"><b>Control objective</b>No I-20 or DS-2019 is issued from a record that has not passed the checks for its population.</p>
+  <div class="pi-stats"><div class="acc"><b>10,158</b><span>visa-sponsored people</span></div><div><b>5,627</b><span>students</span></div><div><b>4,531</b><span>scholars</span></div><div><b>150</b><span>countries</span></div></div>
+  <div class="pi-panel"><h5>Population matrix · each on its own track</h5>
+  <table class="pi-t"><thead><tr><th>Population</th><th>Form</th><th>Key deadline</th><th>Owner</th></tr></thead><tbody>
+  <tr><td>F-1 students</td><td>I-20</td><td>Registration within 30 days of each start</td><td class="own">Advisor</td></tr>
+  <tr><td>J-1 students and scholars</td><td>DS-2019</td><td>Validation within 30 days, category end dates</td><td class="own">Advisor</td></tr>
+  <tr><td>H-1B faculty and researchers</td><td>Petition records</td><td>Extension before the end date</td><td class="own">Scholar advisor</td></tr>
+  <tr><td>F-2 and J-2 dependents</td><td>Dependent I-20 or DS-2019</td><td>With the principal’s record</td><td class="own">Principal’s advisor</td></tr>
+  <tr class="hl"><td><b>OPT, F-1</b></td><td>DSO recommendation, then USCIS decision</td><td>Reporting while on OPT</td><td class="own">Advisor and operations</td></tr>
+  </tbody></table></div>
+  <div class="pi-panel"><h5>OPT as its own flow</h5>
+  <ol class="pi-flow"><li><b>Recommend</b><span>Advisor enters the recommendation in SEVIS</span></li><li><b>File</b><span>Student files with USCIS within 30 days</span></li><li><b>Report</b><span>Employer and address updates while on OPT</span></li><li><b>Bill and track</b><span>OPT fee and service log</span></li></ol>
+  <p class="pi-note">Nationally, OPT participation rose 14.1% to 335,785 in 2025/26 while new enrollment fell, so OPT gets its own measure and billing line.</p></div>
+  <div class="pi-two"><div class="do"><h5>What I would run</h5><ul><li>A term calendar of every deadline, with a check date ten days before each</li><li>Checks before each batch, by population</li><li>Every SEVIS batch response reviewed the next business day</li><li>Travel signature hours and a log</li></ul></div><div class="ctl"><h5>The control that keeps it right</h5><ul><li>No batch goes out unchecked</li><li>Every error resubmitted or assigned the same day</li><li>Turnaround measured weekly</li></ul></div></div>
+  <div class="pi-ev"><h5>Where I have done this</h5><ul><li>Nearly twenty years of record integrity under audit, including 20,000+ gift transactions a year under IRS and CASE rules at UAMS and faculty appointment records at FAS.</li><li>SEVIS rules are new to me. The dated training plan is in <a href="#sx-gap" data-close>the gap section</a>.</li></ul></div>
+  <p class="ex">See the sample <a href="#e" data-rep="reg" data-close>registration report</a>.</p>
+  </div>
 </template>
-<template id="p-sys" data-title="ISSM/ISD ownership">
-  <p class="pl">The system owner keeps ISSM matched to HIO’s rules and makes sure no release surprises the office.</p>
-  <h4>How I would run it</h4>
-  <ul><li>A release gate: critical and major defects fixed or accepted in writing, full pass on registration, forms and batch tests, a tested rollback, staff told, Director signs.</li><li>A test case register of about 150 cases kept current with each release.</li><li>One configuration log, so every rule change has a date, a reason and an owner.</li><li>Quarterly planning with HUIT and the vendor.</li></ul>
-  <h4>Where I have done this</h4>
-  <p>Led the conversion from Raiser’s Edge to SunGard Advance, now part of Ellucian, at UAMS and from Raiser’s Edge to Agilon at Phillips Academy, each with ten years of history back-entered. At FAS, tested key reports before release with acceptance, smoke and stress tests.</p>
+<template id="p-sys" data-title="Systems and vendors">
+  <div class="pi">
+  <p class="pi-obj"><b>Control objective</b>No release or vendor patch reaches production without a passed test, a tested rollback and the Director’s sign-off.</p>
+  <div class="pi-panel"><h5>Release gate</h5><ol class="pi-flow"><li><b>Defects</b><span>Critical and major fixed or accepted in writing</span></li><li><b>Tests</b><span>Registration, forms and batch pass in full</span></li><li><b>Rollback</b><span>Tested by HUIT before go-live</span></li><li><b>Sign-off</b><span>Staff told, Director signs</span></li></ol></div>
+  <div class="pi-row"><div class="pi-panel"><h5>Vendor register, reviewed quarterly</h5><div class="pi-pills"><span>Contract</span><span>Agreed outage response</span><span>Named contact</span><span>Change calendar</span><span>Last test result</span><span>Outage log</span></div><p class="pi-note">ISSM plus the scheduling, training, tax and payment platforms. See the <a href="#sx-ven" data-close>register</a>.</p></div>
+  <div class="pi-two"><div class="do"><h5>What I would run</h5><ul><li>A test register of about 150 cases</li><li>One configuration log</li><li>Quarterly planning with HUIT and the vendor</li></ul></div><div class="ctl"><h5>The control that keeps it right</h5><ul><li>Every rule change has a date, a reason and an owner</li><li>No patch without a test pass and a rollback plan</li><li>Outages announced the same day with a named owner</li></ul></div></div></div>
+  <div class="pi-ev"><h5>Where I have done this</h5><ul><li>Led two platform conversions, Raiser’s Edge to SunGard Advance (now Ellucian) at UAMS and Raiser’s Edge to Agilon at Phillips Academy, working with the vendors through setup, migration, testing and cutover, each with ten years of history back-entered.</li><li>Tested key reports before release at FAS with acceptance, smoke and stress tests.</li></ul></div>
   <p class="ex">See the sample <a href="#e" data-rep="test" data-close>release test report</a>.</p>
+  </div>
 </template>
 <template id="p-xch" data-title="School data exchange">
-  <p class="pl">Most form errors start upstream, in the file a School sends. Clean data on arrival is the cheapest fix.</p>
-  <h4>How I would run it</h4>
-  <ul><li>One crosswalk from each School’s <button class="tm" data-t="slate">Slate</button> or SIS program codes to SEVIS codes.</li><li>Match on School ID and date of birth, then name, because name order differs across countries.</li><li>Funding checked against the required amount before any form is drafted.</li><li>Every manual fix logged, and a short note to the School when its template causes a repeat error.</li></ul>
-  <h4>Where I have done this</h4>
-  <p>Oversaw priorities and quality control for the FAS Faculty DataHub pilot, which brought seven sources together, and worked on its data dictionary.</p>
-  <p class="ex">See the sample <a href="#e" data-rep="xch" data-close>data exchange reconciliation</a>.</p>
+  <div class="pi">
+  <p class="pi-obj"><b>Control objective</b>School files pass validation on first submission, and every mismatch goes to a person, never fixed automatically.</p>
+  <div class="pi-stats"><div class="acc"><b>93.2%</b><span>matched automatically, sample</span></div><div><b>86%</b><span>last fall, sample</span></div><div><b>87</b><span>returned with a reason</span></div><div><b>2 days</b><span>median to fix</span></div></div>
+  <div class="pi-panel"><h5>From School file to form</h5><ol class="pi-flow"><li><b>Receive</b><span>Slate or SIS export</span></li><li><b>Crosswalk</b><span>School codes to SEVIS codes</span></li><li><b>Validate</b><span>Name, birth date, dates, funding</span></li><li><b>Draft</b><span>I-20 or DS-2019 by an advisor</span></li></ol></div>
+  <div class="pi-row"><div class="pi-two"><div class="do"><h5>What I would run</h5><ul><li>One crosswalk per School program</li><li>Funding checked before any form</li><li>Every manual fix logged</li></ul></div><div class="ctl"><h5>The control that keeps it right</h5><ul><li>Two quality measures: automatic match rate and first-pass validation rate</li><li>A repeat error goes back to the School with the fix</li><li>Templates fixed at the source</li></ul></div></div>
+  <div class="pi-panel"><h5>School staff training, before each intake</h5><div class="pi-pills"><span>What each field means</span><span>Top five errors</span><span>Who to call</span><span>One-page guide per School</span></div><p class="pi-note">Repeat issues are fixed in the training, not only in the file.</p></div></div>
+  <div class="pi-ev"><h5>Where I have done this</h5><ul><li>Oversaw priorities and quality control for the FAS Faculty DataHub pilot, which joined seven sources, and worked on its data dictionary.</li><li>Trained users at each of three system conversions, including the move to HART self-service for deans, chairs and administrators.</li></ul></div>
+  <p class="ex">See the <a href="#xw" data-close>crosswalk walkthrough</a> and the sample <a href="#e" data-rep="xch" data-close>reconciliation report</a>.</p>
+  </div>
 </template>
 <template id="p-rep" data-title="Reporting and analytics">
-  <p class="pl">The Director and University leadership need the same numbers every time, and legal and compliance requests need an exact, documented answer.</p>
-  <h4>How I would run it</h4>
-  <ul><li>A weekly leadership dashboard, with decisions listed at the bottom.</li><li>Saved SQL views for the requests that repeat, so answers are fast and consistent.</li><li>Legal and compliance requests logged, answered from a saved query and reviewed before release.</li><li>Year-end statistics that match HIO’s published counts.</li></ul>
-  <h4>Where I have done this</h4>
-  <p>Wrote back-end reports in SQL, Python, R and Crystal Reports for 50+ Faculty Affairs departments and produced the materials for deans, visiting committees and the governance office. Ad-hoc requests fell from 300 to 400 a year to under 100 after the DataHub went live.</p>
+  <div class="pi">
+  <p class="pi-obj"><b>Control objective</b>One number is used everywhere, and every legal or compliance answer is logged and reviewed before it leaves the office.</p>
+  <div class="pi-stats"><div class="acc"><b>300 to 400</b><span>ad-hoc requests a year, before</span></div><div><b>under 100</b><span>after reusable reports</span></div><div><b>50+</b><span>departments served</span></div><div><b>7</b><span>sources in the DataHub</span></div></div>
+  <div class="pi-panel"><h5>What the Director sees each week</h5><div class="pi-pills"><span>Registration by School</span><span>OPT volume and turnaround</span><span>Service levels</span><span>Billing against plan</span><span>Three-year outlook</span><span>Decisions due</span></div></div>
+  <div class="pi-two"><div class="do"><h5>What I would run</h5><ul><li>A weekly leadership dashboard</li><li>Saved SQL views for requests that repeat</li><li>Year-end statistics that match HIO’s published counts</li><li>Survey design and analysis where program data needs it</li></ul></div><div class="ctl"><h5>The control that keeps it right</h5><ul><li>Every number ties to a saved query</li><li>Legal and compliance answers logged and reviewed</li><li>Decisions listed at the bottom of the dashboard</li></ul></div></div>
+  <div class="pi-panel"><h5>Tools</h5><div class="pi-pills"><span>SQL</span><span>Python</span><span>R</span><span>SAS</span><span>SPSS</span><span>Oracle BI</span><span>Power BI</span><span>Crystal Reports</span></div></div>
+  <div class="pi-ev"><h5>Where I have done this</h5><ul><li>All Faculty Affairs reporting and meeting materials for deans, visiting committees and the governance office.</li><li>Back-end reports for 50+ departments, and 360° evaluation surveys analyzed in SAS and SPSS at the UAMS College of Medicine.</li></ul></div>
   <p class="ex">See the sample <a href="#e" data-rep="lead" data-close>leadership dashboard</a>.</p>
+  </div>
 </template>
 <template id="p-fin" data-title="Billing and finance">
-  <p class="pl">Visa, OPT and affiliated hospital billing runs about $300,000 to $500,000 a year. Each dollar should trace to a completed case.</p>
-  <h4>How I would run it</h4>
-  <ul><li>Validate, confirm, invoice: every billable service matches a completed ISSM case, and the hospital confirms before the invoice.</li><li>Quarter-end <button class="tm" data-t="accr">accrual</button> of delivered but not yet invoiced services to Campus Services Finance.</li><li>Monthly aging of hospital receivables, with follow-up at 60 days.</li><li>Disputes reviewed against the agreement and the billing history, with sensitive cases to the Director.</li></ul>
-  <h4>How and when fees are collected</h4>
-  <ul><li><b>Individual fees</b> are paid online when the student or scholar submits the request, with an automatic receipt, so no form waits on a payment chase.</li><li><b>Department-sponsored fees</b> are billed internally when the DS-2019 request arrives, with the account checked before work starts.</li><li><b>Affiliated hospital fees</b> are invoiced only after the hospital confirms the scholar and the charge.</li><li>The fee schedule, refund rules and payment page are reviewed each year with the Director and Campus Services Finance, in plain language, with the status of each request visible to the payer.</li><li>Measures for the payer experience: share paid at request, days to pay, refunds and payment questions per month.</li></ul>
-  <h4>Where I have done this</h4>
-  <p>Piloted and managed online giving at UAMS with iModules and CyberSource, front end and back end, so the payer’s experience and the reconciliation were designed together. Campaign reporting at Phillips Academy reconciled to the General Ledger with the Comptroller’s office. At UAMS, 20,000+ gift transactions a year across online gifts, lockbox deposits and payment schedules, online giving with iModules and CyberSource, and sponsor budgets for a College of Medicine PI.</p>
+  <div class="pi">
+  <p class="pi-obj"><b>Control objective</b>Every dollar billed traces to a completed case, and disputes are settled on the evidence.</p>
+  <div class="pi-stats"><div class="acc"><b>$300K to $500K</b><span>billed a year</span></div><div><b>10 days</b><span>invoice target</span></div><div><b>60 days</b><span>receivable follow-up</span></div><div><b>96%</b><span>individual fees paid at request, sample</span></div></div>
+  <div class="pi-panel"><h5>From service to cash</h5><ol class="pi-flow"><li><b>Validate</b><span>Matches a completed ISSM case</span></li><li><b>Confirm</b><span>Hospital confirms before invoice</span></li><li><b>Invoice</b><span>References the case and agreement</span></li><li><b>Accrue</b><span>Quarter end, to Campus Services Finance</span></li><li><b>Resolve</b><span>Routine disputes settled directly</span></li></ol></div>
+  <div class="pi-row"><div class="pi-panel"><h5>How and when fees are collected</h5><table class="pi-t"><tbody><tr><td><b>Individual fees</b></td><td>Online at request, automatic receipt</td></tr><tr><td><b>Department fees</b></td><td>Internal billing when the DS-2019 request arrives</td></tr><tr><td><b>Hospital fees</b></td><td>Invoice after the hospital confirms</td></tr></tbody></table><p class="pi-note">Fee schedule, refund rules and payment page reviewed yearly with the Director and Campus Services Finance.</p></div>
+  <div class="pi-two"><div class="do"><h5>What I would run</h5><ul><li>Monthly receivables aging</li><li>Routine disputes resolved directly, from the agreement, the service log and the billing history</li><li>Card disputes assessed and documented for the bank</li></ul></div><div class="ctl"><h5>The control that keeps it right</h5><ul><li>Only sensitive or precedent-setting cases go to the Director</li><li>Every invoice ties to a completed case</li><li>Payer experience measured: paid at request, days to pay, refunds</li></ul></div></div></div>
+  <div class="pi-ev"><h5>Where I have done this</h5><ul><li>Campaign reporting reconciled to the General Ledger with the Comptroller’s office at Phillips Academy.</li><li>20,000+ transactions a year at UAMS, and piloted and managed online giving with iModules and CyberSource, front end and back end.</li></ul></div>
   <p class="ex">See the sample <a href="#e" data-rep="bill" data-close>billing and accruals report</a>.</p>
+  </div>
 </template>
 <template id="p-team" data-title="Team and office operations">
-  <p class="pl">A team of three to five does its best work when the queue is visible and the calendar is known weeks ahead.</p>
-  <h4>How I would run it</h4>
-  <ul><li>One queue with owners and ages, and a weekly huddle on what matters this week.</li><li>Named backups for batch runs and billing during leave.</li><li>Quick guides and short training for every process change.</li></ul>
-  <h4>How I would develop the team</h4>
-  <ul><li>One-on-ones every two weeks, with each person’s goals tied to the nine measures.</li><li>A development plan for each person, such as NAFSA courses, SEVIS batch training or billing cross-training.</li><li>Cross-training so every process has two trained people.</li><li>Mid-year and year-end reviews through Harvard’s performance process, with credit given in the leadership dashboard for improvements the team made.</li></ul>
-  <h4>Where I have done this</h4>
-  <p>As Associate Director at UAMS from 2008 to 2016, hired, supervised, reviewed and mentored staff, and led a team of three through a campaign and a database conversion at the same time. Redesigned appointment and promotion processes at FAS Faculty Affairs. Plans work in Jira and Trello.</p>
+  <div class="pi">
+  <p class="pi-obj"><b>Control objective</b>Every person has a development plan and a named backup, and every process has an owner.</p>
+  <div class="pi-stats"><div class="acc"><b>3 to 5</b><span>staff</span></div><div><b>2 weeks</b><span>between one-on-ones</span></div><div><b>2</b><span>trained people per process</span></div><div><b>2 a year</b><span>development plan reviews</span></div></div>
+  <div class="pi-row"><div class="pi-two"><div class="do"><h5>What I would run</h5><ul><li>One queue with owners and ages</li><li>A weekly huddle on priorities</li><li>Named backups for batches and billing</li><li>Quick guides and short training for every change</li></ul></div><div class="ctl"><h5>The control that keeps it right</h5><ul><li>Goals tied to the ten measures</li><li>Performance issues raised early and documented</li><li>Mid-year and year-end reviews through Harvard’s process</li></ul></div></div>
+  <div class="pi-panel"><h5>Office operations owned through the team</h5><div class="pi-pills"><span>Onboarding and offboarding</span><span>Technology refresh</span><span>Records retention and archiving</span><span>Invoice processing</span><span>Appointment scheduling</span></div></div></div>
+  <div class="pi-ev"><h5>Where I have done this</h5><ul><li>As Associate Director at UAMS from 2008 to 2016, hired, supervised, reviewed and mentored staff.</li><li>Led a team of three through a campaign and a database conversion at the same time.</li></ul></div>
   <p class="ex">See the sample <a href="#e" data-rep="team" data-close>team weekly</a>.</p>
+  </div>
 </template>
 <template id="p-sec" data-title="Data security">
-  <p class="pl">HIO holds passport, visa and address data for over 10,000 people. Access should be the least that each role needs.</p>
-  <h4>How I would run it</h4>
-  <ul><li>A quarterly review of every ISSM account against the role it serves.</li><li>Access removed within a week of any role change, with HR and HUIT.</li><li>School contacts read only and limited to their own students. Vendor access time-limited and logged.</li><li>Yearly data security training for every staff member, tracked to completion.</li></ul>
-  <h4>Where I have done this</h4>
-  <p>At FAS, protected confidential faculty records through role- and hierarchy-based access approved by the Dean of Faculty Affairs. At UAMS, wrote record-keeping policies meeting IRS, FASB/GASB, CASE and HIPAA standards and documented the controls auditors reviewed.</p>
+  <div class="pi">
+  <p class="pi-obj"><b>Control objective</b>Every account holds only the access its role needs, reviewed every quarter.</p>
+  <div class="pi-panel"><h5>Access cycle</h5><ol class="pi-flow"><li><b>Review</b><span>Every ISSM account against its role, quarterly</span></li><li><b>Remove</b><span>Within a week of a role change, with HR and HUIT</span></li><li><b>Train</b><span>Yearly, tracked to completion</span></li><li><b>Log</b><span>Vendor access time-limited and logged</span></li></ol></div>
+  <div class="pi-row"><div class="pi-two"><div class="do"><h5>What I would run</h5><ul><li>Least privilege by role</li><li>School contacts read only, own students</li><li>Security lead with the Security Insiders group</li></ul></div><div class="ctl"><h5>The control that keeps it right</h5><ul><li>Quarterly access review</li><li>Patches tested before production</li><li>Multi-factor sign-in for every account</li></ul></div></div>
+  <div class="pi-panel"><h5>Standards I have written policy to</h5><div class="pi-pills"><span>IRS</span><span>FASB/GASB</span><span>CASE</span><span>HIPAA</span></div></div></div>
+  <div class="pi-ev"><h5>Where I have done this</h5><ul><li>Protected confidential faculty records at FAS with role- and hierarchy-based access approved by the Dean of Faculty Affairs.</li><li>Wrote record-keeping policies at UAMS and documented the controls auditors reviewed.</li></ul></div>
   <p class="ex">See the sample <a href="#e" data-rep="sec" data-close>data security review</a>.</p>
+  </div>
 </template>
 <template id="p-sql" data-title="Validation SQL, sample">
   <p class="pl">The checks run as one query on each School file after it loads to a staging table. Anything with a reason goes back to the School. Table and column names are illustrative.</p>
@@ -547,6 +734,7 @@ LEFT   JOIN cost_estimate c
 </template>
 <template id="p-dict" data-title="Data dictionary"><div id="dict-host"></div></template>
 
+<div class="dd" id="dd" role="menu" hidden></div>
 <dialog id="pop" aria-labelledby="pop-t">
   <div class="pop-bar"><button class="pop-back" type="button" aria-label="Back" hidden>‹ Back</button><h3 id="pop-t"></h3><button class="pop-x" type="button" aria-label="Close">×</button></div>
   <div class="pop-body"></div>
@@ -625,66 +813,92 @@ LEFT   JOIN cost_estimate c
   const BILL = {plan: 420000, ytd: 251600, ytdPlan: 245000, mon: [31.2, 28.4, 46.9, 39.8, 33.6, 27.1, 44.6], age: [['Current', 38200], ['31 to 60 days', 12100], ['61 to 90 days', 6500], ['Over 90 days', 9800]], accr: 27400};
 
   const MON = ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
+  // ---------- infographic blocks ----------
+  const ICON = {ok: '✓', warn: '!', bad: '×', info: 'i'};
+  const glance = items => `<div class="ig-glance">${items.map(x => `<div class="ig-g ${x[0]}"><i>${ICON[x[0]]}</i><b>${x[1]}</b><span>${x[2]}</span></div>`).join('')}</div>`;
+  const ring = (pct, col, lab, sub) => { const r = 44, c = 2 * Math.PI * r, f = Math.max(0, Math.min(1, pct)); return `<div class="ig-ring"><svg viewBox="0 0 120 120" role="img" aria-label="${E(lab)} ${p1(f)}"><circle cx="60" cy="60" r="${r}" fill="none" stroke="#e8ebe9" stroke-width="14"/><circle cx="60" cy="60" r="${r}" fill="none" stroke="${col}" stroke-width="14" stroke-dasharray="${(c * f).toFixed(1)} ${c.toFixed(1)}" transform="rotate(-90 60 60)" stroke-linecap="butt"/><text x="60" y="66" text-anchor="middle" class="ig-rt">${(f * 100).toFixed(f >= .999 ? 0 : 1)}%</text></svg><b>${lab}</b>${sub ? `<small>${sub}</small>` : ''}</div>`; };
+  const big = (v, lab, sub, k) => `<div class="ig-big ${k || ''}"><b>${v}</b><span>${lab}</span>${sub ? `<small>${sub}</small>` : ''}</div>`;
+  const bar = (v, max, lab, sub, col) => `<div class="ig-bar"><span>${lab}</span><div><i style="width:${Math.min(100, v / max * 100).toFixed(1)}%;background:${col || C.teal}"></i></div><small>${sub}</small></div>`;
+  const row = (...x) => `<div class="ig-row">${x.join('')}</div>`;
+  const prog = (rows, keys, cols) => `<div class="ig-prog">${rows.map(r => { const t = sum(r[1]); return `<div class="ig-pr"><span>${E(r[0])}</span><div>${r[1].map((v, j) => v ? `<i style="width:${(v / t * 100).toFixed(2)}%;background:${cols[j]}" title="${E(keys[j])} ${n0(v)}">${v / t > .07 ? n0(v) : ''}</i>` : '').join('')}</div><b>${n0(t)}</b></div>`; }).join('')}</div>` + legend(keys.map((k, j) => ({n: k, c: cols[j]})));
+  const checks = items => `<ul class="ig-checks">${items.map(x => `<li class="${x[0]}"><i>${ICON[x[0]]}</i><span><b>${x[1]}</b>${x[2] ? `<small>${x[2]}</small>` : ''}</span></li>`).join('')}</ul>`;
+  const cards = (items, cls) => `<div class="ig-cards ${cls || ''}">${items.map(x => `<div class="ig-c ${x[0] || ''}">${x[1] ? `<em>${x[1]}</em>` : ''}<b>${x[2]}</b>${x[3] ? `<span>${x[3]}</span>` : ''}</div>`).join('')}</div>`;
+  const when = items => `<ol class="ig-when">${items.map(x => `<li><time>${x[0]}</time><b>${x[1]}</b><small>${x[2]}</small></li>`).join('')}</ol>`;
+  const steps = items => `<ol class="ig-steps">${items.map(x => `<li><b>${x[0]}</b><span>${x[1]}</span><small>${x[2]}</small></li>`).join('')}</ol>`;
+  const strip = (parts, cols) => { const t = sum(parts.map(p => p[1])); return `<div class="ig-strip">${parts.map((p, j) => `<i style="width:${(p[1] / t * 100).toFixed(2)}%;background:${cols[j]}"><b>${p0(p[1] / t)}</b></i>`).join('')}</div><div class="ig-strip-k">${parts.map((p, j) => `<div><i style="background:${cols[j]}"></i><b>${E(p[0])}</b><span>${usd(p[1])}</span><small>${E(p[2])}</small></div>`).join('')}</div>`; };
+
+  const hb = (rows, o = {}) => { const mx = Math.max(...rows.map(r => r[1])); return `<div class="ig-hb">${rows.map(r => `<div class="ig-hr"><span>${E(r[0])}</span><div><i style="width:${Math.max(1, r[1] / mx * 100).toFixed(1)}%;background:${r[2] || C.slate}"></i><b>${(o.fmt || n0)(r[1])}</b></div></div>`).join('')}</div>`; };
+  // ---------- three-year scenarios (shared with the page) ----------
+  const SCEN = (() => { const yrs = ['Now', 'Fall 2027', 'Fall 2028', 'Fall 2029'], turn = .36, n0s = POP.stu * turn, opt0 = 1380;
+    const mk = (n, c, a, newChg, schChg, optPath, plan, dash) => { const stu = [POP.stu], sch = [POP.sch]; let N = n0s; newChg.forEach((g, i) => { N = N * (1 + g); stu.push(Math.round(stu[i] * (1 - turn) + N)); sch.push(Math.round(sch[i] * (1 + schChg))); }); const opt = optPath.map(v => Math.round(opt0 * v)); const bill = Math.round(420000 * (.25 * opt[3] / opt0 + .75 * sch[3] / POP.sch) / 100) * 100; return {n, c, a, stu, sch, opt, tot: stu.map((v, i) => v + sch[i]), bill, plan, dash}; };
+    return {years: yrs, list: [
+      mk('Holds steady', C.teal, 'New students flat, as Harvard saw in fall 2025. Scholars flat.', [0, 0, 0], 0, [1, 1.03, 1.05, 1.06], 'Hold a team of four, grow OPT capacity, keep the billing plan.'),
+      mk('National trend', C.gold, 'New students −15% in 2027, −5% in 2028, flat in 2029, like the IIE fall 2026 read. Scholars −3% a year.', [-.15, -.05, 0], -.03, [1, 1.03, .94, .86], 'Hold four, move about 25 hours a month to OPT and scholar renewals, lower the FY29 billing plan.'),
+      mk('Sharp decline', C.red, 'New students −30% in 2027 after a federal restriction, slow recovery. Scholars −6% a year.', [-.30, 0, .05], -.06, [1, 1.01, .83, .72], 'Pause backfills, add time for policy response and advising, reset the billing plan with Campus Services Finance.', '5 4')
+    ]}; })();
+  window.HIO_SCEN = SCEN;
   const R = {};
-  R.lead = () => ({tier: 'lead', tab: 'Leadership', title: 'HIO leadership dashboard, spring term', issue: 'Monday, February 22, 2027', through: 'ISSM and SEVIS data through Friday, February 19', aud: 'HIO Director and University leadership', id: 'HIO-L-2027-02 · v1.0', src: 'ISSM/ISD, SEVIS batch logs, appointment and signature logs',
+  R.lead = () => ({tier: 'lead', tab: 'Leadership', title: 'HIO leadership dashboard, spring term', issue: 'Feb 22, 2027', through: 'through Feb 19', aud: 'HIO Director and leadership', id: 'HIO-L-2027-02', src: 'ISSM/ISD, SEVIS batch logs, appointment and signature logs',
     s: [
-      ['Summary', bullets([`HIO serves <b>${n0(POP.all)} visa-sponsored students and scholars</b> from 150 countries, ${n0(POP.stu)} students and ${n0(POP.sch)} scholars.`, `Spring registration is at <b>${p1(REG.done / REG.due)}</b> with three days to the federal deadline. All 57 open exceptions have an owner and a School contact.`, 'The ISSM spring release is <b>held</b>: one critical defect in SEVIS batch extensions. Production stays on the current version until a retest on February 26 passes.'])],
-      ['Key numbers', tiles([['Students and scholars', n0(POP.all), '150 countries'], ['Spring registration', p1(REG.done / REG.due), `${n0(REG.due - REG.done)} still open`, 'warn'], ['Travel signatures, spring', '1,214', 'median 2 days'], ['Advising appointments, spring', '2,086', '94% within 5 days', 'ok'], ['Billing, FY27 to date', ks(BILL.ytd), `plan ${ks(BILL.ytdPlan)}`, 'ok']])],
-      ['International students by School', hbars(SCH.map((s, i) => [s[0], s[1], i < 2 ? C.mar : C.slate]), {fmt: n0, lw: 250, label: 'International students by School, synthetic split of the published total'}) + note(`The ${n0(POP.stu)} total is HIO’s published count. The split by School is synthetic for this sample.`)],
-      ['Who HIO serves, five-year trend', vbars(['Fall 2022', 'Fall 2023', 'Fall 2024', 'Fall 2025', 'Fall 2026'], [{n: 'Students', c: C.mar, v: [5120, 5390, 5560, 5610, POP.stu]}, {n: 'Scholars', c: C.slate, v: [4010, 4250, 4470, 4390, POP.sch]}], {stack: 1, h: 240, max: 12000, label: 'Students and scholars by fall term'}) + note('Fall 2026 matches HIO’s published counts. Earlier years are synthetic, to show the trend view a Director would see.')],
-      ['Service levels this term', lines(['Jan 4', 'Jan 11', 'Jan 18', 'Jan 25', 'Feb 1', 'Feb 8', 'Feb 15'], [{n: 'Travel signature, median days', c: C.mar, v: [3, 4, 4, 3, 2, 2, 2], dots: 1}, {n: 'OPT recommendation, median days', c: C.slate, v: [6, 7, 8, 6, 5, 5, 4], dots: 1}], {h: 220, target: 5, tlab: 'service standard, 5 business days', label: 'Turnaround by week'}) + note('January peaks with return travel and spring OPT. Template automation of OPT recommendations brought the median back under the standard by February.')],
-      ['Decisions for the Director', acts([['By Feb 26', 'Approve the go or no-go for the ISSM spring release after the retest', 'Production stays on the current version until then'], ['By Mar 5', 'Approve the School data template change for spring admits, so Slate sends program codes in the SEVIS format', 'Removes most program-code mismatches'], ['This month', 'Confirm the dispute approach for one affiliated hospital invoice over 90 days, $6,200', 'Contract and billing history attached']])]]});
+      ['At a glance', glance([['info', n0(POP.all), 'students and scholars from 150 countries'], ['warn', p1(REG.done / REG.due), 'registered, 3 days to the Feb 25 deadline, every open case owned'], ['bad', 'Held', 'ISSM spring release, 1 critical defect, retest Feb 26']])],
+      ['Service this term', row(ring(REG.done / REG.due, C.gold, 'Spring registration', `${n0(REG.due - REG.done)} open`), ring(.94, C.teal, 'Advising within 5 days', '2,086 appointments'), big('2 days', 'median travel signature', '1,214 signed this spring', 'ok'), big(ks(BILL.ytd), 'billed FY27 to date', `+${p1(BILL.ytd / BILL.ytdPlan - 1)} vs plan`, 'ok'))],
+      ['Students by School', hb(SCH.map((s, i) => [s[0], s[1], i < 2 ? C.mar : C.slate]), {fmt: n0, lw: 250, label: 'International students by School'}) + note(`Total of ${n0(POP.stu)} is HIO’s published count. The split by School is synthetic.`)],
+      ['Five-year trend', vbars(['Fall 2022', 'Fall 2023', 'Fall 2024', 'Fall 2025', 'Fall 2026'], [{n: 'Students', c: C.mar, v: [5120, 5390, 5560, 5610, POP.stu]}, {n: 'Scholars', c: C.slate, v: [4010, 4250, 4470, 4390, POP.sch]}], {stack: 1, h: 210, max: 12000, label: 'Students and scholars by fall term'}) + note('Fall 2026 matches HIO’s published counts. Earlier years are synthetic.')],
+      ['Turnaround by week', lines(['Jan 4', 'Jan 11', 'Jan 18', 'Jan 25', 'Feb 1', 'Feb 8', 'Feb 15'], [{n: 'Travel signature, median days', c: C.mar, v: [3, 4, 4, 3, 2, 2, 2], dots: 1}, {n: 'OPT recommendation, median days', c: C.slate, v: [6, 7, 8, 6, 5, 5, 4], dots: 1}], {h: 200, target: 5, tlab: 'standard, 5 business days', label: 'Turnaround by week'})],
+      ['Three-year outlook', lines(SCEN.years, SCEN.list.map(x => ({n: x.n, c: x.c, v: x.tot, dots: 1, dash: x.dash})), {h: 200, min: 7000, max: 11000, fmt: n0, label: 'HIO population scenarios'}) + note(`Students and scholars from HIO’s published ${n0(POP.all)}. Nationally, new international students fell 17.7% in 2025/26 (Open Doors 2026). Scenario totals for fall 2029: ${SCEN.list.map(x => x.n.toLowerCase() + ' ' + n0(x.tot[3])).join(', ')}.`)],
+      ['Decisions due', when([['Feb 26', 'Go or no-go on the ISSM release', 'Production stays on the current version until then'], ['Mar 5', 'School template change for spring admits', 'Removes most program-code mismatches'], ['Feb', 'Dispute approach for one hospital invoice, $6,200', 'Agreement and billing history attached']])]]});
 
-  R.reg = () => ({tier: 'lead', tab: 'Registration', title: 'Spring 2027 SEVIS registration status', issue: 'Monday, February 22, 2027', through: 'SEVIS and School enrollment feeds through February 21', aud: 'HIO Director, advising team and School contacts', id: 'HIO-R-2027-S · v1.0', src: 'ISSM/ISD registration batch, School enrollment files, SEVIS batch responses',
+  R.reg = () => ({tier: 'lead', tab: 'Registration', title: 'Spring 2027 SEVIS registration', issue: 'Feb 22, 2027', through: 'through Feb 21', aud: 'Director, advisors, School contacts', id: 'HIO-R-2027-S', src: 'ISSM/ISD registration batch, School enrollment files, SEVIS responses',
     s: [
-      ['Summary', bullets([`<b>${n0(REG.done)} of ${n0(REG.due)}</b> continuing and new F and J students are registered in SEVIS, ${p1(REG.done / REG.due)}. Spring started January 26, so the 30-day window closes <b>February 25</b>.`, `${REG.pend} records are waiting on a School’s enrollment confirmation, which most Schools send by Wednesday. <b>${REG.exc} need action</b>, each with an advisor and a School contact.`, 'No record will reach the deadline without an advisor having contacted the student and the School.'])],
-      ['Key numbers', tiles([['Registered', p1(REG.done / REG.due), `${n0(REG.done)} of ${n0(REG.due)}`, 'ok'], ['Waiting on a School', String(REG.pend), 'expected by Wed'], ['Exceptions needing action', String(REG.exc), 'each with an owner', 'warn'], ['Days to the deadline', '3', 'February 25'], ['Batch errors this term', '4', 'all resubmitted', 'ok']])],
-      ['Registration progress, daily', lines(['Jan 26', 'Jan 30', 'Feb 3', 'Feb 7', 'Feb 11', 'Feb 15', 'Feb 19', 'Feb 22'], [{n: 'Registered, share of students due', c: C.teal, v: [0, 41, 66, 79, 87, 92, 95, 96.1], dots: 1}], {min: 0, max: 100, fmt: v => Math.round(v) + '%', target: 100, tlab: 'all registered by Feb 25', h: 230, label: 'Cumulative registration'})],
-      ['Exceptions by reason', hbars(EXC.map(e => [e[0], e[1], C.gold]), {fmt: n0, lw: 300, label: 'Open exceptions by reason'}) + table(['School', 'Due', 'Registered', 'Waiting', 'Exceptions'], [['FAS, GSAS and the College', '1,662', '1,602', '41', '19'], ['Business School', '1,004', '986', '12', '6'], ['Kennedy School', '594', '561', '27', '6'], ['Engineering and Applied Sciences', '484', '459', '19', '6'], ['All other Schools', '1,719', '1,640', '59', '20'], ['<b>Total</b>', `<b>${n0(REG.due)}</b>`, `<b>${n0(REG.done)}</b>`, `<b>${REG.pend}</b>`, `<b>${REG.exc}</b>`]])],
-      ['Checks before each batch', table(['Check', 'Result', 'Rule'], [['Every registered student is enrolled in the School’s system for spring', st('ok', 'Pass'), 'Matched on SEVIS ID and School ID'], ['U.S. address present and updated', st('warn', '11 missing'), 'Held, student contacted'], ['Program end date in the future', st('warn', '9 past'), 'Extension or completion with the advisor'], ['Reduced course load authorized before registration', st('warn', '12 open'), 'Advisor decision first'], ['Batch file accepted by SEVIS', st('ok', '4 errors resubmitted'), 'Every batch response reviewed']], {num: false})],
-      ['Actions', acts([['Advising team, by Feb 24', 'Close the 57 exceptions or document the status action for each', 'Owner per student in ISSM'], ['Operations, daily', 'Run the registration batch after each School file arrives, and review every SEVIS response', 'No unreviewed batch'], ['School contacts, by Feb 24', 'Confirm spring enrollment for the 158 waiting records', 'List sent to each School']])]]});
+      ['At a glance', glance([['warn', `${n0(REG.done)} of ${n0(REG.due)}`, 'registered, 96.1%, deadline Feb 25'], ['info', String(REG.pend), 'waiting on a School’s enrollment file, expected Wednesday'], ['warn', String(REG.exc), 'exceptions, each with an advisor and a School contact']])],
+      ['Where it stands', row(ring(REG.done / REG.due, C.gold, 'Registered', `${n0(REG.done)} students`), big('3', 'days to the deadline', 'February 25', 'warn'), big('4', 'batch errors this term', 'all resubmitted', 'ok'), big('0', 'records past the deadline', 'none expected', 'ok'))],
+      ['Daily progress', lines(['Jan 26', 'Jan 30', 'Feb 3', 'Feb 7', 'Feb 11', 'Feb 15', 'Feb 19', 'Feb 22'], [{n: 'Registered', c: C.teal, v: [0, 41, 66, 79, 87, 92, 95, 96.1], dots: 1}], {min: 0, max: 100, fmt: v => Math.round(v) + '%', target: 100, tlab: 'all registered by Feb 25', h: 200, label: 'Cumulative registration'})],
+      ['By School', prog([['FAS, GSAS and the College', [1602, 41, 19]], ['Business School', [986, 12, 6]], ['Kennedy School', [561, 27, 6]], ['Engineering and Applied Sciences', [459, 19, 6]], ['All other Schools', [1640, 59, 20]]], ['Registered', 'Waiting on School', 'Exception'], [C.teal, C.grey, C.gold])],
+      ['Why records are open', hb(EXC.map(e => [e[0], e[1], C.gold]), {fmt: n0, lw: 300, label: 'Open exceptions by reason'})],
+      ['Checks before each batch', checks([['ok', 'Enrolled in the School’s system', 'Matched on SEVIS ID and School ID'], ['warn', '11 U.S. addresses missing', 'Held, students contacted'], ['warn', '9 program end dates passed', 'Extension or completion with the advisor'], ['warn', '12 reduced course loads open', 'Advisor decides first'], ['ok', 'Every SEVIS response reviewed', '4 errors resubmitted']])],
+      ['Next steps', when([['Feb 24', 'Advisors close or document the 57 exceptions', 'Owner per student in ISSM'], ['Daily', 'Batch after each School file, every response reviewed', 'Operations'], ['Feb 24', 'Schools confirm the 158 waiting records', 'List sent to each School']])]]});
 
-  R.bill = () => ({tier: 'fin', tab: 'Billing and accruals', title: 'Visa, OPT and hospital billing, FY27 to January', issue: 'Friday, February 5, 2027', through: 'Billable services July 1, 2026 to January 31, 2027', aud: 'Campus Services Finance and the HIO Director', id: 'HIO-B-2027-01 · v1.0', src: 'ISSM service log, invoice register, hospital confirmations, card processor statements',
+  R.test = () => ({tier: 'lead', tab: 'Release testing', title: 'ISSM/ISD spring release, test results', issue: 'Feb 19, 2027', through: 'test cycle Feb 8 to 18', aud: 'Director, HUIT and the vendor', id: 'HIO-T-2027-1', src: 'Test case register, defect log, vendor release notes',
     s: [
-      ['Summary', bullets([`FY27 billing is <b>${usd(BILL.ytd)}</b> through January, ${p1(BILL.ytd / BILL.ytdPlan - 1)} above plan, on a year plan of ${usd(BILL.plan)}.`, `<b>${usd(BILL.accr)}</b> in services was delivered through January but not yet invoiced. It feeds the Q3 accrual estimate for Campus Services Finance.`, `Hospital receivables over 90 days are ${usd(BILL.age[3][1])} across two invoices. One is resolved pending payment, and one goes to the Director for a decision.`])],
-      ['Key numbers', tiles([['Billed, FY27 to date', usd(BILL.ytd), `plan ${usd(BILL.ytdPlan)}`, 'ok'], ['Delivered, not invoiced', usd(BILL.accr), 'feeds the Q3 accrual'], ['Hospital receivables', usd(sum(BILL.age.map(a => a[1]))), '4 aging buckets'], ['Over 90 days', usd(BILL.age[3][1]), '2 invoices', 'warn'], ['Card disputes', '1', 'documentation sent to the bank']])],
-      ['Billing by month', vbars(MON.slice(0, 7), [{n: 'Billed, thousands', c: C.mar, v: BILL.mon}], {h: 220, vals: true, fmt: v => '$' + Math.round(v) + 'K', vfmt: v => '$' + v.toFixed(1) + 'K', label: 'Billing by month'}) + note('September and January peak with new arrivals and spring OPT. Each invoice is validated against the ISSM service log before it goes out.')],
-      ['How each fee is collected', table(['Fee', 'When it is collected', 'Channel', 'FY27 to date'], [['Individual visa and OPT fees', 'When the request is submitted', 'Online card payment, automatic receipt', usd(61900)], ['Department-sponsored scholar fees', 'When the DS-2019 request arrives', 'Internal billing to the department account', usd(61300)], ['Affiliated hospital scholar fees', 'After the hospital confirms', 'Invoice', usd(128400)], ['<b>Total</b>', '', '', `<b>${usd(BILL.ytd)}</b>`]]) + note('Payer experience this year: 96% of individual fees paid at request with no follow-up, 3 refunds, and a median of 34 days for hospitals to pay.')],
-      ['Hospital receivables by age', hbars(BILL.age.map((a, i) => [a[0], a[1], [C.teal, C.gold, C.mar, C.red][i]]), {fmt: usd, lw: 150, label: 'Affiliated hospital receivables by age'})],
-      ['Confirm, invoice, collect', table(['Step', 'Control', 'Owner'], [['Validate', 'Every billable service matches a completed ISSM case', 'Operations'], ['Confirm', 'Hospital confirms the scholar and the charge before invoicing', 'Operations, hospital contact'], ['Invoice', 'Invoice references the case and the agreement', 'Operations'], ['Accrue', 'Delivered, not invoiced at quarter end goes to Campus Services Finance', 'Associate Director'], ['Dispute', 'Contract and billing history reviewed, sensitive cases escalated', 'Associate Director, then Director']], {num: false})]]});
+      ['At a glance', glance([['bad', 'No-go', 'a critical defect stops SEVIS batch extensions'], ['ok', `${TEST.pass} of ${TEST.cases}`, 'test cases passed'], ['info', 'Feb 26', 'retest after the vendor patch on Feb 25']])],
+      ['Results', row(ring(TEST.pass / TEST.cases, C.teal, 'Passed', `${TEST.pass} cases`), big(String(TEST.fail), 'failed', '1 critical, 2 major, 3 minor', 'bad'), big(String(TEST.block), 'blocked', 'by the failures', 'warn'), big('No-go', 'recommendation', 'stay on current version', 'bad'))],
+      ['By area', vbars(['Registration', 'I-20 and DS-2019', 'SEVIS batch', 'Reports', 'Integrations'], [{n: 'Passed', c: C.teal, v: [34, 41, 22, 25, 17]}, {n: 'Failed or blocked', c: C.mar, v: [0, 1, 6, 1, 1]}], {stack: 1, h: 210, label: 'Test results by area'})],
+      ['Defects', cards([['bad', 'Critical · vendor, then HUIT', 'Extension in a SEVIS batch returns an error', 'Patch Feb 25'], ['warn', 'Major · vendor', 'Dependent record does not copy a new address', 'Fix in patch'], ['warn', 'Major · HIO operations', 'Report filter drops scholars with two Schools', 'Fixed, retest'], ['ok', 'Minor · vendor', 'Three label and layout issues', 'Next release']])],
+      ['Release gate', checks([['bad', 'Critical and major defects fixed or accepted in writing', 'Not yet, 1 critical open'], ['bad', 'Registration, forms and batch tests pass in full', '6 failed'], ['ok', 'Rollback plan tested by HUIT', 'Feb 17'], ['ok', 'Staff told of changes, quick guide updated', 'Feb 18'], ['warn', 'Director signs the go decision', 'After the retest']])]]});
 
-  R.xch = () => ({tier: 'team', tab: 'Data exchange', title: 'School data exchange reconciliation', issue: 'Monday, February 22, 2027', through: 'Records received from Schools, February 1 to 19', aud: 'HIO operations team and School admissions contacts', id: 'HIO-X-2027-02 · v1.0', src: 'Slate and School SIS exports, ISSM import log',
+  R.sec = () => ({tier: 'lead', tab: 'Data security', title: 'Data security quarterly review', issue: 'Jan 15, 2027', through: 'Oct 1 to Dec 31, 2026', aud: 'Director and Security Insiders', id: 'HIO-S-FY27Q2', src: 'ISSM user roles, HUIT access logs, training records',
     s: [
-      ['Summary', bullets([`Schools sent <b>${n0(XCH.rec)} records</b> for fall admits and spring changes. <b>${p1(XCH.auto / XCH.rec)}</b> matched ISSM automatically.`, `${XCH.rec - XCH.auto} records need a fix before any I-20 or DS-2019 is produced. Program codes and funding amounts are most of them.`, 'One School template sends program codes in its own format. A template change for spring admits removes most of those mismatches.'])],
-      ['Key numbers', tiles([['Records received', n0(XCH.rec), 'February 1 to 19'], ['Matched automatically', p1(XCH.auto / XCH.rec), n0(XCH.auto) + ' records', 'ok'], ['Need a fix', String(XCH.rec - XCH.auto), 'before any form is issued', 'warn'], ['Fixed this week', '52', 'with the School'], ['Median days to fix', '2', 'standard 3']])],
-      ['Mismatches by field', hbars(XCH.fields.map(f => [f[0], f[1], C.slate]), {fmt: n0, lw: 200, label: 'Mismatches by field'})],
-      ['Matching rules', table(['Rule', 'Why'], [['Match on School ID and date of birth, then name', 'Name order differs across countries and systems'], ['Program codes mapped to SEVIS codes in one crosswalk', 'One source of truth for every School'], ['Funding must cover the required amount before a form is drafted', 'Prevents reissued forms'], ['Every manual fix logged with the School contact', 'Audit trail and template feedback']], {num: false})]]});
+      ['At a glance', glance([['ok', '46 of 46', 'ISSM accounts reviewed, 5 removed after role changes'], ['ok', '0', 'incidents this quarter'], ['warn', '2', 'staff still to finish yearly training, both scheduled']])],
+      ['Controls in numbers', row(ring(1, C.teal, 'Accounts reviewed', '46 of 46'), ring(1, C.teal, 'Multi-factor sign-in', 'Harvard Key'), ring(44 / 46, C.gold, 'Training complete', '44 of 46'), big('< 7 days', 'to remove access after a role change', '5 of 5 on time', 'ok'))],
+      ['Who has access', hb([['HIO advisors', 28, C.slate], ['School contacts, read only', 11, C.teal], ['Operations', 5, C.mar], ['Vendor and HUIT, time-limited', 2, C.gold]], {fmt: n0, lw: 260, label: 'ISSM accounts by role'}) + note('Least privilege. School contacts see only their own students. Vendor access is time-limited and logged.')],
+      ['Controls', cards([['', 'Quarterly', 'Access review of every account', 'Associate Director'], ['', 'Each change', 'Access removed within a week', 'Operations, HR, HUIT'], ['', 'Each patch', 'Tested before production', 'HUIT and operations'], ['', 'Yearly', 'Data security training for all staff', 'Associate Director']])]]});
 
-  R.test = () => ({tier: 'lead', tab: 'Release testing', title: 'ISSM/ISD spring release, test results', issue: 'Friday, February 19, 2027', through: 'Test cycle February 8 to 18, test environment', aud: 'HIO Director, HUIT and the vendor', id: 'HIO-T-2027-1 · v1.0', src: 'Test case register, defect log, vendor release notes',
+  R.bill = () => ({tier: 'fin', tab: 'Billing and accruals', title: 'Visa, OPT and hospital billing, FY27 to January', issue: 'Feb 5, 2027', through: 'services Jul 1, 2026 to Jan 31, 2027', aud: 'Campus Services Finance and the Director', id: 'HIO-B-2027-01', src: 'ISSM service log, invoice register, hospital confirmations, card statements',
     s: [
-      ['Summary', bullets([`<b>${TEST.pass} of ${TEST.cases}</b> test cases passed. ${TEST.fail} failed and ${TEST.block} are blocked by the failures.`, '<b>Recommendation: no-go</b> until the critical defect is fixed. Program extensions sent in a SEVIS batch return an error, and that would stop extensions in production.', 'The vendor has a patch. HUIT installs it on February 25, and the retest runs February 26.'])],
-      ['Key numbers', tiles([['Test cases', String(TEST.cases), 'registration, forms, batch, reports'], ['Passed', p1(TEST.pass / TEST.cases), `${TEST.pass} cases`, 'ok'], ['Failed', String(TEST.fail), '1 critical', 'warn'], ['Blocked', String(TEST.block), 'by the failures'], ['Go or no-go', 'No-go', 'retest Feb 26', 'warn']])],
-      ['Results by area', vbars(['Registration', 'I-20 and DS-2019', 'SEVIS batch', 'Reports', 'Integrations'], [{n: 'Passed', c: C.teal, v: [34, 41, 22, 25, 17]}, {n: 'Failed or blocked', c: C.mar, v: [0, 1, 6, 1, 1]}], {stack: 1, h: 230, label: 'Test results by area'})],
-      ['Defects', table(['Defect', 'Severity', 'Owner', 'Status'], [['Program extension in a SEVIS batch returns an error', st('bad', 'Critical'), 'Vendor, then HUIT', st('warn', 'Patch Feb 25')], ['Dependent record does not copy the new address', st('warn', 'Major'), 'Vendor', st('warn', 'Fix in patch')], ['Report filter drops scholars with two Schools', st('warn', 'Major'), 'HIO operations', st('ok', 'Fixed, retest')], ['Three label and layout issues', st('ok', 'Minor'), 'Vendor', st('ok', 'Next release')]], {num: false})],
-      ['Release gate', `<ol class="rp-checks">${['All critical and major defects fixed or accepted in writing', 'Registration, forms and batch tests pass in full', 'Rollback plan tested by HUIT', 'Staff told of changes and quick guide updated', 'Director signs the go decision'].map(x => `<li>${x}</li>`).join('')}</ol>`]]});
+      ['At a glance', glance([['ok', usd(BILL.ytd), `billed, ${p1(BILL.ytd / BILL.ytdPlan - 1)} above plan`], ['info', usd(BILL.accr), 'delivered through January, not yet invoiced, for the Q3 accrual'], ['warn', usd(BILL.age[3][1]), 'over 90 days, 2 hospital invoices']])],
+      ['Pace to the year plan', bar(BILL.ytd, BILL.plan, `${usd(BILL.ytd)} of ${usd(BILL.plan)}`, `${p0(BILL.ytd / BILL.plan)} of the plan billed, 58% of the year gone`, C.teal) + row(big('96%', 'individual fees paid at request', 'no follow-up needed', 'ok'), big('34 days', 'median for hospitals to pay', 'target 30', 'warn'), big('3', 'refunds this year', 'all within policy', 'ok'), big('1', 'card dispute', 'documents sent to the bank', 'info'))],
+      ['How each fee is collected', strip([['Individual visa and OPT fees', 61900, 'Online at request, automatic receipt'], ['Department-sponsored scholar fees', 61300, 'Internal billing when the DS-2019 request arrives'], ['Affiliated hospital fees', 128400, 'Invoice after the hospital confirms']], [C.slate, C.gold, C.mar])],
+      ['Billing by month', vbars(MON.slice(0, 7), [{n: 'Billed, thousands', c: C.mar, v: BILL.mon}], {h: 200, vals: true, fmt: v => '$' + Math.round(v) + 'K', vfmt: v => '$' + v.toFixed(1) + 'K', label: 'Billing by month'})],
+      ['Hospital receivables by age', hb(BILL.age.map((a, i) => [a[0], a[1], [C.teal, C.gold, C.mar, C.red][i]]), {fmt: usd, lw: 150, label: 'Hospital receivables by age'})],
+      ['From service to cash', steps([['Validate', 'Service matches a completed ISSM case', 'Operations'], ['Confirm', 'Hospital confirms scholar and charge', 'Operations'], ['Invoice', 'References the case and agreement', 'Operations'], ['Accrue', 'Delivered, not invoiced at quarter end', 'Associate Director'], ['Resolve', 'Routine disputes settled, precedent cases to the Director', 'Associate Director']])]]});
 
-  R.team = () => ({tier: 'team', tab: 'Operations weekly', title: 'Operations team weekly', issue: 'Monday, February 22, 2027', through: 'Week of February 15 to 19', aud: 'HIO operations team', id: 'HIO-O-2027-W08 · v1.0', src: 'Team queue, ISSM case log, training tracker',
+  R.xch = () => ({tier: 'team', tab: 'Data exchange', title: 'School data exchange reconciliation', issue: 'Feb 22, 2027', through: 'files received Feb 1 to 19', aud: 'Operations team and School contacts', id: 'HIO-X-2027-02', src: 'Slate and School SIS exports, ISSM import log',
     s: [
-      ['Summary', bullets(['The queue is <b>214 items</b>, down from 268. Registration and data exchange are this week’s priorities.', 'Template automation saved about <b>11 hours</b> last week on OPT recommendations and School templates.', 'One team member is on leave Thursday and Friday. Coverage for billing and batch runs is named below.'])],
-      ['Key numbers', tiles([['Open items', '214', 'from 268', 'ok'], ['Older than 5 days', '17', 'each named', 'warn'], ['Hours saved by automation', '11', 'last week', 'ok'], ['Training completed', '4 of 4', 'spring release changes', 'ok']])],
-      ['Queue by work type', vbars(['Registration', 'Data exchange', 'Billing', 'Signatures', 'Systems'], [{n: 'Open', c: C.slate, v: [58, 87, 22, 31, 16]}, {n: 'Older than 5 days', c: C.mar, v: [4, 6, 3, 1, 3]}], {h: 220, label: 'Queue by work type'})],
-      ['This week', acts([['Monday to Wednesday', 'Registration exceptions and School follow-up, billing confirmations with two hospitals', 'Advisors and operations'], ['Thursday and Friday', 'Coverage for batch runs and billing during leave', 'Named backup'], ['Friday', 'Retest the ISSM release, then the go or no-go', 'Operations, HUIT']])]]});
+      ['At a glance', glance([['ok', p1(XCH.auto / XCH.rec), `matched automatically, ${n0(XCH.auto)} of ${n0(XCH.rec)}`], ['warn', String(XCH.rec - XCH.auto), 'need a fix before any form is drafted'], ['info', '52', 'fixed this week with the Schools, median 2 days']])],
+      ['Match rate', row(ring(XCH.auto / XCH.rec, C.teal, 'Matched automatically', 'target 93%, met'), big('86%', 'last fall', 'before the crosswalk', ''), big('2 days', 'median to fix', 'standard 3', 'ok'), big('1', 'School template to change', 'program codes', 'warn'))],
+      ['What needs a fix', hb(XCH.fields.map(f => [f[0], f[1], C.slate]), {fmt: n0, lw: 200, label: 'Mismatches by field'})],
+      ['Matching rules', cards([['', 'Identity', 'School ID and date of birth, then name', 'Name order differs across countries'], ['', 'Program', 'One crosswalk to SEVIS codes', 'One source of truth'], ['', 'Funding', 'Covers first-year cost before drafting', 'Prevents reissued forms'], ['', 'Audit', 'Every manual fix logged', 'Feeds School training']])]]});
 
-  R.sec = () => ({tier: 'lead', tab: 'Data security', title: 'Data security quarterly review', issue: 'January 15, 2027', through: 'October 1 to December 31, 2026', aud: 'HIO Director and the Security Insiders group', id: 'HIO-S-FY27Q2 · v1.0', src: 'ISSM user roles, HUIT access logs, training records',
+  R.team = () => ({tier: 'team', tab: 'Operations weekly', title: 'Operations team weekly', issue: 'Feb 22, 2027', through: 'week of Feb 15 to 19', aud: 'HIO operations team', id: 'HIO-O-2027-W08', src: 'Team queue, ISSM case log, training tracker',
     s: [
-      ['Summary', bullets(['<b>46 ISSM accounts</b> were reviewed. 5 were removed after staff and School role changes, all within the week of the change.', 'Every account uses Harvard Key and multi-factor sign-in. <b>44 of 46</b> people completed this year’s data security training, and 2 are scheduled.', 'No incidents this quarter. Two vendor security patches were installed in the test environment first, then in production.'])],
-      ['Key numbers', tiles([['Accounts reviewed', '46 of 46', 'quarterly', 'ok'], ['Removed after a role change', '5', 'all within a week', 'ok'], ['Multi-factor sign-in', '100%', 'Harvard Key', 'ok'], ['Training complete', '44 of 46', '2 scheduled', 'warn'], ['Incidents', '0', 'this quarter', 'ok']])],
-      ['Access by role', hbars([['HIO advisors', 28, C.slate], ['School contacts, read only', 11, C.teal], ['Operations', 5, C.mar], ['Vendor and HUIT support, time-limited', 2, C.gold]], {fmt: n0, lw: 260, label: 'ISSM accounts by role'}) + note('Least privilege. School contacts see only their own students, read only. Vendor access is time-limited and logged.')],
-      ['Controls', table(['Control', 'Frequency', 'Owner'], [['Access review of every ISSM account', 'Quarterly', 'Associate Director'], ['Remove access within a week of a role change', 'Each change', 'Operations, with HR and HUIT'], ['Patches tested before production', 'Each patch', 'HUIT and operations'], ['Data security training for all staff', 'Yearly', 'Associate Director']], {num: false})]]});
+      ['At a glance', glance([['ok', '214', 'open items, down from 268'], ['ok', '11 hours', 'saved by automation last week'], ['warn', '17', 'items older than 5 days, each named']])],
+      ['Queue by work type', vbars(['Registration', 'Data exchange', 'Billing', 'Signatures', 'Systems'], [{n: 'Open', c: C.slate, v: [58, 87, 22, 31, 16]}, {n: 'Older than 5 days', c: C.mar, v: [4, 6, 3, 1, 3]}], {h: 200, label: 'Queue by work type'})],
+      ['This week', when([['Mon to Wed', 'Registration exceptions, School follow-up, two hospital confirmations', 'Advisors and operations'], ['Thu and Fri', 'Backup runs batches and billing during leave', 'Named backup'], ['Fri', 'ISSM retest, then go or no-go', 'Operations and HUIT']])],
+      ['Team', row(big('4 of 4', 'trained on release changes', 'quick guide updated', 'ok'), big('2', 'people cross-trained on billing', 'goal 4 by June', 'info'))]]});
 
   const TIER = {lead: ['For the HIO Director and leadership', 'Results, decisions and risks, with problems already worked'], fin: ['For Campus Services Finance', 'Billing, accruals and disputes, tied to the service log'], team: ['For the operations team', 'The working queue, with owners and dates']};
   const ORDER = ['lead', 'reg', 'test', 'sec', 'bill', 'xch', 'team'];
-  const html = k => { const r = R[k](); return `<article class="rp-doc" data-k="${k}"><header class="rp-head"><p class="rp-brand">Sample report in a work sample by Narissara Khomkhai, applicant <span>Synthetic data · not an HIO or Harvard document</span></p><p class="rp-tier ${r.tier}">${TIER[r.tier][0]}</p><h3>${E(r.title)}</h3><dl class="rp-meta"><div><dt>Issued</dt><dd>${E(r.issue)}</dd></div><div><dt>Data</dt><dd>${E(r.through)}</dd></div><div><dt>For</dt><dd>${E(r.aud)}</dd></div></dl><dl class="rp-ctl"><div class="cls"><dt>Classification</dt><dd>Sample. If live, confidential, with student and scholar data, internal only.</dd></div><div><dt>Source</dt><dd>${E(r.src)}</dd></div><div><dt>Sample ID</dt><dd>SAMPLE ${E(r.id)}</dd></div></dl></header>${r.s.map((s, i) => `<section class="rp-sec"><h4><span>${i + 1}</span>${E(s[0])}</h4>${s[1]}</section>`).join('')}<p class="rp-foot">Synthetic data, sized to HIO’s published counts: 10,158 visa-sponsored students and scholars. No student or scholar data is used.</p></article>`; };
+  const html = k => { const r = R[k](); return `<article class="rp-doc ig" data-k="${k}"><header class="rp-head"><p class="rp-brand">Sample report · work sample by Narissara Khomkhai, applicant <span>Synthetic data · not an HIO or Harvard document</span></p><p class="rp-tier ${r.tier}">${TIER[r.tier][0]}</p><h3>${E(r.title)}</h3><p class="ig-meta"><span><b>Issued</b> ${E(r.issue)}</span><span><b>Data</b> ${E(r.through)}</span><span><b>For</b> ${E(r.aud)}</span></p></header>${r.s.map((s, i) => `<section class="rp-sec${i === 0 ? ' ig-first' : ''}"><h4><span>${i + 1}</span>${E(s[0])}</h4>${s[1]}</section>`).join('')}<p class="rp-foot">Sample ID SAMPLE ${E(r.id)} · Source ${E(r.src)} · If live, confidential, internal only · Synthetic data sized to HIO’s published counts.</p></article>`; };
   window.HIO_REPORTS = {html, keys: ORDER, all: () => ORDER.map(html).join('')};
   const host = document.getElementById('rp-host');
   if (host) {
@@ -896,7 +1110,11 @@ LEFT   JOIN cost_estimate c
     ['Billing disputes', 'R', 'C', '', 'A', '', '', '', 'C'],
     ['Access reviews and data security', 'AR', 'C', 'C', 'I', '', 'R', 'C', ''],
     ['Response to a change in federal guidance', 'R', 'C', 'R', 'A', 'I', 'C', '', ''],
-    ['Team queue, training and coverage', 'AR', 'C', 'I', 'I', '', '', '', '']
+    ['Team queue, training and coverage', 'AR', 'C', 'I', 'I', '', '', '', ''],
+    ['School staff training before each intake', 'A', 'R', 'C', 'I', 'C', '', '', ''],
+    ['Vendor register and platform outages', 'AR', 'C', 'I', 'I', '', 'C', 'R', ''],
+    ['Continuity plan and yearly test', 'R', 'R', 'C', 'A', '', 'C', 'C', ''],
+    ['Onboarding, offboarding and records retention', 'A', 'R', '', 'I', '', 'R', '', '']
   ];
   const rr = $('#raci');
   if (rr) {
@@ -905,6 +1123,51 @@ LEFT   JOIN cost_estimate c
     document.addEventListener('click', e => { const b = e.target.closest('.rr'); if (!b) return; const k = +b.dataset.role; $$('.rr').forEach(x => x.classList.toggle('on', x === b)); $$('#raci [data-c]').forEach(td => td.classList.toggle('dim', k >= 0 && +td.dataset.c !== k)); $$('#raci tbody tr').forEach(tr => tr.classList.toggle('dim', k >= 0 && !tr.querySelector(`td[data-c="${k}"]`).textContent)); });
   }
   $$('table.score').forEach(t => { const h = $$('th', t).map(x => x.textContent.trim()); $$('tbody tr', t).forEach(r => $$('td', r).forEach((d, i) => { if (h[i]) d.dataset.l = h[i]; })); });
+
+  // ================= three-year outlook =================
+  const NAT = {y: ['2020/21', '2021/22', '2022/23', '2023/24', '2024/25', '2025/26'], tot: [914095, 948519, 1057188, 1126690, 1177766, 1146163], opt: [203885, 184759, 198793, 242782, 294253, 335785]};
+  const SC = window.HIO_SCEN;
+  if ($('#ol-nat')) {
+    $('#ol-nat').innerHTML = '<h4>U.S. international students and OPT, published</h4>' + H.lines(NAT.y, [{n: 'All international students, with OPT', c: C.slate, v: NAT.tot, dots: 1}, {n: 'On OPT', c: C.gold, v: NAT.opt, dots: 1}], {h: 230, min: 0, max: 1300000, fmt: v => (v / 1e6).toFixed(1) + 'M', label: 'U.S. international students and OPT'}) + H.note('Open Doors 2025 and 2026. OPT kept rising while new enrollment fell, so OPT work peaks before it eases.');
+    $('#ol-hio').innerHTML = '<h4>HIO students and scholars, three scenarios</h4>' + H.lines(SC.years, SC.list.map(x => ({n: x.n, c: x.c, v: x.tot, dots: 1, dash: x.dash})), {h: 230, min: 7000, max: 11000, fmt: v => H.n0(v), label: 'HIO population scenarios'}) + H.note('Starts from HIO’s published 10,158. Projection, not a forecast.');
+    $('#ol-table').innerHTML = `<div class="rp-tw"><table class="score olt"><thead><tr><th>Scenario</th><th>Assumption</th><th class="n">Students, fall 2029</th><th class="n">Scholars, fall 2029</th><th class="n">OPT recommendations, 2029</th><th class="n">Billing, FY29</th><th>What I would plan for</th></tr></thead><tbody>${SC.list.map(x => `<tr><td><b style="color:${x.c}">${x.n}</b></td><td>${x.a}</td><td class="n">${H.n0(x.stu[3])}</td><td class="n">${H.n0(x.sch[3])}</td><td class="n">${H.n0(x.opt[3])}</td><td class="n">${H.usd(x.bill)}</td><td>${x.plan}</td></tr>`).join('')}</tbody></table></div>`;
+    $('#ol-trig').innerHTML = `<div class="trigs">${[['May 1', 'Deposits and enrollment lists', 'New international admits more than 10% below last year', 'Move to the national-trend plan for fall staffing and the billing plan'], ['June 30', 'I-20 and DS-2019 issued for fall', 'Forms issued more than 15% behind last year by week', 'Check visa appointment waits with Schools, adjust arrival support'], ['Census, October', 'SEVIS initial status confirmed', 'Arrivals below forms issued by more than the usual gap', 'Reforecast billing and the spring registration load'], ['Mid-November', 'Open Doors and the IIE snapshot', 'National new enrollment down again', 'Update the three-year outlook for the Director'], ['Any time', 'Federal guidance or a court order', 'A change that affects status or sponsorship', 'Run the five-step change routine, size it within a day']].map(x => `<div><time>${x[0]}</time><b>${x[1]}</b><span><i>Trigger</i>${x[2]}</span><span><i>Action</i>${x[3]}</span></div>`).join('')}</div>`;
+  }
+
+  // ================= Lane B gantt =================
+  const PROJ = [['School crosswalk and import validation', 8, 3, 6, 'Associate Director, HUIT'], ['ISSM release gate and test register', 6, 3, 7, 'Associate Director, vendor'], ['Leadership dashboard, version 1', 5, 4, 8, 'Associate Director'], ['Billing tied to the service log', 4, 5, 8, 'Operations, Campus Services Finance'], ['Automation 1 · School file import', 6, 6, 9, 'Operations'], ['Automation 2 · registration checks', 5, 8, 11, 'Operations']];
+  const gt = $('#gantt');
+  if (gt) gt.innerHTML = `<div class="gt"><div class="gt-h"><span>Project</span><span class="gt-wk">${Array.from({length: 12}, (_, i) => `<i>${i + 1}</i>`).join('')}</span><span>Effort</span><span>Owner</span></div>${PROJ.map(p => `<div class="gt-r"><span>${E(p[0])}</span><span class="gt-wk">${Array.from({length: 12}, (_, i) => `<i class="${i + 1 >= p[2] && i + 1 <= p[3] ? 'on' : ''}"></i>`).join('')}</span><span><b>${p[1]}</b> days</span><span>${E(p[4])}</span></div>`).join('')}<div class="gt-r tot"><span><b>Total</b></span><span class="gt-wk"></span><span><b>${PROJ.reduce((a, p) => a + p[1], 0)}</b> days</span><span>weeks 3 to 11</span></div></div>`;
+
+  // ================= index dropdowns =================
+  const dd = $('#dd');
+  if (dd) {
+    const secs = $$('main > section[data-s]');
+    const map = {}; secs.forEach(sec => { map[sec.id] = [[sec.id, sec.dataset.s], ...$$('[data-s]', sec).map(h => [h.id, h.dataset.s])]; });
+    $$('.idx a').forEach(a => { const id = a.getAttribute('href').slice(1); if (!map[id] || map[id].length < 2) return; const w = document.createElement('span'); w.className = 'ni'; a.parentNode.insertBefore(w, a); w.appendChild(a); const b = document.createElement('button'); b.type = 'button'; b.className = 'ni-c'; b.setAttribute('aria-label', 'Show parts of ' + a.textContent); b.setAttribute('aria-expanded', 'false'); b.dataset.sec = id; b.innerHTML = '▾'; w.appendChild(b); w.dataset.sec = id; });
+    let openId = null, tmr = null;
+    const curSub = id => { const y = scrollY + $('.top').getBoundingClientRect().height + 40; let on = map[id][0][0]; map[id].forEach(x => { const el = document.getElementById(x[0]); if (el && el.getBoundingClientRect().top + scrollY <= y) on = x[0]; }); return on; };
+    const show = id => {
+      clearTimeout(tmr); const w = document.querySelector(`.ni[data-sec="${id}"]`); if (!w) return;
+      const secEl = document.getElementById(id), yy = scrollY + $('.top').getBoundingClientRect().height + 40, nxt = secs[secs.indexOf(secEl) + 1];
+      const inSec = secEl.offsetTop <= yy && (!nxt || nxt.offsetTop > yy), on = inSec ? curSub(id) : null;
+      dd.innerHTML = map[id].map((x, k) => `<a href="#${x[0]}" role="menuitem" class="${x[0] === on ? 'on' : ''}${k === 0 ? ' top' : ''}"><i></i>${E(x[1])}</a>`).join('');
+      const r = w.getBoundingClientRect(), tr = $('.top').getBoundingClientRect();
+      dd.hidden = false; const ww = dd.offsetWidth; let left = Math.min(Math.max(8, r.left), innerWidth - ww - 8);
+      dd.style.left = left + 'px'; dd.style.top = (tr.bottom - 1) + 'px';
+      $$('.ni-c').forEach(b => b.setAttribute('aria-expanded', String(b.dataset.sec === id))); $$('.ni').forEach(x => x.classList.toggle('open', x.dataset.sec === id)); openId = id;
+    };
+    const hide = () => { dd.hidden = true; openId = null; $$('.ni-c').forEach(b => b.setAttribute('aria-expanded', 'false')); $$('.ni').forEach(x => x.classList.remove('open')); };
+    const later = () => { clearTimeout(tmr); tmr = setTimeout(hide, 220); };
+    const hoverable = matchMedia('(hover:hover) and (pointer:fine)').matches;
+    $$('.ni').forEach(w => { if (hoverable) { w.addEventListener('mouseenter', () => show(w.dataset.sec)); w.addEventListener('mouseleave', later); } });
+    dd.addEventListener('mouseenter', () => clearTimeout(tmr)); dd.addEventListener('mouseleave', later);
+    document.addEventListener('click', e => { const b = e.target.closest('.ni-c'); if (b) { e.preventDefault(); (openId === b.dataset.sec && !hoverable) ? hide() : show(b.dataset.sec); return; } if (e.target.closest('#dd a')) { setTimeout(hide, 10); return; } if (!e.target.closest('#dd')) hide(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') hide(); });
+    $('.idx').addEventListener('scroll', () => { if (openId) show(openId); }, {passive: true});
+    addEventListener('scroll', () => { if (openId && !hoverable) { const w = document.querySelector(`.ni[data-sec="${openId}"]`); if (w) dd.style.top = ($('.top').getBoundingClientRect().bottom - 1) + 'px'; } }, {passive: true});
+    addEventListener('resize', hide);
+  }
 })();
 </script>
 </body>
