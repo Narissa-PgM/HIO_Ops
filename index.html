@@ -212,6 +212,12 @@ pre.sql{background:#f6f7f5;border:1px solid var(--line);padding:12px 14px;font-s
 .ci-d{margin:8px 0 0;display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13px;border-top:1px dashed var(--line);padding-top:6px}.ci-d i{font-style:normal;font-weight:700;font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-right:5px}
 @media(max-width:800px){.ci-gi{grid-template-columns:1fr}.ci-k:nth-child(odd){border-right:0}}
 @media print{.ci-gi{grid-template-columns:1fr 1fr}.ci-k{break-inside:avoid}.ci-g{break-inside:auto}.ci-gh{break-after:avoid}}
+.tm{cursor:help;border-bottom:1px dotted var(--accent)}span.tm:focus{outline:2px solid #e7c9d1;outline-offset:1px}
+.tip{position:fixed;z-index:100;max-width:320px;background:#1f2a30;color:#fff;font-size:13.5px;line-height:1.45;padding:9px 12px;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,.25);pointer-events:none;font-family:var(--serif)}.tip b{display:block;color:#f2d6dd;font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;margin-bottom:2px}
+.tip:after{content:"";position:absolute;left:var(--ax,50%);bottom:-6px;margin-left:-6px;border:6px solid transparent;border-top-color:#1f2a30;border-bottom:0}.tip.below:after{bottom:auto;top:-6px;border:6px solid transparent;border-bottom-color:#1f2a30;border-top:0}
+.pop-go-w{margin:14px 0 0;text-align:right}.pop-go{background:none;border:1px solid var(--line);padding:5px 12px;font-size:13.5px;color:var(--accent)}
+dialog#pop .rp-doc{border-top-width:4px}
+@media print{.tm{border-bottom:0}}
 /* sample reports */
 .rp-grid{display:grid;grid-template-columns:230px minmax(0,1fr);gap:20px;align-items:start}
 .rp-pick{display:grid;gap:8px;position:sticky;top:calc(var(--sticky-offset) + 8px)}
@@ -399,7 +405,7 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
   <h3 id="sx-rec" data-s="Sample records" class="h3">Six sample records through the checks</h3>
   <div id="xrec"></div>
   <div class="dl" style="margin-top:12px"><button class="btn ghost" data-pop="p-sql">See the validation SQL</button></div>
-  <h3 class="h3" id="sx-trn" data-s="School training">Training the School staff who fill the template</h3>
+  <h3 class="h3" id="sx-trn" data-s="School training" data-stop>Training the School staff who fill the template</h3>
   <p class="lede sm">A template only works if admissions and department staff know how to fill it. Repeat errors get fixed in the training, not only in the file.</p>
   <div class="dev">
     <div><b>Before each intake</b><span>A short session for School contacts: what each field means, the top five errors last cycle, and who to call.</span></div>
@@ -507,7 +513,7 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
       <tr><td><b>International partners</b></td><td>International Coordinator at UNCTAD Trade Point Thailand, serving small and medium-sized businesses and partner contacts across countries.</td></tr>
     </tbody>
   </table></div>
-  <div class="gap" id="sx-gap" data-s="SEVIS gap">
+  <div class="gap" id="sx-gap" data-s="SEVIS gap" data-title="One honest gap · SEVIS and DSO practice">
     <b>One honest gap · SEVIS and DSO practice</b>
     <p>I have not served as a DSO or ARO, and the role depends on that service. I am a U.S. citizen, so I am eligible for DSO and ARO designation and need no visa sponsorship. I would close the gap on a fixed schedule and take on signing duties only after designation and the Director’s approval.</p>
     <ol class="gap-steps">
@@ -553,7 +559,7 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
   <h3 class="h3" id="sx-trig" data-s="Early signals">Early signals and what each one triggers</h3>
   <div id="ol-trig"></div>
   <p class="src">Method: a cohort model in which about 36% of students complete each year and are replaced by new students. Each scenario sets the change in new students, scholars change at a fixed yearly rate, and billing moves with OPT and scholar volumes. The projection starts from HIO’s published counts and is for planning, not a forecast of Harvard’s enrollment.</p>
-  <h3 class="h3" id="sx-swot" data-s="SWOT">SWOT for HIO operations, from published facts</h3>
+  <h3 class="h3" id="sx-swot" data-s="SWOT" data-stop>SWOT for HIO operations, from published facts</h3>
   <p class="lede sm">An outside-in view. Strengths, opportunities and threats rest on published sources. Pressures are ones large international offices commonly face, to be confirmed with the Director in the first 30 days, not judgments of HIO.</p>
   <div class="swot">
     <div class="sw-s"><p>Strengths</p><ul><li>Serves 10,158 students and scholars from 150 countries, one central office for every School and the affiliated hospitals</li><li>Demand holding: Harvard reported a record 6,749 international students in fall 2025</li><li>More than 80 years of practice, since 1944</li><li>SEVIS batch processing on an established system, Ellucian ISSM/ISD</li></ul></div>
@@ -1002,7 +1008,7 @@ LEFT   JOIN cost_estimate c
     const L = ORDER.map(k => { const r = R[k](); return [k, r.tab, r.title, r.tier]; });
     host.innerHTML = `<div class="rp-grid"><div class="rp-pick" role="tablist" aria-label="Sample reports">${L.map((x, i) => `${i === 0 || L[i - 1][3] !== x[3] ? `<p class="rp-grp ${x[3]}">${TIER[x[3]][0]}<small>${TIER[x[3]][1]}</small></p>` : ''}<button type="button" role="tab" class="rp-b" data-rk="${x[0]}" aria-selected="${i ? 'false' : 'true'}"><span>${E(x[1])}</span><b>${E(x[2])}</b></button>`).join('')}<a class="btn rp-pdf" href="HIO_Sample_Reports.pdf" target="_blank" rel="noopener">All seven as PDF</a></div><div class="rp-view" role="tabpanel"></div></div>`;
     host.querySelector('.rp-view').innerHTML = html('lead');
-    document.addEventListener('click', e => { const b = e.target.closest('.rp-b'); if (!b) return; const grid = b.closest('.rp-grid'), v = grid.querySelector('.rp-view'), inPop = !!b.closest('dialog'); v.style.opacity = 0; setTimeout(() => { grid.querySelectorAll('.rp-b').forEach(x => x.setAttribute('aria-selected', String(x === b))); v.innerHTML = html(b.dataset.rk); if (inPop) { const sc = b.closest('.pop-body'); if (sc) sc.scrollTop = 0; } else { const top = grid.getBoundingClientRect().top + scrollY - 84; if (scrollY > top) scrollTo({top, behavior: 'instant'}); } v.style.opacity = 1; }, 140); });
+    document.addEventListener('click', e => { const b = e.target.closest('.rp-b'); if (!b) return; const grid = b.closest('.rp-grid'), v = grid.querySelector('.rp-view'), inPop = !!b.closest('dialog'); v.style.opacity = 0; setTimeout(() => { grid.querySelectorAll('.rp-b').forEach(x => x.setAttribute('aria-selected', String(x === b))); v.innerHTML = html(b.dataset.rk); if (window.HIO_TAG) HIO_TAG(v); if (inPop) { const sc = b.closest('.pop-body'); if (sc) sc.scrollTop = 0; } else { const top = grid.getBoundingClientRect().top + scrollY - 84; if (scrollY > top) scrollTo({top, behavior: 'instant'}); } v.style.opacity = 1; }, 140); });
   }
   window.HC = {hbars, vbars, lines, tiles, table, note, bullets, acts, st, C, n0, usd, ks, p1};
 })();</script>
@@ -1043,19 +1049,33 @@ LEFT   JOIN cost_estimate c
     match: ['Matched automatically', 'A School record that agrees with ISSM on every required field, so no one has to touch it before a form is drafted.'],
     raci: ['RACI', 'A way to show who does what. Responsible does the work, Accountable owns the outcome and signs off, Consulted gives input before, Informed hears after. Each process has exactly one Accountable owner.'],
     cip: ['CIP code', 'Classification of Instructional Programs. The federal code for a field of study, used for the major on the I-20 and the field on the DS-2019, and to decide STEM OPT eligibility.'],
+    cpt: ['CPT', 'Curricular Practical Training. Work or training that is an integral part of an established curriculum, authorized by a DSO in SEVIS during the program. Since August 2026, SEVP guidance limits it to training required for all students in the program.'],
+    ds: ['Duration of status', 'The long-standing rule that admits F and J students and exchange visitors for as long as they keep their status, not to a fixed date. A 2026 final rule would replace it with fixed dates, and a court order has paused it.'],
+    uscis: ['USCIS', 'U.S. Citizenship and Immigration Services. The agency that decides applications such as OPT work authorization and extensions of stay.'],
+    pdso: ['Principal DSO', 'The Designated School Official who also keeps the school’s certification record current in SEVIS.'],
     lp: ['Least privilege', 'Each account has only the access its role needs, and no more.']
   };
   const dictHTML = () => '<dl class="dict">' + Object.values(T).map(t => `<dt>${t[0]}</dt><dd>${t[1]}</dd>`).join('') + '</dl><p class="src">Plain-language definitions for this work sample. Federal rules and HIO procedures govern.</p>';
   // ---------- popup layer with a back stack ----------
   const dlg = $('#pop'), body = $('.pop-body', dlg), ttl = $('#pop-t'), back = $('.pop-back', dlg); let stack = [];
   const render = item => {
-    dlg.classList.toggle('wide', !!item.wide);
-    if (item.term) { ttl.textContent = T[item.term][0]; body.innerHTML = `<p class="tip-def">${T[item.term][1]}</p><p><button class="tm" data-t="dict">Open the full data dictionary</button></p>`; }
+    dlg.classList.toggle('wide', !!(item.wide || item.rep || item.sec));
+    if (item.rep) { ttl.textContent = item.title; body.innerHTML = HIO_REPORTS.html(item.rep) + `<p class="pop-go-w"><button type="button" class="pop-go" data-go="#e" data-gorep="${item.rep}">Show it among the seven reports ›</button></p>`; }
+    else if (item.sec) { const c = secClone(item.sec); ttl.textContent = c.title; body.innerHTML = c.html + `<p class="pop-go-w"><button type="button" class="pop-go" data-go="#${item.sec}">Show where this sits on the page ›</button></p>`; }
     else if (item.id === 'p-dict' || item.term === 'dict') { ttl.textContent = 'Data dictionary'; body.innerHTML = dictHTML(); }
     else { const tp = document.getElementById(item.id); ttl.textContent = tp.dataset.title; body.innerHTML = ''; body.appendChild(tp.content.cloneNode(true)); charts(body); }
-    back.hidden = stack.length < 2; body.scrollTop = 0;
+    window.HIO_TAG && HIO_TAG(body); back.hidden = stack.length < 2; body.scrollTop = 0;
   };
-  const open = item => { stack.push(item); render(item); if (!dlg.open) dlg.showModal(); };
+  const secClone = id => {
+    const el = document.getElementById(id); if (!el) return {title: '', html: ''}; let nodes = [], title = '';
+    if (el.tagName === 'SECTION') { title = (el.querySelector('h2') || {}).textContent || ''; for (const c of el.children) { if (c.matches('h3')) break; if (c.matches('.kick,h2')) continue; nodes.push(c); } }
+    else if (/^H[1-4]$/.test(el.tagName)) { title = el.textContent; const big = el.classList.contains('h2'); let n = el.nextElementSibling; while (n && !n.matches('h2,[data-stop]' + (big ? ',h3.h2' : ',h3'))) { nodes.push(n); n = n.nextElementSibling; } }
+    else { title = el.dataset.title || el.dataset.s || ''; nodes = [el]; }
+    const d = document.createElement('div'); nodes.forEach(n => d.appendChild(n.cloneNode(true)));
+    d.querySelectorAll('[id]').forEach(x => x.removeAttribute('id')); d.querySelectorAll('.tm[data-auto]').forEach(x => x.replaceWith(document.createTextNode(x.textContent)));
+    return {title, html: d.innerHTML};
+  };
+  const open = item => { hideTip(); stack.push(item); render(item); dlg.classList.toggle('wide', !!(item.rep || item.wide || item.sec)); if (!dlg.open) dlg.showModal(); };
   const close = () => { stack = []; if (dlg.open) dlg.close(); };
   back.addEventListener('click', () => { stack.pop(); render(stack[stack.length - 1]); });
   $('.pop-x', dlg).addEventListener('click', close);
@@ -1066,10 +1086,50 @@ LEFT   JOIN cost_estimate c
   const jump = (hash, after) => { const t = document.getElementById(hash.slice(1)); if (!t) return; main.classList.add('fade'); setTimeout(() => { if (after) after(); scrollTo({top: t.getBoundingClientRect().top + scrollY - top() + 1, behavior: 'instant'}); history.replaceState(null, '', hash); main.classList.remove('fade'); }, 170); };
   const pickReport = k => { const b = document.querySelector(`#rp-host .rp-b[data-rk="${k}"]`); if (!b) return; $$('#rp-host .rp-b').forEach(x => x.setAttribute('aria-selected', String(x === b))); $('#rp-host .rp-view').innerHTML = HIO_REPORTS.html(k); };
   document.addEventListener('click', e => {
-    const t = e.target.closest('[data-t]'); if (t) { e.preventDefault(); open(t.dataset.t === 'dict' ? {id: 'p-dict'} : {term: t.dataset.t}); return; }
+    const g = e.target.closest('.pop-go'); if (g) { const k = g.dataset.gorep; close(); jump(g.dataset.go, k ? () => pickReport(k) : null); return; }
+    const t = e.target.closest('[data-t]'); if (t) { e.preventDefault(); if (t.dataset.t === 'dict') { open({id: 'p-dict'}); } else if (!hoverable) { tipFor === t ? hideTip() : showTip(t); } return; }
     const p = e.target.closest('[data-pop]'); if (p) { e.preventDefault(); open({id: p.dataset.pop}); return; }
-    const a = e.target.closest('a[href^="#"]'); if (a) { e.preventDefault(); const rk = a.dataset.rep; if (a.hasAttribute('data-close') || a.closest('dialog')) close(); jump(a.getAttribute('href'), rk ? () => pickReport(rk) : null); }
+    const a = e.target.closest('a[href^="#"]'); if (!a) return; e.preventDefault();
+    const nav = a.closest('.idx, #dd, .top'); const rk = a.dataset.rep;
+    if (nav) { close(); jump(a.getAttribute('href'), rk ? () => pickReport(rk) : null); return; }
+    if (rk) { const tmp = document.createElement('div'); tmp.innerHTML = HIO_REPORTS.html(rk); open({rep: rk, title: tmp.querySelector('h3').textContent}); return; }
+    open({sec: a.getAttribute('href').slice(1)});
   });
+  // ---------- hover definitions ----------
+  const hoverable = matchMedia('(hover:hover) and (pointer:fine)').matches;
+  const tip = document.createElement('div'); tip.className = 'tip'; tip.setAttribute('role', 'tooltip'); tip.hidden = true; document.body.appendChild(tip); let tipFor = null;
+  function showTip(el) {
+    const d = T[el.dataset.t]; if (!d) return; const host = el.closest('dialog') || document.body; if (tip.parentNode !== host) host.appendChild(tip);
+    tip.innerHTML = `<b>${d[0]}</b>${d[1]}`; tip.hidden = false; const r = el.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
+    let left = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), innerWidth - w - 8), top = r.top - h - 10, below = top < 8; if (below) top = r.bottom + 10;
+    tip.classList.toggle('below', below); tip.style.left = left + 'px'; tip.style.top = top + 'px'; tip.style.setProperty('--ax', (r.left + r.width / 2 - left) + 'px'); tipFor = el;
+  }
+  function hideTip() { tip.hidden = true; tipFor = null; }
+  document.addEventListener('mouseover', e => { const t = e.target.closest('[data-t]:not([data-t="dict"])'); if (t && hoverable) showTip(t); });
+  document.addEventListener('mouseout', e => { const t = e.target.closest('[data-t]'); if (t && hoverable && !t.contains(e.relatedTarget)) hideTip(); });
+  document.addEventListener('focusin', e => { if (!hoverable) return; const t = e.target.closest && e.target.closest('[data-t]:not([data-t="dict"])'); if (t) showTip(t); });
+  document.addEventListener('focusout', e => { if (e.target.closest && e.target.closest('[data-t]')) hideTip(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') hideTip(); });
+  addEventListener('scroll', () => { if (tipFor) hideTip(); }, {passive: true}); body.addEventListener('scroll', () => { if (tipFor) hideTip(); }, {passive: true});
+  if (!hoverable) document.addEventListener('click', e => { if (tipFor && !e.target.closest('[data-t]')) hideTip(); });
+  // ---------- tag glossary terms in the text, first use in each part ----------
+  const PAT = [['ISSM/ISD', 'issm'], ['DS-2019', 'i20'], ['I-20', 'i20'], ['SEVIS', 'sevis'], ['SEVP', 'sevp'], ['USCIS', 'uscis'], ['Principal DSO', 'pdso'], ['DSO', 'dso'], ['ARO', 'aro'], ['OPT', 'opt'], ['CPT', 'cpt'], ['CIP', 'cip'], ['RACI', 'raci'], ['Slate', 'slate'], ['[Dd]uration of status', 'ds'], ['[Ll]east privilege', 'lp'], ['[Aa]ccruals?', 'accr'], ['[Tt]ravel signatures?', 'sig'], ['ISSM', 'issm']];
+  const RX = new RegExp('(?<![\\w/-])(' + PAT.map(p => p[0]).join('|') + ')(?![\\w-])', 'g');
+  const keyOf = m => { for (const p of PAT) if (new RegExp('^(?:' + p[0] + ')$').test(m)) return p[1]; };
+  const SKIP = 'a,button,.tm,h1,h2,h3,h4,h5,.idx,.dd,svg,script,style,pre,code,.banner,.rp-brand,.rp-foot,.pi-obj b,.kick,.ci-h,.lane-h,.src';
+  window.HIO_TAG = root => {
+    const scopes = root.matches && root.matches('#main') ? [...root.querySelectorAll(':scope > section')] : [root];
+    scopes.forEach(sc => {
+      const done = new Set([...sc.querySelectorAll('.tm[data-t]')].map(x => x.dataset.t));
+      const w = document.createTreeWalker(sc, NodeFilter.SHOW_TEXT, {acceptNode: n => (n.parentElement && !n.parentElement.closest(SKIP) && RX.test(n.nodeValue)) ? (RX.lastIndex = 0, NodeFilter.FILTER_ACCEPT) : (RX.lastIndex = 0, NodeFilter.FILTER_REJECT)});
+      const nodes = []; while (w.nextNode()) nodes.push(w.currentNode);
+      nodes.forEach(n => { const txt = n.nodeValue; let last = 0, out = [], m; RX.lastIndex = 0;
+        while ((m = RX.exec(txt))) { const k = keyOf(m[1]); if (!k || done.has(k)) continue; done.add(k); out.push(document.createTextNode(txt.slice(last, m.index))); const sp = document.createElement('span'); sp.className = 'tm'; sp.dataset.t = k; sp.dataset.auto = '1'; sp.tabIndex = 0; sp.textContent = m[1]; out.push(sp); last = m.index + m[1].length; }
+        if (out.length) { out.push(document.createTextNode(txt.slice(last))); n.replaceWith(...out); } });
+    });
+  };
+  HIO_TAG(main);
+
   // ---------- active index ----------
   const links = $$('.idx a'), secs = links.map(a => document.getElementById(a.getAttribute('href').slice(1)));
   const mark = () => { const y = scrollY + top() + 40; let k = 0; secs.forEach((s, i) => { if (s && s.offsetTop <= y) k = i; }); links.forEach((a, i) => a.classList.toggle('on', i === k)); };
