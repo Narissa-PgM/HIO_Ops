@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HIO Operations and Administration · Work sample · Narissara Khomkhai</title>
+<title>Proposed HIO operating model · Work sample by Narissara Khomkhai</title>
 <meta name="description" content="Work sample for the Harvard International Office Associate Director of Operations and Administration application. Synthetic data, not a Harvard document.">
 <style>:root{--serif:Cambria,"Cambria Math",Georgia,"Times New Roman",serif;--ink:#1f2a30;--muted:#5d6970;--line:#dfe3e1;--paper:#fff;--soft:#f6f7f5;--pale:#f6e9ec;--accent:#8e263e;--gold:#a5762a;--gold-pale:#f7efe1;--slate:#4c6876;--teal:#2f7d6d;--white:#fff;--sticky-offset:64px}
 *{box-sizing:border-box}html{scroll-behavior:auto}body{margin:0;font-family:var(--serif);color:var(--ink);background:#fbfbfa;font-size:16.5px;line-height:1.55;-webkit-text-size-adjust:100%}
@@ -76,7 +76,54 @@ dialog#pop::backdrop{background:rgba(25,32,36,.45)}
 @media(max-width:1000px){.me{flex:none}.top-in{flex-direction:column;align-items:flex-start;gap:2px;padding-top:6px;padding-bottom:4px}.idx{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch}.idx a{white-space:nowrap;font-size:13.5px}:root{--sticky-offset:92px}.areas{grid-template-columns:repeat(2,minmax(0,1fr))}.vals,.rhythm{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.me{flex:none}.score thead{display:none}.score,.score tbody,.score tr{display:block}.score tr{border-top:1px solid var(--line);padding:7px 0}.score td{display:block;border:0;padding:2px 12px;text-align:left!important;white-space:normal!important}.score td:first-child{font-weight:700}.score td:not(:first-child)[data-l]:before{content:attr(data-l) " · ";color:var(--muted);font-size:12.5px;text-transform:uppercase;letter-spacing:.05em}.score td:empty{display:none}body{font-size:16px}h1{font-size:29px}.sec>h2{font-size:24px}.lede{font-size:17px}.facts,.path{grid-template-columns:repeat(2,minmax(0,1fr))}.facts div:nth-child(3){border-left:0}.facts div:nth-child(n+3){border-top:1px solid var(--line)}.areas,.phases,.vals,.rhythm,.steps{grid-template-columns:minmax(0,1fr)}.cal{grid-template-columns:86px repeat(12,minmax(44px,1fr));overflow-x:auto}.calw{overflow-x:auto}.score{font-size:14px}.score.fit td:first-child{width:auto}.sec{padding:34px 16px 24px}.wrap{padding-left:16px;padding-right:16px}}
 @media print{.top,.banner{position:static}}
-@media print{body{background:#fff;font-size:11.5pt}.top{display:none}.banner{background:none;border-bottom:1px solid var(--line)}.area:after{content:none}.sec{padding:16px 0 10px;border-bottom:0}.wrap{max-width:none;padding:0}h1{font-size:25pt}.sec>h2{font-size:18pt}.lede{font-size:12pt}.facts b{font-size:22pt}.areas{grid-template-columns:repeat(4,1fr)}.vals,.rhythm,.steps{grid-template-columns:repeat(5,1fr)}.path{grid-template-columns:repeat(4,1fr)}.score tr,.area,.vals div,.phases>div,.steps li,.chart,.gap,.cal,.pa-item{break-inside:avoid}.sec{break-before:auto}h2,h3,.h2,.h3,.kick{break-after:avoid}.rhythm,.phases,.steps,.vals,.facts,.path,.areas,.lede{break-inside:avoid}.dict{columns:2;column-gap:24px}.dict dt{break-after:avoid}.dict dd{break-inside:avoid}.rp-list li{margin:3px 0}.tm{border-bottom:0}.dl{display:none}.pa{margin-top:10px}.pa-item{border:1px solid var(--line);border-left:4px solid var(--slate);padding:8px 12px;margin:8px 0;font-size:10.5pt}.pa-item h3{margin:0 0 4px;font-size:13pt}.pa-item h4{margin:6px 0 2px;font-size:9.5pt;letter-spacing:.06em;text-transform:uppercase;color:var(--slate)}.pa-item ul{margin:0;padding-left:18px}.pa-item p{margin:3px 0}.chart .rp-svg{max-height:230px}}
+@media print{body{background:#fff;font-size:11.5pt}.top{display:none}.banner{background:none;border-bottom:1px solid var(--line)}.area:after{content:none}.sec{padding:16px 0 10px;border-bottom:0}.wrap{max-width:none;padding:0}h1{font-size:25pt}.sec>h2{font-size:18pt}.lede{font-size:12pt}.facts b{font-size:22pt}.areas{grid-template-columns:repeat(4,1fr)}.vals,.rhythm,.steps{grid-template-columns:repeat(5,1fr)}.path{grid-template-columns:repeat(4,1fr)}.score tr,.area,.vals div,.phases>div,.steps li,.chart,.gap,.cal,.pa-item{break-inside:avoid}.sec{break-before:auto}h2,h3,.h2,.h3,.kick{break-after:avoid}.rhythm,.phases,.steps,.vals,.facts,.path,.areas,.lede{break-inside:avoid}.dict{columns:2;column-gap:24px}.dict dt{break-after:avoid}.dict dd{break-inside:avoid}.rp-list li{margin:3px 0}.tm{border-bottom:0}.dl{display:none}.pax{margin-top:10px}.pa-item{border:1px solid var(--line);border-left:4px solid var(--slate);padding:8px 12px;margin:8px 0;font-size:10.5pt}.pa-item h3{margin:0 0 4px;font-size:13pt}.pa-item h4{margin:6px 0 2px;font-size:9.5pt;letter-spacing:.06em;text-transform:uppercase;color:var(--slate)}.pa-item ul{margin:0;padding-left:18px}.pa-item p{margin:3px 0}.chart .rp-svg{max-height:230px}}
+/* crosswalk pipeline */
+.pipe{display:flex;align-items:stretch;gap:0;flex-wrap:wrap;margin:6px 0 4px}
+.pp{flex:1 1 150px;background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--slate);padding:10px 12px;display:grid;gap:2px;align-content:start}
+.pp span{font-size:12px;font-weight:700;color:var(--slate)}.pp b{font-size:17px}.pp em{font-style:normal;font-weight:700;color:var(--accent);font-size:14px}.pp small{font-size:13px;color:var(--muted)}
+.pp.end{border-top-color:var(--accent)}
+.pa{flex:0 0 22px;align-self:center;height:22px;position:relative}.pa:before{content:"";position:absolute;left:3px;right:7px;top:10px;border-top:2px solid var(--grey,#b9c2c7)}.pa:after{content:"";position:absolute;right:2px;top:5px;border:6px solid transparent;border-left:8px solid #8f9aa0;border-right:0}
+.pp-out{flex:1 1 100%;display:grid;grid-template-columns:3fr 1fr;gap:0;margin-top:8px;border:1px solid var(--line)}
+.pp-out div{padding:9px 14px}.pp-out .ok{background:#e7f2ee;border-right:1px solid var(--line)}.pp-out .bk{background:var(--pale)}.pp-out b{display:block;font-size:16px}.pp-out .ok b{color:var(--teal)}.pp-out .bk b{color:var(--accent)}.pp-out span{font-size:13.5px}
+.xw-flow{display:flex;align-items:stretch;margin:4px 0 10px;flex-wrap:wrap}
+.xw-flow>div{flex:1 1 180px;padding:10px 14px;border:1px solid var(--line);background:var(--paper)}.xw-flow p{margin:0;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}.xw-flow b{display:block;font-size:16.5px}.xw-flow small{font-size:13px;color:var(--muted)}
+.xw-src{border-left:5px solid var(--gold)!important}.xw-src p{color:var(--gold)}.xw-map{border-left:5px solid var(--slate)!important}.xw-map p{color:var(--slate)}.xw-dst{border-left:5px solid var(--accent)!important}.xw-dst p{color:var(--accent)}
+.score td.code{font-family:Consolas,"Courier New",monospace;font-size:13px}.score td.src-c{background:var(--gold-pale)}.score td.dst-c{background:var(--pale)}
+.xwt,.xrt{font-size:14px}.xrt tr.ready td:last-child{color:var(--teal)}.xrt tr.back td:last-child{color:var(--accent)}.xrt small{font-family:var(--serif);color:var(--muted)}
+pre.sql{background:#f6f7f5;border:1px solid var(--line);padding:12px 14px;font-size:12.5px;line-height:1.45;overflow:auto;white-space:pre}
+/* wheel */
+.wheel{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:22px;align-items:start;margin-top:6px}
+.wheel-svg{background:var(--paper);border:1px solid var(--line);padding:10px}.wsvg{display:block;width:100%;max-width:560px;margin:0 auto;font-family:var(--serif)}
+.wsvg .wl{font-size:17px;fill:#5d6970}.wsvg .wl.on{fill:#8e263e;font-weight:700}.wsvg .wc1{font-size:24px;font-weight:700;fill:#1f2a30}.wsvg .wc2{font-size:30px;font-weight:700}.wsvg .wc3{font-size:15px;fill:#5d6970}
+.wsvg .wh{fill:transparent;cursor:pointer;outline:none}.wsvg .wh:hover,.wsvg .wh:focus{fill:rgba(31,42,48,.06)}.wsvg .wh.on{stroke:#1f2a30;stroke-width:2.5}
+.wheel-panel{background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--accent);padding:14px 18px;transition:opacity .12s ease}
+.wp-k{margin:0 0 6px;font-weight:700;font-size:18px}.wp-r{border-top:1px solid var(--line);padding:7px 0}.wp-r b{display:flex;justify-content:space-between;font-size:14.5px}.wp-r b i{font-style:normal;letter-spacing:2px;font-size:12px}.wp-r ul{margin:3px 0 0;padding-left:18px;font-size:14.5px}
+.wp-plan{margin-top:8px;background:var(--soft);border-left:4px solid var(--teal);padding:8px 12px}.wp-plan b{color:var(--teal)}.wp-plan p{margin:3px 0 0;font-size:14.5px}
+/* hub */
+.hsvg{display:block;width:100%;max-width:900px;margin:0 auto;font-family:var(--serif)}.hsvg .hb1{fill:#fff;font-size:19px;font-weight:700}.hsvg .hb2{fill:#f6e9ec;font-size:14px}.hsvg .hn1{font-size:15px;font-weight:700;fill:#1f2a30}.hsvg .hn2{font-size:12.5px;fill:#5d6970}.hsvg .hn3{font-size:12.5px;fill:#2f7d6d}
+/* raci */
+.raci-roles{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}.rr{background:var(--paper);border:1px solid var(--line);padding:4px 10px;font-size:13.5px;color:var(--ink)}.rr.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.raci{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);font-size:14px}
+.raci th{font-size:12px;letter-spacing:.03em;color:var(--muted);padding:8px 6px;border-bottom:2px solid var(--line);background:var(--soft);vertical-align:bottom;line-height:1.25}.raci th:first-child{text-align:left;padding-left:12px}
+.raci td{border-top:1px solid var(--line);padding:6px;text-align:center}.raci td:first-child{text-align:left;padding-left:12px}
+.rc.kA{background:#8e263e;color:#fff;font-weight:700}.rc.kR{background:#d7e3e8;color:#1f2a30;font-weight:700}.rc.kC{background:#f7efe1;color:#6e4f19}.rc.kI{background:#f3f4f2;color:#6b767c}
+.raci .dim{opacity:.18}.raci tr.dim td:first-child{opacity:.35}
+@media(max-width:1000px){.wheel{grid-template-columns:minmax(0,1fr)}.pa{display:none}.pipe{gap:8px}.pp-out{grid-template-columns:1fr}.pp-out .ok{border-right:0;border-bottom:1px solid var(--line)}}
+@media(max-width:700px){.xwt td.code{font-size:12.5px}.raci{font-size:12.5px}.raci th{font-size:10.5px;writing-mode:vertical-rl;transform:rotate(180deg);text-align:left;padding:6px 3px;height:130px}.raci th:first-child{writing-mode:horizontal-tb;transform:none;height:auto}.raci td{padding:5px 3px}.raci td:first-child{min-width:130px}.hubw{overflow-x:auto}.hubw .hsvg{min-width:620px}}
+@media print{.wheel{grid-template-columns:1fr 1fr}.wsvg{max-width:330px}.wheel-panel,.wheel-svg,.raci,.pipe,.xw-flow,.hubw{break-inside:avoid}.raci-roles,.dl{display:none}.pa{display:block}.hsvg{max-width:620px}}
+.score td.code,.score span.code{white-space:nowrap}.score span.code{font-family:Consolas,"Courier New",monospace;font-size:13px}
+.hub-list{display:none}
+@media(max-width:700px){.hubw .hsvg{display:none}.hubw{overflow:visible}.hub-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}.hub-c{grid-column:1/-1;margin:0;background:var(--accent);color:#fff;font-weight:700;text-align:center;padding:8px}.hub-list div{border:1px solid var(--line);border-left:4px solid var(--slate);padding:6px 9px;display:grid}.hub-list b{font-size:14.5px}.hub-list span{font-size:12.5px;color:var(--muted)}.hub-list em{font-style:normal;font-size:12.5px;color:var(--teal)}}
+@media print{#raci-h,#raci-h+.lede,.raci-roles{break-after:avoid}#raci{break-inside:avoid}.xwt,.xrt{font-size:9pt}.score td.code,.score span.code{font-size:8.5pt}.xrt small{font-size:8pt}.first{break-inside:avoid}}
+.banner{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 14px;font-size:13.5px;letter-spacing:.02em;text-transform:none;padding:8px 14px;border-bottom:1px solid #e8d9bd}.banner b{color:#5a3f10}.banner span{font-weight:400;color:#6e4f19}
+.gap-steps{list-style:none;margin:10px 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.gap-steps li{background:var(--gold-pale);padding:8px 10px;font-size:14px}.gap-steps span{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)}.gap-steps b{display:block;font-size:15px}
+.gap b.t{color:var(--ink)}
+.dev{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.dev div{background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--teal);padding:10px 12px}.dev b{display:block;color:var(--teal);font-size:16px}.dev span{font-size:14px}
+.jc{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px}.jc>div{background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--accent);padding:12px 16px}
+.jk{margin:0;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--accent)}.jc>div>b{display:block;font-size:17px;margin:3px 0 6px}.jc dl{margin:0}.jc dt{font-size:12.5px;font-weight:700;color:var(--slate);margin-top:6px}.jc dd{margin:1px 0 0;font-size:14.5px}
+@media(max-width:1000px){.gap-steps,.dev{grid-template-columns:repeat(2,minmax(0,1fr))}.jc{grid-template-columns:1fr}}
+@media(max-width:700px){.gap-steps,.dev{grid-template-columns:1fr}.banner{font-size:12.5px;text-align:center}}
+@media print{.gap-steps{grid-template-columns:repeat(4,1fr)}.dev{grid-template-columns:repeat(4,1fr)}.jc{grid-template-columns:1fr 1fr}.jc,.dev,.gap{break-inside:avoid}}
 /* sample reports */
 .rp-grid{display:grid;grid-template-columns:230px minmax(0,1fr);gap:20px;align-items:start}
 .rp-pick{display:grid;gap:8px;position:sticky;top:calc(var(--sticky-offset) + 8px)}
@@ -139,7 +186,7 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
 </style>
 </head>
 <body>
-<p class="banner">Work sample for a job application by Narissara Khomkhai · synthetic data · not a Harvard document</p>
+<div class="banner"><b>Work sample by Narissara Khomkhai, applicant for Associate Director of Operations and Administration</b><span>A proposed operating model, not an HIO or Harvard document. All figures are synthetic except HIO’s published counts.</span></div>
 <header class="top">
   <div class="wrap top-in">
     <a class="me" href="#overview">Narissara Khomkhai <small>Associate Director of Operations and Administration · application work sample</small></a>
@@ -160,7 +207,7 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
 <main id="main">
 <!-- ================= OVERVIEW ================= -->
 <section id="overview" class="sec wrap">
-  <p class="kick">Harvard International Office · Central Administration</p>
+  <p class="kick">Proposed operating model for the Harvard International Office · prepared by an applicant</p>
   <h1>Accurate records, current systems and a team that stays ahead of the calendar</h1>
   <p class="lede">HIO is the link between Harvard’s international students and scholars and the federal agencies that govern their status. This role keeps the <button class="tm" data-t="sevis">SEVIS</button> records, the <button class="tm" data-t="issm">ISSM/ISD</button> system, the billing and the operations team behind that work accurate and on time. Below is how I would run it, with seven sample reports built on synthetic data sized to HIO.</p>
 
@@ -172,7 +219,7 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
   </div>
   <p class="src">Published counts from HIO’s statistics page (hio.harvard.edu/statistics), which notes they are for reference and not official University data. Every other figure here is synthetic.</p>
 
-  <h2 class="h2">If you have five minutes</h2>
+  <h3 class="h2">If you have five minutes</h3>
   <div class="path">
     <a href="#e" data-rep="lead"><span>1</span><b>Leadership dashboard</b><small>One page for the Director: registration, service levels, billing and the decisions due</small></a>
     <a href="#e" data-rep="reg"><span>2</span><b>Spring registration report</b><small>Daily progress to the federal deadline, every exception with an owner</small></a>
@@ -180,14 +227,14 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
     <a href="#r"><span>4</span><b>Fit and one honest gap</b><small>Where I have done this work, and how I close the SEVIS gap</small></a>
   </div>
 
-  <h2 class="h2">What I would do first</h2>
+  <h3 class="h2">What I would do first</h3>
   <ol class="first">
     <li><b>Protect the federal calendar.</b> Map every registration, reporting and batch deadline for the year, with an owner and a check before each one.</li>
     <li><b>Make the School data clean on arrival.</b> One crosswalk from each School’s Slate or SIS codes to SEVIS, so records match before any I-20 or DS-2019 is drafted.</li>
     <li><b>Give the Director one view.</b> A weekly leadership dashboard and a release gate for every ISSM upgrade, so decisions come with numbers.</li>
   </ol>
 
-  <h2 class="h2">Mission and values in the daily work</h2>
+  <h3 class="h2">Mission and values in the daily work</h3>
   <div class="mission">
     <p>HIO supports Harvard’s teaching and research mission by serving international students and scholars and acting as their liaison with U.S. government agencies. Harvard’s five community values set how that work is done.</p>
   </div>
@@ -210,10 +257,20 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
     <button class="area" data-pop="p-sys"><i>2</i><b>ISSM/ISD ownership</b><span>Configuration, upgrades, vendor and HUIT coordination</span><em>Control · a written release gate before production</em></button>
     <button class="area" data-pop="p-xch"><i>3</i><b>School data exchange</b><span>Slate and School systems, imports, automation</span><em>Control · one crosswalk, mismatches go to a person</em></button>
     <button class="area" data-pop="p-rep"><i>4</i><b>Reporting and analytics</b><span>Leadership dashboards, statistical reports, SQL for legal and compliance requests</span><em>Control · every number ties to a saved query</em></button>
-    <button class="area" data-pop="p-fin"><i>5</i><b>Billing and finance</b><span>Visa, OPT and hospital billing, quarterly accruals, disputes</span><em>Control · every invoice ties to a completed case</em></button>
+    <button class="area" data-pop="p-fin"><i>5</i><b>Billing and finance</b><span>Visa, OPT and hospital billing, fee collection and the payer experience, accruals, disputes</span><em>Control · every invoice ties to a completed case</em></button>
     <button class="area" data-pop="p-team"><i>6</i><b>Team and office operations</b><span>A team of three to five, training, process improvement</span><em>Control · one queue, owners and ages visible</em></button>
     <button class="area" data-pop="p-sec"><i>7</i><b>Data security</b><span>Security lead with the Security Insiders group</span><em>Control · quarterly access review, least privilege</em></button>
   </div>
+
+  <h3 class="h2" id="xw">From a School record to a clean I-20 or DS-2019</h3>
+  <p class="lede sm">Most form errors start in the file a School sends. Every record passes five steps before an advisor drafts a form, and anything that fails goes back to the School contact with the reason. Counts are from the sample <a href="#e" data-rep="xch">data exchange reconciliation</a>.</p>
+  <div class="pipe" id="pipe"></div>
+  <h3 class="h3">The crosswalk: one row per School program</h3>
+  <div id="xwalk"></div>
+  <p class="src">Program codes, lengths and CIP choices are illustrative, not Harvard’s. Real values come from each School’s registrar and the SEVIS code tables, and every change to the crosswalk is logged with a date and an approver.</p>
+  <h3 class="h3">Six sample records through the checks</h3>
+  <div id="xrec"></div>
+  <div class="dl" style="margin-top:12px"><button class="btn ghost" data-pop="p-sql">See the validation SQL</button></div>
 </section>
 
 <!-- ================= M ================= -->
@@ -255,6 +312,14 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
       <tr><td><b>Total</b></td><td class="n"><b>120</b></td><td></td></tr>
     </tbody>
   </table></div>
+  <h3 class="h3">Developing the team that does the work</h3>
+  <div class="dev">
+    <div><b>Clear goals</b><span>Each person’s goals tie to the nine measures, agreed in the first month.</span></div>
+    <div><b>Regular coaching</b><span>One-on-ones every two weeks, with the queue and one growth topic.</span></div>
+    <div><b>Growth paths</b><span>A development plan per person, from NAFSA courses to SEVIS batch and billing cross-training.</span></div>
+    <div><b>Fair reviews</b><span>Mid-year and year-end reviews through Harvard’s process, with the team’s improvements credited by name.</span></div>
+  </div>
+  <p class="src">Experience behind it: as Associate Director at UAMS from 2008 to 2016, I hired, supervised, reviewed and mentored staff.</p>
   <h3 class="h3">How the plan stays achievable</h3>
   <ul class="ticks">
     <li>No system change during arrival peaks in August, September and January.</li>
@@ -274,15 +339,23 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
       <tr><td><b>Data integration and quality</b></td><td>Oversaw priorities and quality control for the FAS Faculty DataHub pilot, which unified seven sources including SIS, the GSAS BI warehouse and the Registrar, and worked on its data dictionary.</td></tr>
       <tr><td><b>SQL reporting and ad-hoc requests</b></td><td>Wrote back-end reports in <b>SQL</b>, Python, R and Crystal Reports for 50+ Faculty Affairs departments. Ad-hoc requests fell from 300 to 400 a year to under 100 after the DataHub went live.</td></tr>
       <tr><td><b>Leadership reporting</b></td><td>Produced all Faculty Affairs reporting and meeting materials for deans, visiting committees and the governance office, in Oracle BI and Power BI.</td></tr>
-      <tr><td><b>Billing, reconciliation and finance</b></td><td>Campaign reporting at Phillips Academy reconciled to the General Ledger with the Comptroller’s office. 20,000+ gift transactions a year at UAMS, including online giving with iModules and CyberSource.</td></tr>
+      <tr><td><b>Billing, payments and reconciliation</b></td><td>Campaign reporting at Phillips Academy reconciled to the General Ledger with the Comptroller’s office. At UAMS, 20,000+ gift transactions a year, and piloted and managed online giving with iModules and CyberSource, front end and back end.</td></tr>
       <tr><td><b>Regulated data</b></td><td>Wrote record-keeping policies meeting IRS, FASB/GASB, CASE and HIPAA standards and documented the controls auditors reviewed. Protected confidential faculty records at FAS with role- and hierarchy-based access.</td></tr>
-      <tr><td><b>Supervision and process</b></td><td>Hired, supervised and reviewed staff at UAMS, and led a team of three through a campaign and a database conversion at the same time. Redesigned Faculty Affairs appointment and promotion processes. Uses Jira and Trello.</td></tr>
+      <tr><td><b>Supervising and developing staff</b></td><td>As Associate Director at UAMS from 2008 to 2016, hired, supervised, reviewed and mentored staff, and led a team of three through a campaign and a database conversion at the same time. Trained users on every new system and report.</td></tr>
+      <tr><td><b>Process redesign</b></td><td>Redesigned Faculty Affairs appointment and promotion processes at FAS. Plans work in Jira and Trello.</td></tr>
       <tr><td><b>International partners</b></td><td>International Coordinator at UNCTAD Trade Point Thailand, serving small and medium-sized businesses and partner contacts across countries.</td></tr>
     </tbody>
   </table></div>
   <div class="gap">
     <b>One honest gap · SEVIS and DSO practice</b>
-    <p>I have not worked as a DSO or ARO. My plan is to complete SEVP’s online training for school officials and foundational F and J training before day 30, shadow HIO advisors through spring registration, and take on signing duties only when the Director approves. The records, systems and controls side of SEVIS is the same discipline I have practiced for nearly twenty years.</p>
+    <p>I have not served as a DSO or ARO, and the role depends on that service. I would close the gap on a fixed schedule and take on signing duties only after designation and the Director’s approval.</p>
+    <ol class="gap-steps">
+      <li><span>Before day 1</span><b>SEVP’s free DSO training</b>SEVIS Training for School Officials and the SEVP External Training Application courses</li>
+      <li><span>Days 1 to 30</span><b>NAFSA e-Learning</b>F-1 Advising: Getting Started and J-1 Advising: Getting Started</li>
+      <li><span>Days 31 to 90</span><b>Shadow and practice</b>Spring registration and OPT recommendations alongside HIO advisors, in the test environment first</li>
+      <li><span>After designation</span><b>Sign with review</b>An advisor reviews my first SEVIS actions until the Director is satisfied</li>
+    </ol>
+    <p><b class="t">What transfers directly.</b> The posting asks this role to mitigate University risk. That is the record-integrity work I have done for nearly twenty years: rules written down, records checked before they leave the office, systems tested before release, and an audit trail a reviewer can follow.</p>
   </div>
 </section>
 
@@ -295,9 +368,11 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
     <div><span>Days 31 to 60</span><b>Fix the flow</b><ul><li>Build the School crosswalk and import validation</li><li>Write the ISSM release gate and test plan</li><li>Start the weekly leadership dashboard</li><li>Tie billing to the service log</li></ul><em>Gate · first clean registration batch and a release decision made with the gate</em></div>
     <div><span>Days 61 to 90</span><b>Run and hand over</b><ul><li>Two automations live with guardrails</li><li>First quarterly access review and accrual</li><li>Team trained on the new steps and quick guides</li><li>90-day review against the targets</li></ul><em>Gate · day 90 targets met or a written reason and a new date</em></div>
   </div>
-  <h3 class="h3">The year at a glance</h3>
-  <div class="calw"><div class="cal" id="cal"></div></div>
-  <p class="src">Typical cycle for a large F and J program. Dates would be confirmed with the Director and the advising team.</p>
+  <h3 class="h2" id="wheel-h">Four calendars on one wheel</h3>
+  <p class="lede sm">The federal calendar, Harvard’s academic calendar, the Schools’ admissions cycle and HIO’s own operations land on the same weeks. The darker the band, the heavier that calendar is in the month. Choose a month to see what overlaps and how the office stays ahead of it.</p>
+  <div class="wheel"><div class="wheel-svg" id="wheel"></div><div class="wheel-panel" id="wpanel" aria-live="polite"></div></div>
+  <div class="chart" id="overlap"></div>
+  <p class="src">Months are approximate for a large F and J program. Federal timing follows SEVP and USCIS rules as summarized here. School dates differ, so the registration calendar runs by School, not by one date.</p>
 </section>
 
 <!-- ================= E ================= -->
@@ -320,6 +395,24 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
     <li><span>Days 3 to 5</span><b>Change</b>Update rules, templates and notices in the test environment first.</li>
     <li><span>Day 10</span><b>Check</b>Confirm every affected record and note what to keep.</li>
   </ol>
+  <h3 class="h3">Two judgment calls the routine does not settle</h3>
+  <p class="lede sm">Most of the work follows a set cycle. These two sample situations, from the sample reports, show how I decide when the rules leave room.</p>
+  <div class="jc">
+    <div>
+      <p class="jk">Release go or no-go · February 2027</p>
+      <b>The vendor says the defect is rare. Do we release anyway?</b>
+      <dl><dt>What the rules leave open</dt><dd>The gate requires critical defects fixed or accepted in writing. Accepting it would deliver the other fixes the team asked for on time.</dd>
+      <dt>What I weighed</dt><dd>Extensions fail only in batch, but spring is when extensions peak, and a failed batch means a person’s record does not update before the deadline.</dd>
+      <dt>The call</dt><dd>No-go. Stay on the current version, patch on February 25, retest on the 26th. The Director gets the decision with the trade-off in one paragraph.</dd></dl>
+    </div>
+    <div>
+      <p class="jk">Hospital dispute · $6,200</p>
+      <b>A hospital disputes a charge for a scholar who left two months early.</b>
+      <dl><dt>What the rules leave open</dt><dd>The agreement is silent on partial terms. The work to issue and maintain the record was done in full.</dd>
+      <dt>What I weighed</dt><dd>The relationship, what the agreement says, what HIO charged other hospitals in the same case, and the precedent any choice would set.</dd>
+      <dt>The call</dt><dd>Recommend billing the issuance work in full, prorating the monthly maintenance to the departure date, and adding partial-term language at renewal. The Director decides, because it sets precedent.</dd></dl>
+    </div>
+  </div>
   <h3 class="h3">Risks I would watch</h3>
   <div class="rp-tw"><table class="score">
     <thead><tr><th>Risk</th><th>Early signal</th><th>Response</th></tr></thead>
@@ -336,7 +429,14 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
 <!-- ================= PLAYBOOK ================= -->
 <section id="pb" class="sec wrap">
   <p class="kick">Playbook</p>
-  <h2>The operating rhythm</h2>
+  <h2>Who HIO works with, and what flows between them</h2>
+  <div class="chart hubw" id="hub"></div>
+  <h3 class="h2" id="raci-h">Who does what · <button class="tm" data-t="raci">RACI</button></h3>
+  <p class="lede sm">One accountable owner for each process. Choose a role to see its part.</p>
+  <div class="raci-roles" id="raci-roles"></div>
+  <div id="raci"></div>
+  <p class="src"><b>R</b> does the work · <b>A</b> owns the outcome, one per row · <b>C</b> consulted before · <b>I</b> informed after. Proposed split, to be agreed with the Director.</p>
+  <h3 class="h2">The operating rhythm</h3>
   <div class="rhythm">
     <div><b>Daily</b><span>Run and review SEVIS batches, clear the School import exceptions, check the queue for items over five days</span></div>
     <div><b>Weekly</b><span>Leadership dashboard, team huddle on priorities, service levels against the standard</span></div>
@@ -344,7 +444,7 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
     <div><b>Quarterly</b><span>Accrual to Campus Services Finance, ISSM access review, release planning with HUIT and the vendor</span></div>
     <div><b>Yearly</b><span>Year-end statistics, data security training, review of procedures and quick guides</span></div>
   </div>
-  <h2 class="h2">Take it with you</h2>
+  <h3 class="h2">Take it with you</h3>
   <div class="dl">
     <a class="btn" href="HIO_Work_Sample.pdf" target="_blank" rel="noopener">Work sample · PDF</a>
     <a class="btn" href="HIO_Sample_Reports.pdf" target="_blank" rel="noopener">Seven sample reports · PDF</a>
@@ -391,16 +491,20 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
   <p class="pl">Visa, OPT and affiliated hospital billing runs about $300,000 to $500,000 a year. Each dollar should trace to a completed case.</p>
   <h4>How I would run it</h4>
   <ul><li>Validate, confirm, invoice: every billable service matches a completed ISSM case, and the hospital confirms before the invoice.</li><li>Quarter-end <button class="tm" data-t="accr">accrual</button> of delivered but not yet invoiced services to Campus Services Finance.</li><li>Monthly aging of hospital receivables, with follow-up at 60 days.</li><li>Disputes reviewed against the agreement and the billing history, with sensitive cases to the Director.</li></ul>
+  <h4>How and when fees are collected</h4>
+  <ul><li><b>Individual fees</b> are paid online when the student or scholar submits the request, with an automatic receipt, so no form waits on a payment chase.</li><li><b>Department-sponsored fees</b> are billed internally when the DS-2019 request arrives, with the account checked before work starts.</li><li><b>Affiliated hospital fees</b> are invoiced only after the hospital confirms the scholar and the charge.</li><li>The fee schedule, refund rules and payment page are reviewed each year with the Director and Campus Services Finance, in plain language, with the status of each request visible to the payer.</li><li>Measures for the payer experience: share paid at request, days to pay, refunds and payment questions per month.</li></ul>
   <h4>Where I have done this</h4>
-  <p>Campaign reporting at Phillips Academy reconciled to the General Ledger with the Comptroller’s office. At UAMS, 20,000+ gift transactions a year across online gifts, lockbox deposits and payment schedules, online giving with iModules and CyberSource, and sponsor budgets for a College of Medicine PI.</p>
+  <p>Piloted and managed online giving at UAMS with iModules and CyberSource, front end and back end, so the payer’s experience and the reconciliation were designed together. Campaign reporting at Phillips Academy reconciled to the General Ledger with the Comptroller’s office. At UAMS, 20,000+ gift transactions a year across online gifts, lockbox deposits and payment schedules, online giving with iModules and CyberSource, and sponsor budgets for a College of Medicine PI.</p>
   <p class="ex">See the sample <a href="#e" data-rep="bill" data-close>billing and accruals report</a>.</p>
 </template>
 <template id="p-team" data-title="Team and office operations">
   <p class="pl">A team of three to five does its best work when the queue is visible and the calendar is known weeks ahead.</p>
   <h4>How I would run it</h4>
-  <ul><li>One queue with owners and ages, and a weekly huddle on what matters this week.</li><li>Named backups for batch runs and billing during leave.</li><li>Quick guides and short training for every process change.</li><li>Regular one-on-ones and clear goals tied to the nine measures.</li></ul>
+  <ul><li>One queue with owners and ages, and a weekly huddle on what matters this week.</li><li>Named backups for batch runs and billing during leave.</li><li>Quick guides and short training for every process change.</li></ul>
+  <h4>How I would develop the team</h4>
+  <ul><li>One-on-ones every two weeks, with each person’s goals tied to the nine measures.</li><li>A development plan for each person, such as NAFSA courses, SEVIS batch training or billing cross-training.</li><li>Cross-training so every process has two trained people.</li><li>Mid-year and year-end reviews through Harvard’s performance process, with credit given in the leadership dashboard for improvements the team made.</li></ul>
   <h4>Where I have done this</h4>
-  <p>Hired, supervised and reviewed staff at UAMS, and led a team of three through a campaign and a database conversion at the same time. Redesigned appointment and promotion processes at FAS Faculty Affairs. Plans work in Jira and Trello.</p>
+  <p>As Associate Director at UAMS from 2008 to 2016, hired, supervised, reviewed and mentored staff, and led a team of three through a campaign and a database conversion at the same time. Redesigned appointment and promotion processes at FAS Faculty Affairs. Plans work in Jira and Trello.</p>
   <p class="ex">See the sample <a href="#e" data-rep="team" data-close>team weekly</a>.</p>
 </template>
 <template id="p-sec" data-title="Data security">
@@ -410,6 +514,36 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
   <h4>Where I have done this</h4>
   <p>At FAS, protected confidential faculty records through role- and hierarchy-based access approved by the Dean of Faculty Affairs. At UAMS, wrote record-keeping policies meeting IRS, FASB/GASB, CASE and HIPAA standards and documented the controls auditors reviewed.</p>
   <p class="ex">See the sample <a href="#e" data-rep="sec" data-close>data security review</a>.</p>
+</template>
+<template id="p-sql" data-title="Validation SQL, sample">
+  <p class="pl">The checks run as one query on each School file after it loads to a staging table. Anything with a reason goes back to the School. Table and column names are illustrative.</p>
+<pre class="sql">SELECT s.school_record_id,
+       s.school_code,
+       x.sevis_education_level,
+       x.cip_code,
+       CASE
+         WHEN x.school_code IS NULL
+           THEN 'Program code not in crosswalk'
+         WHEN s.birth_date IS NULL OR s.birth_date_source &lt;&gt; 'PASSPORT'
+           THEN 'Date of birth not confirmed from passport'
+         WHEN s.surname_passport IS NULL
+           THEN 'Name not in passport order'
+         WHEN s.program_end_date &gt;
+              ADD_MONTHS(s.program_start_date, x.normal_length_months)
+           THEN 'End date beyond normal program length'
+         WHEN s.funding_total &lt; c.first_year_cost
+           THEN 'Funding short of first-year cost'
+       END AS return_reason
+FROM   stg_school_admits s
+LEFT   JOIN xwalk_program x
+       ON x.school_code = s.school_code
+      AND s.program_start_date BETWEEN x.valid_from AND x.valid_to
+LEFT   JOIN cost_estimate c
+       ON c.school_code = s.school_code
+      AND c.academic_year = s.entry_year
+      AND c.dependents = s.dependent_count;</pre>
+  <h4>Why it is built this way</h4>
+  <ul><li>The crosswalk has valid-from and valid-to dates, so a renamed program never breaks older records.</li><li>Cost estimates come from one table per School and year, with dependents counted, so funding checks match the published costs.</li><li>The first failed check is the reason the School sees, in plain words.</li></ul>
 </template>
 <template id="p-dict" data-title="Data dictionary"><div id="dict-host"></div></template>
 
@@ -515,6 +649,7 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
       ['Summary', bullets([`FY27 billing is <b>${usd(BILL.ytd)}</b> through January, ${p1(BILL.ytd / BILL.ytdPlan - 1)} above plan, on a year plan of ${usd(BILL.plan)}.`, `<b>${usd(BILL.accr)}</b> in services was delivered through January but not yet invoiced. It feeds the Q3 accrual estimate for Campus Services Finance.`, `Hospital receivables over 90 days are ${usd(BILL.age[3][1])} across two invoices. One is resolved pending payment, and one goes to the Director for a decision.`])],
       ['Key numbers', tiles([['Billed, FY27 to date', usd(BILL.ytd), `plan ${usd(BILL.ytdPlan)}`, 'ok'], ['Delivered, not invoiced', usd(BILL.accr), 'feeds the Q3 accrual'], ['Hospital receivables', usd(sum(BILL.age.map(a => a[1]))), '4 aging buckets'], ['Over 90 days', usd(BILL.age[3][1]), '2 invoices', 'warn'], ['Card disputes', '1', 'documentation sent to the bank']])],
       ['Billing by month', vbars(MON.slice(0, 7), [{n: 'Billed, thousands', c: C.mar, v: BILL.mon}], {h: 220, vals: true, fmt: v => '$' + Math.round(v) + 'K', vfmt: v => '$' + v.toFixed(1) + 'K', label: 'Billing by month'}) + note('September and January peak with new arrivals and spring OPT. Each invoice is validated against the ISSM service log before it goes out.')],
+      ['How each fee is collected', table(['Fee', 'When it is collected', 'Channel', 'FY27 to date'], [['Individual visa and OPT fees', 'When the request is submitted', 'Online card payment, automatic receipt', usd(61900)], ['Department-sponsored scholar fees', 'When the DS-2019 request arrives', 'Internal billing to the department account', usd(61300)], ['Affiliated hospital scholar fees', 'After the hospital confirms', 'Invoice', usd(128400)], ['<b>Total</b>', '', '', `<b>${usd(BILL.ytd)}</b>`]]) + note('Payer experience this year: 96% of individual fees paid at request with no follow-up, 3 refunds, and a median of 34 days for hospitals to pay.')],
       ['Hospital receivables by age', hbars(BILL.age.map((a, i) => [a[0], a[1], [C.teal, C.gold, C.mar, C.red][i]]), {fmt: usd, lw: 150, label: 'Affiliated hospital receivables by age'})],
       ['Confirm, invoice, collect', table(['Step', 'Control', 'Owner'], [['Validate', 'Every billable service matches a completed ISSM case', 'Operations'], ['Confirm', 'Hospital confirms the scholar and the charge before invoicing', 'Operations, hospital contact'], ['Invoice', 'Invoice references the case and the agreement', 'Operations'], ['Accrue', 'Delivered, not invoiced at quarter end goes to Campus Services Finance', 'Associate Director'], ['Dispute', 'Contract and billing history reviewed, sensitive cases escalated', 'Associate Director, then Director']], {num: false})]]});
 
@@ -549,7 +684,7 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
 
   const TIER = {lead: ['For the HIO Director and leadership', 'Results, decisions and risks, with problems already worked'], fin: ['For Campus Services Finance', 'Billing, accruals and disputes, tied to the service log'], team: ['For the operations team', 'The working queue, with owners and dates']};
   const ORDER = ['lead', 'reg', 'test', 'sec', 'bill', 'xch', 'team'];
-  const html = k => { const r = R[k](); return `<article class="rp-doc" data-k="${k}"><header class="rp-head"><p class="rp-brand">Work sample by Narissara Khomkhai · Associate Director of Operations and Administration application <span>Synthetic data · not a Harvard document</span></p><p class="rp-tier ${r.tier}">${TIER[r.tier][0]}</p><h3>${E(r.title)}</h3><dl class="rp-meta"><div><dt>Issued</dt><dd>${E(r.issue)}</dd></div><div><dt>Data</dt><dd>${E(r.through)}</dd></div><div><dt>For</dt><dd>${E(r.aud)}</dd></div></dl><dl class="rp-ctl"><div class="cls"><dt>Classification</dt><dd>Live issues: confidential, contain student and scholar data, internal only.</dd></div><div><dt>Source</dt><dd>${E(r.src)}</dd></div><div><dt>Report ID</dt><dd>${E(r.id)}</dd></div></dl></header>${r.s.map((s, i) => `<section class="rp-sec"><h4><span>${i + 1}</span>${E(s[0])}</h4>${s[1]}</section>`).join('')}<p class="rp-foot">Synthetic data, sized to HIO’s published counts: 10,158 visa-sponsored students and scholars. No student or scholar data is used.</p></article>`; };
+  const html = k => { const r = R[k](); return `<article class="rp-doc" data-k="${k}"><header class="rp-head"><p class="rp-brand">Sample report in a work sample by Narissara Khomkhai, applicant <span>Synthetic data · not an HIO or Harvard document</span></p><p class="rp-tier ${r.tier}">${TIER[r.tier][0]}</p><h3>${E(r.title)}</h3><dl class="rp-meta"><div><dt>Issued</dt><dd>${E(r.issue)}</dd></div><div><dt>Data</dt><dd>${E(r.through)}</dd></div><div><dt>For</dt><dd>${E(r.aud)}</dd></div></dl><dl class="rp-ctl"><div class="cls"><dt>Classification</dt><dd>Sample. If live, confidential, with student and scholar data, internal only.</dd></div><div><dt>Source</dt><dd>${E(r.src)}</dd></div><div><dt>Sample ID</dt><dd>SAMPLE ${E(r.id)}</dd></div></dl></header>${r.s.map((s, i) => `<section class="rp-sec"><h4><span>${i + 1}</span>${E(s[0])}</h4>${s[1]}</section>`).join('')}<p class="rp-foot">Synthetic data, sized to HIO’s published counts: 10,158 visa-sponsored students and scholars. No student or scholar data is used.</p></article>`; };
   window.HIO_REPORTS = {html, keys: ORDER, all: () => ORDER.map(html).join('')};
   const host = document.getElementById('rp-host');
   if (host) {
@@ -595,6 +730,8 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
     slate: ['Slate', 'The admissions system many Schools use. School exports from Slate or a student information system feed the records HIO needs to produce forms.'],
     accr: ['Accrual', 'Revenue for services already delivered but not yet invoiced, booked at quarter end so the books match the work done.'],
     match: ['Matched automatically', 'A School record that agrees with ISSM on every required field, so no one has to touch it before a form is drafted.'],
+    raci: ['RACI', 'A way to show who does what. Responsible does the work, Accountable owns the outcome and signs off, Consulted gives input before, Informed hears after. Each process has exactly one Accountable owner.'],
+    cip: ['CIP code', 'Classification of Instructional Programs. The federal code for a field of study, used for the major on the I-20 and the field on the DS-2019, and to decide STEM OPT eligibility.'],
     lp: ['Least privilege', 'Each account has only the access its role needs, and no more.']
   };
   const dictHTML = () => '<dl class="dict">' + Object.values(T).map(t => `<dt>${t[0]}</dt><dd>${t[1]}</dd>`).join('') + '</dl><p class="src">Plain-language definitions for this work sample. Federal rules and HIO procedures govern.</p>';
@@ -627,6 +764,147 @@ body.rp-print.hio .rp-sec{break-inside:avoid}body.rp-print.hio .rp-leg,body.rp-p
   const mark = () => { const y = scrollY + top() + 40; let k = 0; secs.forEach((s, i) => { if (s && s.offsetTop <= y) k = i; }); links.forEach((a, i) => a.classList.toggle('on', i === k)); };
   addEventListener('scroll', mark, {passive: true}); mark();
   if (location.hash && document.getElementById(location.hash.slice(1))) setTimeout(() => jump(location.hash), 50);
+})();
+
+(function () {
+  const H = window.HC, C = H.C, $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const E = s => String(s).replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+
+  // ================= crosswalk pipeline =================
+  const PIPE = [
+    ['1', 'Receive', '1,284 records', 'Slate or SIS export from each School, loaded to staging'],
+    ['2', 'Normalize', 'names, dates, countries', 'Passport name order, ISO dates, SEVIS country codes'],
+    ['3', 'Map', '22 codes not found', 'School program code to SEVIS education level and CIP code'],
+    ['4', 'Validate', '65 more need a fix', 'Name, date of birth, program dates and funding checks'],
+    ['5', 'Route', '1,197 ready · 87 back', 'Clean records to the advisor draft queue, the rest to the School']
+  ];
+  const pipe = $('#pipe');
+  if (pipe) pipe.innerHTML = PIPE.map((p, i) => `<div class="pp${i === 4 ? ' end' : ''}"><span>${p[0]}</span><b>${p[1]}</b><em>${p[2]}</em><small>${p[3]}</small></div>`).join('<i class="pa" aria-hidden="true"></i>') +
+    `<div class="pp-out"><div class="ok"><b>1,197 ready to draft</b><span>93.2% matched with no one touching them</span></div><div class="bk"><b>87 back to the School</b><span>Name order 31 · program code 22 · funding 17 · date of birth 9 · dates 8</span></div></div>`;
+
+  // ================= crosswalk table =================
+  const XW = [
+    ['College', 'COL-AB-ECON', 'AB, Economics', 'Bachelor’s', '45.0601', 'Economics, General', '4 years', 'No', 'I-20'],
+    ['GSAS', 'GSAS-PHD-CS', 'PhD, Computer Science', 'Doctorate', '11.0701', 'Computer Science', '5 years', 'Yes', 'I-20'],
+    ['Business School', 'HBS-MBA', 'MBA', 'Master’s', '52.0201', 'Business Administration and Management, General', '2 years', 'No', 'I-20'],
+    ['Kennedy School', 'HKS-MPP', 'Master in Public Policy', 'Master’s', '44.0501', 'Public Policy Analysis, General', '2 years', 'No', 'I-20'],
+    ['Law School', 'HLS-LLM', 'LL.M.', 'Master’s', '22.0201', 'Advanced Legal Research/Studies, General', '1 year', 'No', 'I-20'],
+    ['Chan School', 'HSPH-MPH-65', 'MPH, 65 credits', 'Master’s', '51.2201', 'Public Health, General', '2 years', 'No', 'I-20'],
+    ['Design', 'GSD-MARCH1', 'Master in Architecture I', 'Master’s', '04.0201', 'Architecture', '3 years', 'No', 'I-20'],
+    ['Medical School', 'HMS-RSCH', 'Research Scholar', 'J category · Research Scholar', '26.0101', 'Biology/Biological Sciences, General', 'up to 5 years', '·', 'DS-2019']
+  ];
+  const xw = $('#xwalk');
+  if (xw) xw.innerHTML = `<div class="xw-flow"><div class="xw-src"><p>From the School</p><b>Slate or SIS</b><small>School · program code · program name</small></div><i class="pa"></i><div class="xw-map"><p>The crosswalk</p><b>one row per program</b><small>valid-from and valid-to dates, approver</small></div><i class="pa"></i><div class="xw-dst"><p>To SEVIS</p><b>Form fields</b><small>education level · CIP major · program length · STEM flag</small></div></div>` +
+    `<div class="rp-tw"><table class="score xwt"><thead><tr><th>School</th><th>School code</th><th>Program</th><th>SEVIS level</th><th>CIP</th><th>CIP title</th><th>Normal length</th><th>STEM OPT</th><th>Form</th></tr></thead><tbody>${XW.map(r => `<tr>${r.map((c, i) => `<td class="${i === 1 ? 'code src-c' : i === 4 ? 'code dst-c' : i === 3 ? 'dst-c' : ''}">${E(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+
+  // ================= sample records =================
+  const OK = '<span class="rp-st ok">Pass</span>', NO = t => `<span class="rp-st bad">${t}</span>`;
+  const REC = [
+    ['A-1042', 'Wei Chen, family name flagged', 'CHEN · WEI', 'GSAS-PHD-CS → Doctorate, 11.0701', '$98,400 of $92,700', 'Sep 2027 to May 2032', [OK, OK, OK, OK], 'ready', 'Ready to draft'],
+    ['A-1043', 'Priya Raman', 'RAMAN · PRIYA', 'HKS-MPP → Master’s, 44.0501', '$71,000 of $96,500', 'Aug 2027 to May 2029', [OK, OK, NO('Short $25,500'), OK], 'back', 'Back · funding short of first-year cost'],
+    ['A-1044', 'Sandar, one name', 'SANDAR · (blank)', 'HBS-MBA → Master’s, 52.0201', '$118,000 of $112,600', 'Aug 2027 to May 2029', [OK, OK, OK, OK], 'ready', 'Ready to draft · one-name rule applied'],
+    ['A-1045', 'María José García López', 'GARCIA LOPEZ · MARIA JOSE', 'HSPH-MPH-45 → not in crosswalk', '$84,000 of $80,900', 'Aug 2027 to May 2028', [OK, NO('Code not found'), OK, OK], 'back', 'Back · new program code, crosswalk update first'],
+    ['A-1046', 'Tomás Ferreira', 'FERREIRA · TOMAS', 'HLS-LLM → Master’s, 22.0201', '$102,000 of $99,800', 'Aug 2027 to May 2029', [OK, OK, OK, NO('2 years, normal 1')], 'back', 'Back · end date beyond normal length'],
+    ['A-1047', 'Aiko Tanaka', 'TANAKA · AIKO', 'GSD-MARCH1 → Master’s, 04.0201', '$105,000 of $101,300', 'Aug 2027 to May 2030', [NO('03/04 unclear'), OK, OK, OK], 'back', 'Back · date of birth not confirmed from passport']
+  ];
+  const xr = $('#xrec');
+  if (xr) xr.innerHTML = `<div class="rp-tw"><table class="score xrt"><thead><tr><th>Record</th><th>School file</th><th>SEVIS name fields</th><th>Mapping</th><th>Name and birth date</th><th>Program code</th><th>Funding</th><th>Program dates</th><th>Result</th></tr></thead><tbody>${REC.map(r => `<tr class="${r[7]}"><td><b>${r[0]}</b></td><td>${E(r[1])}</td><td class="code">${E(r[2])}</td><td><span class="code">${E(r[3].split(' → ')[0])}</span><br><small>→ ${E(r[3].split(' → ')[1])}</small><br><small>${E(r[4])} · ${E(r[5])}</small></td>${r[6].map(c => `<td>${c}</td>`).join('')}<td><b>${E(r[8])}</b></td></tr>`).join('')}</tbody></table></div>` +
+    `<p class="src">Names are fictional. SEVIS name fields follow the passport’s machine-readable line, without accents. A person with one name has it entered as the surname, with the given name left blank. Funding is checked against the School’s published first-year cost, including any dependents.</p>`;
+
+  // ================= calendar wheel =================
+  const RINGS = [
+    {k: 'fed', n: 'Federal', c: C.mar, r0: 226, r1: 266},
+    {k: 'har', n: 'Harvard academic', c: C.slate, r0: 182, r1: 222},
+    {k: 'adm', n: 'School admissions', c: C.gold, r0: 138, r1: 178},
+    {k: 'hio', n: 'HIO operations', c: C.teal, r0: 94, r1: 134}
+  ];
+  const W = [
+    {m: 'July', fed: [2, ['Visa appointments for fall admits', 'OPT filings for spring graduates, up to 60 days after completion']], har: [1, ['Fiscal year begins July 1', 'Summer programs']], adm: [1, ['Late admits and deferrals']], hio: [3, ['I-20 and DS-2019 production for fall', 'Q4 accrual and fiscal year close']], plan: 'Form production runs at full speed while staff take summer leave. The leave calendar is set in May, Slate files arrive in daily batches, and the close checklist is done by July 15.'},
+    {m: 'August', fed: [3, ['Initial F students may enter up to 30 days before program start', 'Visa appointment peak']], har: [2, ['Professional Schools begin mid to late August', 'Orientation']], adm: [1, ['Final enrollment confirmations']], hio: [3, ['Arrivals and immigration check-in', 'Welcome events']], plan: 'No system changes from August 1. Extra check-in hours, daily batch review, and entry questions triaged to advisors the same day.'},
+    {m: 'September', fed: [3, ['SEVIS registration within 30 days of each program start']], har: [3, ['FAS and GSAS classes begin early September']], adm: [1, ['Application cycle opens']], hio: [3, ['Fall registration by School', 'Q1 close September 30']], plan: 'Each School’s start date sets its own registration deadline, so the list runs by School, not by one date. Exceptions get an owner the day they appear, and the Q1 accrual is drafted from the service log by September 25.'},
+    {m: 'October', fed: [1, ['Registration exceptions and reduced course loads']], har: [1, ['Course changes settle']], adm: [1, ['College Early Action deadline November 1 approaches']], hio: [2, ['Fall release testing', 'Q1 accrual', 'Access review']], plan: 'A quieter month, used for fall release testing, the quarterly access review and fixes for any batch errors seen in September.'},
+    {m: 'November', fed: [1, ['OPT recommendations for December completers, up to 90 days before program end']], har: [1, ['Fall term continues']], adm: [2, ['Early Action and first graduate deadlines']], hio: [1, ['Release go-live after the gate', 'Spring calendar set']], plan: 'The release goes live only after the gate is signed. Spring start dates and OPT templates are ready before Thanksgiving.'},
+    {m: 'December', fed: [2, ['OPT filings for fall completers', 'Travel signatures before winter travel']], har: [2, ['Exams and winter break']], adm: [2, ['College Early Action decisions mid-December', 'First-round professional School decisions']], hio: [3, ['Winter travel signatures', 'Q2 close December 31']], plan: 'Extra travel signature hours in the first two weeks, a release freeze from December 15, and the Q2 close checklist done before the break.'},
+    {m: 'January', fed: [3, ['Spring SEVIS registration within 30 days of the spring start']], har: [3, ['Wintersession', 'Spring term begins late January']], adm: [1, ['Graduate application review']], hio: [3, ['Spring registration', 'Q2 accrual', 'Access review']], plan: 'Spring start dates are in each School’s file before Wintersession ends. The daily registration list starts on the first day of term, alongside the Q2 accrual.'},
+    {m: 'February', fed: [2, ['Spring registration deadline', 'Tax filing season, Form 8843 for every nonresident']], har: [1, ['Spring term']], adm: [2, ['Graduate decisions begin']], hio: [3, ['Tax seminars with partners', 'Spring OPT', 'Spring release testing']], plan: 'Registration closes, tax questions rise and graduate decisions start. Release testing stays in the test environment, and OPT recommendations use templates.'},
+    {m: 'March', fed: [3, ['OPT recommendations for May completers, up to 90 days before program end']], har: [1, ['Spring break']], adm: [3, ['College Regular Decision late March', 'Graduate admits']], hio: [3, ['First Slate files for fall admits', 'Q3 close March 31']], plan: 'Admissions and OPT meet. The crosswalk is updated for any new program before the first Slate file arrives, and files are loaded weekly.'},
+    {m: 'April', fed: [2, ['Federal tax deadline April 15']], har: [1, ['Classes end']], adm: [3, ['Graduate reply date April 15', 'Admitted student events']], hio: [3, ['I-20 and DS-2019 production begins', 'Q3 accrual', 'Access review']], plan: 'Form production begins. Every School file goes through the crosswalk checks, funding is confirmed before any draft, and the access review is done before May.'},
+    {m: 'May', fed: [3, ['OPT filings for May completers', 'Grace periods begin, 60 days for F-1 and 30 days for J-1']], har: [3, ['Exams and Commencement late May']], adm: [3, ['College reply date May 1', 'Deposits and enrollment lists']], hio: [3, ['Completions and OPT recommendations', 'Form production for fall']], plan: 'The heaviest overlap of the year. A change freeze, named backups, OPT templates, Slate files in daily batches, and the queue reviewed every morning.'},
+    {m: 'June', fed: [2, ['OPT filings within 60 days after completion', 'Visa appointments for fall admits']], har: [2, ['Fiscal year ends June 30', 'Summer programs']], adm: [2, ['Final enrollment lists', 'Late admits']], hio: [3, ['Year-end statistics', 'Q4 accrual and close', 'Training and quick guides']], plan: 'Year-end statistics, the Q4 close and refreshed quick guides, while summer form production continues.'}
+  ];
+  const tot = w => w.fed[0] + w.har[0] + w.adm[0] + w.hio[0];
+  const lvl = t => t >= 10 ? ['Peak', C.red] : t >= 9 ? ['Heavy', C.gold] : ['Steady', '#c9d0cc'];
+  const cx = 300, cy = 300, rad = a => (a - 90) * Math.PI / 180, pt = (r, a) => [cx + r * Math.cos(rad(a)), cy + r * Math.sin(rad(a))];
+  const sector = (r0, r1, a0, a1) => { const [x0, y0] = pt(r1, a0), [x1, y1] = pt(r1, a1), [x2, y2] = pt(r0, a1), [x3, y3] = pt(r0, a0); return `M${x0} ${y0}A${r1} ${r1} 0 0 1 ${x1} ${y1}L${x2} ${y2}A${r0} ${r0} 0 0 0 ${x3} ${y3}Z`; };
+  const op = [0, .22, .52, .88];
+  let sel = 10;
+  const drawWheel = () => {
+    let g = '';
+    W.forEach((w, i) => {
+      const a0 = i * 30 + .8, a1 = (i + 1) * 30 - .8, t = tot(w), L = lvl(t);
+      RINGS.forEach(R => { g += `<path d="${sector(R.r0, R.r1, a0, a1)}" fill="${R.c}" fill-opacity="${op[w[R.k][0]]}"/>`; });
+      g += `<path d="${sector(270, 282, a0, a1)}" fill="${L[1]}"/>`;
+      const [lx, ly] = pt(296, i * 30 + 15); g += `<text x="${lx}" y="${ly + 5}" text-anchor="middle" class="wl${i === sel ? ' on' : ''}">${w.m.slice(0, 3)}</text>`;
+    });
+    g += `<circle cx="${cx}" cy="${cy}" r="88" fill="#fff" stroke="#e4e6e3"/>`;
+    const w = W[sel], t = tot(w), L = lvl(t);
+    g += `<text x="${cx}" y="${cy - 22}" text-anchor="middle" class="wc1">${w.m}</text><text x="${cx}" y="${cy + 14}" text-anchor="middle" class="wc2" fill="${L[0] === 'Steady' ? '#4c6876' : L[1]}">${t} of 12</text><text x="${cx}" y="${cy + 38}" text-anchor="middle" class="wc3">${L[0]} overlap</text>`;
+    W.forEach((_, i) => { g += `<path d="${sector(92, 284, i * 30, (i + 1) * 30)}" class="wh${i === sel ? ' on' : ''}" data-wm="${i}" tabindex="0" role="button" aria-label="${W[i].m}, overlap ${tot(W[i])} of 12"/>`; });
+    $('#wheel').innerHTML = `<svg viewBox="0 0 600 600" class="wsvg" role="group" aria-label="Calendar wheel, July at the top, clockwise">${g}</svg><p class="rp-leg">${RINGS.map(R => `<span><i style="background:${R.c}"></i>${R.n}</span>`).join('')}<span><i style="background:${C.red}"></i>Outer band, peak overlap</span></p>`;
+    $('#wpanel').innerHTML = `<p class="wp-k">${w.m} · ${t} of 12 · ${L[0]}</p>${RINGS.map(R => `<div class="wp-r"><b style="color:${R.c}">${R.n}<i>${'●'.repeat(w[R.k][0])}${'○'.repeat(3 - w[R.k][0])}</i></b><ul>${w[R.k][1].map(x => `<li>${E(x)}</li>`).join('')}</ul></div>`).join('')}<div class="wp-plan"><b>How the office stays ahead</b><p>${E(w.plan)}</p></div>`;
+  };
+  if ($('#wheel')) {
+    drawWheel();
+    const pick = i => { const p = $('#wpanel'); p.style.opacity = 0; setTimeout(() => { sel = i; drawWheel(); p.style.opacity = 1; }, 120); };
+    document.addEventListener('click', e => { const h = e.target.closest('[data-wm]'); if (h) pick(+h.dataset.wm); });
+    document.addEventListener('keydown', e => { const h = e.target.closest && e.target.closest('[data-wm]'); if (h && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); pick(+h.dataset.wm); } });
+    $('#overlap').innerHTML = '<h4>Overlap by month, all four calendars, out of 12</h4>' + H.vbars(W.map(w => w.m.slice(0, 3)), RINGS.map(R => ({n: R.n, c: R.c, v: W.map(w => w[R.k][0])})), {stack: 1, h: 220, max: 12, fmt: v => Math.round(v), label: 'Overlap by month'}) + H.note('Each calendar is scored 1 to 3 for its load in the month. September, January, March and May reach 10 or more, so they get a change freeze and named backups.');
+  }
+
+  // ================= partner hub =================
+  const NODES = [
+    ['Schools', 'admissions and registrars', 'Slate and SIS files, enrollment'],
+    ['HIO advisors', 'DSO and ARO', 'exceptions, signatures, OPT'],
+    ['Federal agencies', 'SEVP, State, USCIS', 'SEVIS batches and responses'],
+    ['Ellucian', 'ISSM/ISD vendor', 'releases, patches, support'],
+    ['HUIT', 'systems and security', 'environments, access, patches'],
+    ['Campus Services Finance', 'accounting', 'quarterly accruals, billing'],
+    ['Affiliated hospitals', 'scholar sponsors', 'confirmations, invoices'],
+    ['Security Insiders', 'University group', 'data security practice']
+  ];
+  const hub = $('#hub');
+  if (hub) {
+    const w = 760, h = 470, X = w / 2, Y = h / 2 + 4, rx = 268, ry = 172; let g = '';
+    const pos = NODES.map((_, i) => { const a = (i / NODES.length) * 2 * Math.PI - Math.PI / 2; return [X + rx * Math.cos(a), Y + ry * Math.sin(a)]; });
+    pos.forEach(([x, y]) => { g += `<line x1="${X}" y1="${Y}" x2="${x}" y2="${y}" stroke="#cfd6d2" stroke-width="2"/>`; });
+    g += `<rect x="${X - 92}" y="${Y - 38}" width="184" height="76" rx="8" fill="${C.mar}"/><text x="${X}" y="${Y - 8}" text-anchor="middle" class="hb1">HIO operations</text><text x="${X}" y="${Y + 16}" text-anchor="middle" class="hb2">Associate Director</text>`;
+    NODES.forEach((n, i) => { const [x, y] = pos[i], bw = 176; g += `<rect x="${x - bw / 2}" y="${y - 33}" width="${bw}" height="66" rx="6" fill="#fff" stroke="${[C.gold, C.teal, C.mar, C.slate, C.slate, C.gold, C.gold, C.teal][i]}" stroke-width="2"/><text x="${x}" y="${y - 12}" text-anchor="middle" class="hn1">${E(n[0])}</text><text x="${x}" y="${y + 5}" text-anchor="middle" class="hn2">${E(n[1])}</text><text x="${x}" y="${y + 22}" text-anchor="middle" class="hn3">${E(n[2])}</text>`; });
+    hub.innerHTML = `<svg viewBox="0 0 ${w} ${h}" class="hsvg" role="img" aria-label="HIO operations partners and what flows between them">${g}</svg><div class="hub-list"><p class="hub-c">HIO operations · Associate Director</p>${NODES.map(n => `<div><b>${E(n[0])}</b><span>${E(n[1])}</span><em>${E(n[2])}</em></div>`).join('')}</div>`;
+  }
+
+  // ================= RACI =================
+  const ROLES = ['Associate Director', 'Operations team', 'HIO advisors', 'HIO Director', 'School contacts', 'HUIT', 'Vendor', 'Campus Services Finance'];
+  const RACI = [
+    ['SEVIS registration each term', 'A', 'R', 'R', 'I', 'C', '', '', ''],
+    ['School data crosswalk and templates', 'A', 'R', 'C', 'I', 'R', '', '', ''],
+    ['I-20 and DS-2019 drafting and signature', 'C', 'R', 'R', 'A', 'C', '', '', ''],
+    ['Travel signatures', 'I', 'C', 'AR', 'I', '', '', '', ''],
+    ['ISSM/ISD release and upgrade', 'R', 'R', 'C', 'A', '', 'R', 'R', ''],
+    ['Leadership dashboard and statistics', 'AR', 'C', 'C', 'I', '', '', '', ''],
+    ['Legal and compliance data requests', 'R', 'C', 'C', 'A', '', '', '', ''],
+    ['Billing and quarterly accruals', 'A', 'R', '', 'I', '', '', '', 'C'],
+    ['Billing disputes', 'R', 'C', '', 'A', '', '', '', 'C'],
+    ['Access reviews and data security', 'AR', 'C', 'C', 'I', '', 'R', 'C', ''],
+    ['Response to a change in federal guidance', 'R', 'C', 'R', 'A', 'I', 'C', '', ''],
+    ['Team queue, training and coverage', 'AR', 'C', 'I', 'I', '', '', '', '']
+  ];
+  const rr = $('#raci');
+  if (rr) {
+    $('#raci-roles').innerHTML = `<button type="button" class="rr on" data-role="-1">All roles</button>` + ROLES.map((r, i) => `<button type="button" class="rr" data-role="${i}">${E(r)}</button>`).join('');
+    rr.innerHTML = `<div class="rp-tw"><table class="raci"><thead><tr><th>Process</th>${ROLES.map((r, i) => `<th data-c="${i}">${E(r)}</th>`).join('')}</tr></thead><tbody>${RACI.map(r => `<tr><td>${E(r[0])}</td>${r.slice(1).map((c, i) => `<td data-c="${i}" class="rc ${c ? 'k' + c[0] : ''}">${c ? (c === 'AR' ? 'A·R' : c) : ''}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+    document.addEventListener('click', e => { const b = e.target.closest('.rr'); if (!b) return; const k = +b.dataset.role; $$('.rr').forEach(x => x.classList.toggle('on', x === b)); $$('#raci [data-c]').forEach(td => td.classList.toggle('dim', k >= 0 && +td.dataset.c !== k)); $$('#raci tbody tr').forEach(tr => tr.classList.toggle('dim', k >= 0 && !tr.querySelector(`td[data-c="${k}"]`).textContent)); });
+  }
+  $$('table.score').forEach(t => { const h = $$('th', t).map(x => x.textContent.trim()); $$('tbody tr', t).forEach(r => $$('td', r).forEach((d, i) => { if (h[i]) d.dataset.l = h[i]; })); });
 })();
 </script>
 </body>
