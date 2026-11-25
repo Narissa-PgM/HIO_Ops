@@ -1,0 +1,6 @@
+"Platform","Criticality","Owner","Outage response","Last test","Test outcome","Next renewal","Flags","Action"
+"ISSM/ISD · Ellucian","Critical","Associate Director","4 business hours","2026-11-12","Failed","2027-01-10","Failed test; Renewal within 60 days","Retest critical defect"
+"Appointment scheduling","Standard","Operations","Next business day","2026-11-02","Passed","2027-08-01","",""
+"Online training platform","Standard","Operations","Next business day","2026-10-18","Passed","2027-05-01","",""
+"Nonresident tax software","High","Associate Director","Same day in tax season","2026-10-26","Passed","2027-01-20","Renewal within 60 days","Confirm renewal"
+"Online payment","Critical","Associate Director","4 business hours","2026-11-08","Passed","2027-06-30","",""
