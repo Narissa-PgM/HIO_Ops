@@ -19,6 +19,19 @@ button{font:inherit;cursor:pointer}a{color:var(--accent)}
 .idx{display:flex;gap:0;flex-wrap:nowrap;justify-content:flex-end}.idx a{white-space:nowrap;text-decoration:none;color:var(--ink);font-size:14px;padding:5px 7px;border-bottom:2px solid transparent}.idx a b{color:var(--accent)}.idx a.on{border-bottom-color:var(--accent);color:var(--accent)}
 main{transition:opacity .16s ease}main.fade{opacity:0}
 .sec{padding:46px 22px 30px;border-bottom:1px solid var(--line);scroll-margin-top:var(--sticky-offset)}
+html{scroll-snap-type:y mandatory;scroll-padding-top:var(--sticky-offset)}
+main>section.sec{scroll-snap-align:start;scroll-snap-stop:always;min-height:calc(100vh - var(--sticky-offset))}
+@media(max-width:700px){html{scroll-snap-type:y proximity}main>section.sec{min-height:auto}}
+body{padding-bottom:68px}
+.page-nav{position:fixed;right:18px;bottom:18px;z-index:18;display:flex;align-items:center;gap:8px;padding:6px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.97);box-shadow:0 8px 24px rgba(20,30,40,.14);backdrop-filter:blur(6px)}
+.page-nav button{width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:var(--paper);color:var(--ink);font-size:16px;line-height:1;display:grid;place-items:center}
+.page-nav button:hover{background:var(--pale);border-color:#d6aab5;color:var(--accent)}
+.page-nav button:disabled{opacity:.35;cursor:default}
+.page-nav .pn-meta{display:grid;min-width:118px;gap:1px;padding:0 4px}
+.page-nav .pn-count{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.page-nav .pn-title{font-size:12px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px}
+@media(max-width:700px){.page-nav{left:12px;right:12px;bottom:10px;justify-content:space-between}.page-nav .pn-meta{min-width:0;flex:1}.page-nav .pn-title{max-width:none}}
+@media print{.page-nav{display:none!important}body{padding-bottom:0}}
 .kick{margin:0 0 4px;font-size:12.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent)}
 h1{font-size:38px;line-height:1.15;margin:0 0 12px;letter-spacing:-.01em;max-width:900px}
 .sec>h2{font-size:29px;line-height:1.2;margin:0 0 10px}
@@ -28,11 +41,6 @@ h1{font-size:38px;line-height:1.15;margin:0 0 12px;letter-spacing:-.01em;max-wid
 .facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border:1px solid var(--line);background:var(--paper)}
 .facts div{padding:16px 18px;border-left:1px solid var(--line)}.facts div:first-child{border-left:0}
 .facts b{display:block;font-size:34px;color:var(--accent);line-height:1.1}.facts span{font-size:14px;color:var(--muted)}
-.fit-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid var(--line);background:var(--paper);margin:14px 0 0}
-.fit-strip div{padding:10px 13px;border-left:1px solid var(--line);min-width:0}
-.fit-strip b{display:block;font-size:16px;color:var(--accent);line-height:1.25;overflow-wrap:anywhere}
-.fit-strip span{font-size:12.5px;color:var(--muted);overflow-wrap:anywhere}
-.fit-strip-note{margin:7px 0 0;font-size:12px;color:var(--muted)}
 .ct td:nth-child(n+2){text-align:right;font-variant-numeric:tabular-nums}
 .ct .pos{color:var(--teal);font-weight:700}.ct .neg{color:#b4232c}
 .ct tr.total td{border-top:2px solid var(--ink);background:var(--soft)}
@@ -82,8 +90,6 @@ h1{font-size:38px;line-height:1.15;margin:0 0 12px;letter-spacing:-.01em;max-wid
 .geo-table th{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);background:var(--soft)}
 .geo-table td:nth-child(2),.geo-table th:nth-child(2),.geo-table td:nth-child(3),.geo-table th:nth-child(3){text-align:right;font-variant-numeric:tabular-nums}
 @media(max-width:700px){.geo-sum{grid-template-columns:1fr 1fr}.geo-sum div:nth-child(2n+1){border-left:0}.geo-sum div:nth-child(n+3){border-top:1px solid var(--line)}.geo-table{font-size:12px}}
-@media(max-width:700px){.fit-strip{grid-template-columns:repeat(2,minmax(0,1fr))}.fit-strip div:nth-child(3n+1){border-left:1px solid var(--line)}.fit-strip div:nth-child(2n+1){border-left:0}.fit-strip div:nth-child(n+3){border-top:1px solid var(--line)}}
-@media(max-width:480px){.fit-strip{grid-template-columns:minmax(0,1fr)}.fit-strip div{border-left:0!important}.fit-strip div:nth-child(n+2){border-top:1px solid var(--line)}}
 .src{font-size:13px;color:var(--muted);margin:8px 0 0}
 .path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .path a{display:block;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--accent);padding:14px 16px}
@@ -101,9 +107,13 @@ h1{font-size:38px;line-height:1.15;margin:0 0 12px;letter-spacing:-.01em;max-wid
 .score{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);font-size:15px}
 .score th{text-align:left;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--line);padding:8px 12px;background:var(--soft)}
 .score td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}.score .n{text-align:right;white-space:nowrap}
-.fit-table td:first-child{width:28%}
 .chart{margin:18px 0 6px;background:var(--paper);border:1px solid var(--line);padding:14px 16px}
 .chart .rp-svg{display:block;max-width:820px}.chart h4{margin:0 0 6px;font-size:15.5px}
+.auto-map{margin:14px 0 6px;background:#fbfcfc;border:1px solid var(--line);border-radius:12px;padding:12px 12px 8px;overflow-x:auto}
+.auto-map svg{width:100%;min-width:680px;height:auto;display:block}
+.auto-map figcaption{margin-bottom:4px}.auto-map figcaption h3{margin:0;font-size:16px}.auto-map figcaption p{margin:2px 0 0;font-size:12px;color:var(--muted)}
+.auto-legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:var(--muted);padding:2px 2px 0}
+.auto-legend i{display:inline-block;width:18px;height:8px;border-radius:2px;margin-right:5px;vertical-align:middle}
 .ticks{margin:0;padding-left:22px;max-width:880px}.ticks li{margin:4px 0}
 .gap{margin-top:16px;border:1px solid var(--line);border-left:5px solid var(--gold);background:var(--paper);padding:14px 18px;max-width:920px}.gap b{color:var(--gold)}.gap p{margin:6px 0 0}
 .phases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
@@ -149,7 +159,7 @@ dialog#geoDialog::backdrop{background:rgba(25,32,36,.45)}
 .tip-def{font-size:16.5px}
 @media(max-width:1180px){.me small{display:none}}
 @media(max-width:1000px){.me{flex:none}.top-in{flex-direction:column;align-items:flex-start;gap:2px;padding-top:6px;padding-bottom:4px}.idx{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch}.idx a{white-space:nowrap;font-size:13.5px}:root{--sticky-offset:92px}.areas{grid-template-columns:repeat(2,minmax(0,1fr))}.vals,.rhythm{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:700px){.me{flex:none}.score thead{display:none}.score,.score tbody,.score tr{display:block}.score tr{border-top:1px solid var(--line);padding:7px 0}.score td{display:block;border:0;padding:2px 12px;text-align:left!important;white-space:normal!important}.score td:first-child{font-weight:700}.score td:not(:first-child)[data-l]:before{content:attr(data-l) " · ";color:var(--muted);font-size:12.5px;text-transform:uppercase;letter-spacing:.05em}.score td:empty{display:none}body{font-size:16px}h1{font-size:29px}.sec>h2{font-size:24px}.lede{font-size:17px}.facts,.path{grid-template-columns:repeat(2,minmax(0,1fr))}.facts div:nth-child(3){border-left:0}.facts div:nth-child(n+3){border-top:1px solid var(--line)}.areas,.phases,.vals,.rhythm,.steps{grid-template-columns:minmax(0,1fr)}.cal{grid-template-columns:86px repeat(12,minmax(44px,1fr));overflow-x:auto}.calw{overflow-x:auto}.score{font-size:14px}.fit-table td:first-child{width:auto}.sec{padding:34px 16px 24px}.wrap{padding-left:16px;padding-right:16px}}
+@media(max-width:700px){.me{flex:none}.score thead{display:none}.score,.score tbody,.score tr{display:block}.score tr{border-top:1px solid var(--line);padding:7px 0}.score td{display:block;border:0;padding:2px 12px;text-align:left!important;white-space:normal!important}.score td:first-child{font-weight:700}.score td:not(:first-child)[data-l]:before{content:attr(data-l) " · ";color:var(--muted);font-size:12.5px;text-transform:uppercase;letter-spacing:.05em}.score td:empty{display:none}body{font-size:16px}h1{font-size:29px}.sec>h2{font-size:24px}.lede{font-size:17px}.facts,.path{grid-template-columns:repeat(2,minmax(0,1fr))}.facts div:nth-child(3){border-left:0}.facts div:nth-child(n+3){border-top:1px solid var(--line)}.areas,.phases,.vals,.rhythm,.steps{grid-template-columns:minmax(0,1fr)}.cal{grid-template-columns:86px repeat(12,minmax(44px,1fr));overflow-x:auto}.calw{overflow-x:auto}.score{font-size:14px}.sec{padding:34px 16px 24px}.wrap{padding-left:16px;padding-right:16px}}
 @media print{.top,.banner{position:static}}
 @media print{body{background:#fff;font-size:11.5pt}.top{display:none}.banner{background:none;border-bottom:1px solid var(--line)}.area:after{content:none}.sec{padding:16px 0 10px;border-bottom:0}.wrap{max-width:none;padding:0}h1{font-size:25pt}.sec>h2{font-size:18pt}.lede{font-size:12pt}.facts b{font-size:22pt}.areas{grid-template-columns:repeat(4,1fr)}.vals,.rhythm,.steps{grid-template-columns:repeat(5,1fr)}.path{grid-template-columns:repeat(4,1fr)}.score tr,.area,.vals div,.phases>div,.steps li,.chart,.gap,.cal,.pa-item{break-inside:avoid}.sec{break-before:auto}h2,h3,.h2,.h3,.kick{break-after:avoid}.rhythm,.phases,.steps,.vals,.facts,.path,.areas,.lede{break-inside:avoid}.dict{columns:2;column-gap:24px}.dict dt{break-after:avoid}.dict dd{break-inside:avoid}.rp-list li{margin:3px 0}.tm{border-bottom:0}.dl{display:none}.pax{margin-top:10px}.pa-item{border:1px solid var(--line);border-left:4px solid var(--slate);padding:8px 12px;margin:8px 0;font-size:10.5pt}.pa-item h3{margin:0 0 4px;font-size:13pt}.pa-item h4{margin:6px 0 2px;font-size:9.5pt;letter-spacing:.06em;text-transform:uppercase;color:var(--slate)}.pa-item ul{margin:0;padding-left:18px}.pa-item p{margin:3px 0}.chart .rp-svg{max-height:230px}}
 /* crosswalk pipeline */
@@ -424,7 +434,7 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
       <a href="#s">Work areas</a>
       <a href="#m">Measures</a>
       <a href="#a">Delivery</a>
-      <a href="#r">Evidence</a>
+      <a href="#r">Scope</a>
       <a href="#t">90 days</a>
       <a href="#e">Reports</a>
       <a href="#rd">Operating system</a>
@@ -435,24 +445,14 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
 
 <main id="main">
 <!-- ================= OVERVIEW ================= -->
-<section id="overview" class="sec wrap" data-s="Summary">
+<section id="overview" class="sec wrap" data-s="Overview">
   <p class="kick">Proposed operating model for the Harvard International Office · Associate Director of Operations &amp; Administration · Requisition 004436SR</p>
   <h1>Accurate records, current systems and a team that stays ahead of the calendar</h1>
   <p class="lede">HIO is the link between Harvard’s international students and scholars and the federal agencies that govern their status. This role keeps the <button class="tm" data-t="sevis">SEVIS</button> records, the <button class="tm" data-t="issm">ISSM/ISD</button> system, the billing and the operations team behind that work accurate and on time. Below is how I would run it, with seven sample reports built on synthetic data sized to HIO.</p>
 
-  <div class="fit-strip" aria-label="Fit at a glance">
-    <div><b>Nearly 20 years</b><span>higher-ed operations, data and systems</span></div>
-    <div><b>8 years</b><span>supervising teams of 3–5</span></div>
-    <div><b>U.S. citizen</b><span>DSO/ARO eligible; no sponsorship needed</span></div>
-    <div><b>SQL · Ellucian · Slate</b><span>systems, reporting and School data exchange</span></div>
-    <div><b>$300K–$500K</b><span>billing, accruals and hospital disputes</span></div>
-    <div><b>Harvard FAS</b><span>faculty records, DataHub and reporting</span></div>
-  </div>
-  <p class="fit-strip-note">Basic qualifications: 7+ years in operations, business systems or administrative management · 4+ years supervising and developing staff · U.S. citizen. <a href="#r">See the detailed fit and one honest gap →</a></p>
   <div class="dl" style="margin-top:10px">
-    <a class="btn" href="HIO_Work_Sample.pdf" target="_blank" rel="noopener">Download the work sample · PDF</a>
     <a class="btn ghost" href="HIO_Sample_Reports.pdf" target="_blank" rel="noopener">Seven sample reports · PDF</a>
-    <a class="btn ghost" href="mailto:sawatdee@me.com">Email Narissara</a>
+    <a class="btn ghost" href="career-profile.html">Career profile ↗</a>
   </div>
 
   <div class="facts" aria-label="HIO published counts">
@@ -470,7 +470,7 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
     <a href="#e" data-rep="lead"><span>1</span><b>Leadership dashboard</b><small>One page for the Director: registration, service levels, billing and the decisions due</small></a>
     <a href="#e" data-rep="reg"><span>2</span><b>Spring registration report</b><small>Daily progress to the federal deadline, every exception with an owner</small></a>
     <a href="#t"><span>3</span><b>First 90 days</b><small>Three phases, each with a gate the Director can check</small></a>
-    <a href="#r"><span>4</span><b>Fit and one honest gap</b><small>Where I have done this work, and how I close the SEVIS gap</small></a>
+    <a href="#r"><span>4</span><b>Scope and assumptions</b><small>What this work sample covers, and how the office fits together</small></a>
   </div>
 
   <h3 id="sx-first" data-s="First moves" class="h2">What I would do first</h3>
@@ -497,7 +497,7 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
 <section id="s" class="sec wrap" data-s="Work areas">
   <p class="kick">Work areas</p>
   <h2>The role in eight work areas</h2>
-  <p class="lede sm">Each card names the control objective. Open one for an infographic of how I would run it, the control that keeps it right, and where I have done the same work.</p>
+  <p class="lede sm">Each card names the control objective. Open one for an infographic of how I would run it, the control that keeps it right, and the artifacts it produces.</p>
   <p class="src"><b>SMARTER lives inside each area.</b> Every work-area popup ends with the same seven-point check: Specific, Measurable, Achievable, Relevant, Time-bound, Evaluate, Readjust. The framework is the checklist, not the navigation.</p>
   <div class="areas">
     <button class="area" id="area-sevis" data-s="SEVIS data integrity" data-pop="p-comp"><i>01</i><b>SEVIS data integrity</b><em class="obj">Objective · No form from an unvalidated record</em><span class="chips"><small>Students</small><small>Scholars</small><small>Dependents</small><small>OPT</small></span></button>
@@ -646,7 +646,114 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
   <p class="kick">Delivery system</p>
   <h2>120 hours a month back to the team, with a person on every judgment call</h2>
   <p class="lede sm">Five automations move the manual load from 310 to 190 hours a month. None of them makes a status decision. Each one prepares the work and routes the exceptions to a person.</p>
-  <div class="chart" data-chart="auto"></div>
+  <figure class="auto-map"><figcaption><h3>Automation roadmap · 120 hours a month</h3><p>Five builds over 12 weeks, each with a guardrail. Bars show the build window; the line is cumulative hours saved.</p></figcaption><svg viewBox="0 0 900 380" role="img" aria-labelledby="autoMapTitle autoMapDesc" xmlns="http://www.w3.org/2000/svg">
+  <title id="autoMapTitle">Automation roadmap: five builds over 12 weeks, returning 120 hours a month</title>
+  <desc id="autoMapDesc">School file import, 56 hours over weeks 2 to 6; registration checks, 24 hours over weeks 4 to 7; billing from the service log, 18 hours over weeks 5 to 9; saved SQL and request templates, 18 hours over weeks 6 to 10; travel signature log, 4 hours over weeks 8 to 11. Cumulative hours rise to 120 by week 11.</desc>
+  <g font-family="Inter, Segoe UI, Arial, sans-serif">
+    <text x="8" y="20" font-size="12" font-weight="700" fill="#2f6b58">BUILD SEQUENCE</text>
+    <text x="892" y="20" text-anchor="end" font-size="11" fill="#5f6b76">Run rate by week 11 · stabilize week 12</text>
+
+    <!-- grid -->
+    <g stroke="#dfe5e8" stroke-width="1">
+      <line x1="250" y1="40" x2="850" y2="40"/>
+      <line x1="250" y1="285" x2="850" y2="285"/>
+      <line x1="250" y1="40" x2="250" y2="285"/>
+      <line x1="300" y1="40" x2="300" y2="285" stroke="#edf0f2"/>
+      <line x1="350" y1="40" x2="350" y2="285" stroke="#edf0f2"/>
+      <line x1="400" y1="40" x2="400" y2="285" stroke="#edf0f2"/>
+      <line x1="450" y1="40" x2="450" y2="285" stroke="#edf0f2"/>
+      <line x1="500" y1="40" x2="500" y2="285" stroke="#edf0f2"/>
+      <line x1="550" y1="40" x2="550" y2="285" stroke="#edf0f2"/>
+      <line x1="600" y1="40" x2="600" y2="285" stroke="#edf0f2"/>
+      <line x1="650" y1="40" x2="650" y2="285" stroke="#edf0f2"/>
+      <line x1="700" y1="40" x2="700" y2="285" stroke="#edf0f2"/>
+      <line x1="750" y1="40" x2="750" y2="285" stroke="#edf0f2"/>
+      <line x1="800" y1="40" x2="800" y2="285" stroke="#edf0f2"/>
+      <line x1="850" y1="40" x2="850" y2="285"/>
+    </g>
+    <g font-size="10" fill="#7a858f">
+      <text x="242" y="288" text-anchor="end">0</text>
+      <text x="242" y="170" text-anchor="end">60</text>
+      <text x="242" y="44" text-anchor="end">120</text>
+    </g>
+
+    <!-- rows -->
+    <g font-size="12.5" fill="#151a1f">
+      <text x="8" y="83">School file import</text>
+      <text x="8" y="128">Registration checks</text>
+      <text x="8" y="173">Billing from service log</text>
+      <text x="8" y="218">Saved SQL / templates</text>
+      <text x="8" y="263">Travel signature log</text>
+    </g>
+    <g font-size="10.5" fill="#5f6b76">
+      <text x="8" y="97">crosswalk + validation</text>
+      <text x="8" y="142">pre-batch exception screen</text>
+      <text x="8" y="187">draft invoice, no auto-send</text>
+      <text x="8" y="232">reusable request views</text>
+      <text x="8" y="277">appointment to signed log</text>
+    </g>
+
+    <!-- bars: weeks 2-6, 4-7, 5-9, 6-10, 8-11 -->
+    <g>
+      <rect x="300" y="60" width="250" height="20" rx="4" fill="#2f6b58"/>
+      <text x="558" y="74" font-size="12" font-weight="700" fill="#2f6b58">56 h</text>
+
+      <rect x="400" y="105" width="200" height="20" rx="4" fill="#946b1f"/>
+      <text x="608" y="119" font-size="12" font-weight="700" fill="#946b1f">24 h</text>
+
+      <rect x="450" y="150" width="250" height="20" rx="4" fill="#2b5c8a"/>
+      <text x="708" y="164" font-size="12" font-weight="700" fill="#2b5c8a">18 h</text>
+
+      <rect x="500" y="195" width="250" height="20" rx="4" fill="#6d4e8c"/>
+      <text x="758" y="209" font-size="12" font-weight="700" fill="#6d4e8c">18 h</text>
+
+      <rect x="600" y="240" width="200" height="20" rx="4" fill="#9e2a3a"/>
+      <text x="808" y="254" font-size="12" font-weight="700" fill="#9e2a3a">4 h</text>
+    </g>
+
+    <!-- cumulative line: (w1,0) (w2,0) (w6,56) (w7,80) (w9,98) (w10,116) (w11,120) (w12,120) -->
+    <polyline points="250,285 300,285 500,175 550,128 650,93 700,58 750,40 800,40" fill="none" stroke="#9e2a3a" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 4"/>
+    <g fill="#fff" stroke="#9e2a3a" stroke-width="2">
+      <circle cx="300" cy="285" r="4.5"/>
+      <circle cx="500" cy="175" r="4.5"/>
+      <circle cx="550" cy="128" r="4.5"/>
+      <circle cx="650" cy="93" r="4.5"/>
+      <circle cx="700" cy="58" r="4.5"/>
+      <circle cx="750" cy="40" r="5.5"/>
+      <circle cx="800" cy="40" r="5.5"/>
+    </g>
+    <g font-size="10.5" fill="#9e2a3a" font-weight="700">
+      <text x="756" y="32">120 h/mo</text>
+      <text x="500" y="169" text-anchor="middle">56</text>
+      <text x="550" y="122" text-anchor="middle">80</text>
+      <text x="650" y="87" text-anchor="middle">98</text>
+      <text x="700" y="52" text-anchor="middle">116</text>
+    </g>
+
+    <!-- weeks -->
+    <g font-size="10.5" fill="#7a858f">
+      <text x="250" y="305" text-anchor="middle">W1</text>
+      <text x="300" y="305" text-anchor="middle">W2</text>
+      <text x="350" y="305" text-anchor="middle">W3</text>
+      <text x="400" y="305" text-anchor="middle">W4</text>
+      <text x="450" y="305" text-anchor="middle">W5</text>
+      <text x="500" y="305" text-anchor="middle">W6</text>
+      <text x="550" y="305" text-anchor="middle">W7</text>
+      <text x="600" y="305" text-anchor="middle">W8</text>
+      <text x="650" y="305" text-anchor="middle">W9</text>
+      <text x="700" y="305" text-anchor="middle">W10</text>
+      <text x="750" y="305" text-anchor="middle">W11</text>
+      <text x="800" y="305" text-anchor="middle">W12</text>
+    </g>
+    <g font-size="10.5" fill="#7a858f">
+      <text x="250" y="330" text-anchor="middle">baseline</text>
+      <text x="500" y="330" text-anchor="middle">first build live</text>
+      <text x="750" y="330" text-anchor="middle">full run rate</text>
+      <text x="800" y="330" text-anchor="middle">hold</text>
+    </g>
+    <text x="8" y="360" font-size="10.5" fill="#5f6b76">Each bar is a build window, not a full-time assignment. Guardrails: no automatic status decisions; every exception routes to a person.</text>
+  </g>
+</svg><div class="auto-legend"><span><i style="background:#2f6b58"></i>Hours saved a month</span><span><i style="background:#9e2a3a;height:3px"></i>Cumulative hours</span><span>Run rate by week 11; hold week 12.</span></div></figure>
   <div class="rp-tw"><table class="score">
     <thead><tr><th>Automation</th><th class="n">Hours saved a month</th><th>Guardrail</th></tr></thead>
     <tbody>
@@ -665,7 +772,7 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
     <div><b>Growth paths</b><span>A development plan per person, from NAFSA courses to SEVIS batch and billing cross-training.</span></div>
     <div><b>Fair reviews</b><span>Mid-year and year-end reviews through Harvard’s process, with the team’s improvements credited by name.</span></div>
   </div>
-  <p class="src">Experience behind it: as Associate Director at UAMS from 2008 to 2016, I hired, supervised, reviewed and mentored staff.</p>
+
   <h3 class="h3" id="sx-off" data-s="Office operations">Office operations, owned through the team</h3>
   <div class="offops">
     <div><b>Onboarding and offboarding</b><span>With HR and HUIT, access granted on day one and removed within a week of leaving</span></div>
@@ -699,37 +806,16 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
 </section>
 
 <!-- ================= R ================= -->
-<section id="r" class="sec wrap" data-s="Evidence">
-  <p class="kick">Evidence</p>
-  <h2>Where I have already done this work</h2>
-  <div class="rp-tw"><table class="score fit-table">
-    <thead><tr><th>What HIO needs</th><th>Where I have done it</th></tr></thead>
-    <tbody>
-      <tr><td><b>System ownership and conversions</b></td><td>Led two platform conversions, Raiser’s Edge to SunGard (now <b>Ellucian</b>) Advance at UAMS and Raiser’s Edge to Agilon at Phillips Academy, each moving paper records to digital with ten years of history.</td></tr>
-      <tr><td><b>Data integration and quality</b></td><td>Oversaw priorities and quality control for the FAS Faculty DataHub pilot, which unified seven sources including SIS, the GSAS BI warehouse and the Registrar, and worked on its data dictionary.</td></tr>
-      <tr><td><b>SQL reporting and ad-hoc requests</b></td><td>Wrote back-end reports in <b>SQL</b>, Python, R and Crystal Reports for 50+ Faculty Affairs departments. Ad-hoc requests fell from 300 to 400 a year to under 100 after the DataHub went live.</td></tr>
-      <tr><td><b>Leadership reporting</b></td><td>Produced all Faculty Affairs reporting and meeting materials for deans, visiting committees and the governance office, in Oracle BI and Power BI.</td></tr>
-      <tr><td><b>Billing, payments and reconciliation</b></td><td>Campaign reporting at Phillips Academy reconciled to the General Ledger with the Comptroller’s office. At UAMS, 20,000+ gift transactions a year, and piloted and managed online giving with iModules and CyberSource, front end and back end.</td></tr>
-      <tr><td><b>Regulated data and records retention</b></td><td>Wrote record-keeping policies meeting IRS, FASB/GASB, CASE and HIPAA standards and documented the controls auditors reviewed. Protected confidential faculty records at FAS with role- and hierarchy-based access.</td></tr>
-      <tr><td><b>Supervising and developing staff</b></td><td>As Associate Director at UAMS from 2008 to 2016, hired, supervised, reviewed and mentored staff, and led a team of three through a campaign and a database conversion at the same time. Trained users on every new system and report.</td></tr>
-      <tr><td><b>Training School and department staff</b></td><td>Trained users at each of three system conversions, including the move of departmental reporting to HART self-service for deans, chairs and administrators across 50+ departments.</td></tr>
-      <tr><td><b>Vendor management</b></td><td>Worked with the vendors through setup, data migration, testing and cutover on two platform conversions, and with iModules and CyberSource on the UAMS online giving pilot.</td></tr>
-      <tr><td><b>Faculty and appointment records</b></td><td>Supported faculty searches, offer letters, and appointment and promotion processes at FAS Faculty Affairs.</td></tr>
-      <tr><td><b>Surveys and program data</b></td><td>Delivered 360° evaluations across residency, faculty and patient-satisfaction programs at the UAMS College of Medicine, cleaning and analyzing the survey data in SAS and SPSS.</td></tr>
-      <tr><td><b>Process redesign</b></td><td>Redesigned Faculty Affairs appointment and promotion processes at FAS. Plans work in Jira and Trello.</td></tr>
-      <tr><td><b>International partners</b></td><td>International Coordinator at UNCTAD Trade Point Thailand, serving small and medium-sized businesses and partner contacts across countries.</td></tr>
-    </tbody>
-  </table></div>
-  <div class="gap" id="sx-gap" data-s="SEVIS gap" data-title="One honest gap · SEVIS and DSO practice">
-    <b>One honest gap · SEVIS and DSO practice</b>
-    <p>I have not served as a DSO or ARO, and the role depends on that service. I am a U.S. citizen, so I am eligible for DSO and ARO designation and need no visa sponsorship. I would close the gap on a fixed schedule and take on signing duties only after designation and the Director’s approval.</p>
-    <ol class="gap-steps">
-      <li><span>Before day 1</span><b>SEVP’s free DSO training</b>SEVIS Training for School Officials and the SEVP External Training Application courses</li>
-      <li><span>Days 1 to 30</span><b>NAFSA e-Learning</b>F-1 Advising: Getting Started and J-1 Advising: Getting Started</li>
-      <li><span>Days 31 to 90</span><b>Shadow and practice</b>Spring registration and OPT recommendations alongside HIO advisors, in the test environment first</li>
-      <li><span>After designation</span><b>Sign with review</b>An advisor reviews my first SEVIS actions until the Director is satisfied</li>
-    </ol>
-    <p><b class="t">What transfers directly.</b> The posting asks this role to mitigate University risk. That is the record-integrity work I have done for nearly twenty years: rules written down, records checked before they leave the office, systems tested before release, and an audit trail a reviewer can follow.</p>
+<section id="r" class="sec wrap" data-s="Scope &amp; assumptions">
+  <p class="kick">Scope &amp; assumptions</p>
+  <h2>What this work sample covers</h2>
+  <p class="lede sm">This is an operating-model work sample, not a career profile. It shows how the work would run, what it produces and what it assumes. Qualifications and experience belong in a separate career profile.</p>
+  <div class="gap"><b>Scope boundary.</b><p>This role covers the <b>operating system behind every HIO service</b> — records, systems, data, billing, reporting, team, security and modernization. It does <b>not</b> replace advisors for visa status, employment authorization, academic training or case-specific advice. It serves as DSO/ARO for systems and project management, including travel signatures, and designs the controls that keep every area compliant.</p></div>
+  <div class="dev">
+    <div><b>Role assumption</b><span>Reports to the HIO Director; DSO/ARO designation follows SEVP approval and Director sign-off.</span></div>
+    <div><b>Access assumed</b><span>Read-only ISSM/ISD, School data, the service log, and working relationships with HUIT and Campus Services Finance.</span></div>
+    <div><b>Team assumed</b><span>3–5 operations staff, with named backups for batches, billing and School data.</span></div>
+    <div><b>Evidence standard</b><span>All figures are synthetic unless cited; no HIO internal data; no case-specific legal advice.</span></div>
   </div>
   <h3 id="sx-org" data-s="Organization" class="h2">Working organization chart — confirm with HIO</h3>
   <div class="gap"><b>Scope boundary.</b><p>This role covers the <b>operating system behind every HIO service</b> — records, systems, data, billing, reporting, team, security and modernization. It does <b>not</b> replace advisors for visa status, employment authorization, academic training or case-specific advice. It serves as DSO/ARO for systems and project management, including travel signatures, and designs the controls that keep every area compliant.</p></div>
@@ -855,7 +941,7 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
       <dl><dt>What the rules leave open</dt><dd>The agreement is silent on partial terms. Issuance work was done in full, but the record was closed two months early, so no maintenance work was done for those months.</dd>
       <dt>What I weighed</dt><dd>Hold the full $6,200, credit the two unused months, or waive more. FY26 practice with two other hospitals was to bill by month, and the invoice is already past 90 days.</dd>
       <dt>The solution</dt><dd><b>Bill $5,500 and credit $700.</b> Issuance stays at $2,000, and maintenance is billed for the 10 months the record was open. Payment is due in 30 days, and a partial-term clause goes into every hospital agreement at renewal.</dd>
-      <dt>What the Director approves</dt><dd>Two yes or no items: the $700 credit, which is above my proposed $500 credit limit, and the clause for the renewal template.</dd></dl>
+      <dt>What the Director approves</dt><dd>Two yes or no items: the $700 credit, which is above the proposed $500 credit limit, and the clause for the renewal template.</dd></dl>
       <button class="btn ghost jc-btn" data-pop="p-memo">Open the one-page decision memo</button>
     </div>
   </div>
@@ -928,8 +1014,8 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
   <div class="wk">
     <div class="wk-l"><p>Worked example</p><b>$6,200</b><span>disputed hospital invoice</span><b>$700</b><span>credit recommended</span><b>10 days</b><span>decision target</span></div>
     <div class="wk-r"><b class="wk-t">A hospital disputes a full-year charge for a scholar who left two months early</b>
-      <div class="wk-s"><div class="do"><h5>I resolve myself</h5><ul><li>Read the agreement for an early-termination term</li><li>Confirm the work done from the service log and the SEVIS record</li><li>Issue a credit up to my limit, or a revised invoice</li><li>Reply to the hospital with the reasoning</li></ul></div>
-      <div class="esc"><h5>I bring to the Director, with a recommendation</h5><ul><li>The agreement is silent or unclear</li><li>The credit is above my proposed $500 limit</li><li>The case would change how other hospitals are billed</li><li>A legal or relationship risk</li></ul></div></div>
+      <div class="wk-s"><div class="do"><h5>Resolved at this level</h5><ul><li>Read the agreement for an early-termination term</li><li>Confirm the work done from the service log and the SEVIS record</li><li>Issue a credit up to the delegated limit, or a revised invoice</li><li>Reply to the hospital with the reasoning</li></ul></div>
+      <div class="esc"><h5>Escalated to the Director, with a recommendation</h5><ul><li>The agreement is silent or unclear</li><li>The credit is above the proposed $500 limit</li><li>The case would change how other hospitals are billed</li><li>A legal or relationship risk</li></ul></div></div>
       <div class="wk-o"><span>Full credit · no work delivered</span><span class="on">Prorate · partial work, this case: bill $5,500</span><span>Hold · the agreement supports the charge</span></div>
       <button class="btn ghost jc-btn" data-pop="p-memo">Open the one-page decision memo</button></div>
   </div>
@@ -944,15 +1030,21 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
   </div>
   <h3 id="sx-dl" data-s="Downloads" class="h2">Take it with you</h3>
   <div class="dl">
-    <a class="btn" href="HIO_Work_Sample.pdf" target="_blank" rel="noopener">Work sample · PDF</a>
-    <a class="btn" href="HIO_Sample_Reports.pdf" target="_blank" rel="noopener">Seven sample reports · PDF</a>
+    <a class="btn ghost" href="HIO_Sample_Reports.pdf" target="_blank" rel="noopener">Seven sample reports · PDF</a>
+    <a class="btn ghost" href="career-profile.html">Career profile ↗</a>
     <button class="btn ghost" data-pop="p-dict">Data dictionary</button>
   </div>
   <p class="contact">Narissara Khomkhai · Cambridge, MA · <a href="mailto:sawatdee@me.com">sawatdee@me.com</a> · Requisition 004436SR · prepared November 2026</p>
-  <p class="src">The PDFs are print snapshots. The web version is current as of November 24, 2026; check it for the latest federal-policy status.</p>
+  <p class="src">The sample-reports PDF is a print snapshot. The web version is current as of November 24, 2026; check it for the latest federal-policy status.</p>
   <p class="src">Prepared for a job application. All data except HIO’s published counts is synthetic. This is not a Harvard document and does not describe actual HIO operations.</p>
 </section>
 </main>
+
+<nav class="page-nav" id="pageNav" aria-label="Section pagination">
+  <button type="button" id="pagePrev" aria-label="Previous section">←</button>
+  <div class="pn-meta" aria-live="polite"><span class="pn-count" id="pageCount">1 / 9</span><b class="pn-title" id="pageTitle">Overview</b></div>
+  <button type="button" id="pageNext" aria-label="Next section">→</button>
+</nav>
 
 <!-- ================= POPUP CONTENT ================= -->
 <template id="p-comp" data-title="SEVIS data integrity">
@@ -972,26 +1064,24 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
   <ol class="pi-flow"><li><b>Recommend</b><span>Advisor enters the recommendation in SEVIS</span></li><li><b>File</b><span>Student files with USCIS within 30 days</span></li><li><b>Report</b><span>Employer and address updates while on OPT</span></li><li><b>Bill and track</b><span>OPT fee and service log</span></li></ol>
   <p class="pi-note">Nationally, OPT participation rose 14.1% to 335,785 in 2025/26 while new enrollment fell, so OPT gets its own measure and billing line.</p></div>
   <div class="pi-two"><div class="do"><h5>What I would run</h5><ul><li>A term calendar of every deadline, with a check date ten days before each</li><li>Checks before each batch, by population</li><li>Every SEVIS batch response reviewed the next business day</li><li>Travel signature hours and a log</li></ul></div><div class="ctl"><h5>The control that keeps it right</h5><ul><li>No batch goes out unchecked</li><li>Every error resubmitted or assigned the same day</li><li>Turnaround measured weekly</li></ul></div></div>
-  <div class="pi-ev"><h5>Where I have done this</h5><ul><li>Nearly twenty years of record integrity under audit, including 20,000+ gift transactions a year under IRS and CASE rules at UAMS and faculty appointment records at FAS.</li><li>SEVIS rules are new to me. The dated training plan is in <a href="#sx-gap" data-close>the gap section</a>.</li></ul></div>
   <p class="ex">See the sample <a href="#e" data-rep="reg" data-close>registration report</a>.</p>
   </div>
 </template>
 <template id="p-sys" data-title="Systems and vendors">
   <div class="pi">
   <p class="pi-obj"><b>Control objective</b>No release or vendor patch reaches production without a passed test, a tested rollback and the Director’s sign-off.</p>
-  <div class="pi-panel"><h5>Release gate</h5><ol class="pi-flow"><li><b>Defects</b><span>Critical and major fixed or accepted in writing</span></li><li><b>Tests</b><span>Registration, forms and batch pass in full</span></li><li><b>Rollback</b><span>Tested by HUIT before go-live</span></li><li><b>Sign-off</b><span>Staff told, Director signs</span></li></ol></div>
+  <div class="pi-panel"><h5>Release gate · 5 checks</h5><ol class="pi-flow"><li><b>Defects</b><span>Critical and major fixed or accepted in writing</span></li><li><b>Tests</b><span>Registration, forms and batch pass in full</span></li><li><b>Rollback</b><span>Tested by HUIT before go-live</span></li><li><b>Sign-off</b><span>Staff told, Director signs</span></li></ol></div>
   <div class="pi-row"><div class="pi-panel"><h5>Vendor register, reviewed quarterly</h5><div class="pi-pills"><span>Contract</span><span>Agreed outage response</span><span>Named contact</span><span>Change calendar</span><span>Last test result</span><span>Outage log</span></div><p class="pi-note">ISSM plus the scheduling, training, tax and payment platforms. See the <a href="#sx-ven" data-close>register</a>.</p></div>
   <div class="pi-two"><div class="do"><h5>What I would run</h5><ul><li>A test register of about 150 cases</li><li>One configuration log</li><li>Quarterly planning with HUIT and the vendor</li></ul></div><div class="ctl"><h5>The control that keeps it right</h5><ul><li>Every rule change has a date, a reason and an owner</li><li>No patch without a test pass and a rollback plan</li><li>Outages announced the same day with a named owner</li></ul></div></div></div>
-  <div class="pi-ev"><h5>Where I have done this</h5><ul><li>Led two platform conversions, Raiser’s Edge to SunGard Advance (now Ellucian) at UAMS and Raiser’s Edge to Agilon at Phillips Academy, working with the vendors through setup, migration, testing and cutover, each with ten years of history back-entered.</li><li>Tested key reports before release at FAS with acceptance, smoke and stress tests.</li></ul></div>
   <p class="ex">See the sample <a href="#e" data-rep="test" data-close>release test report</a>.</p>
   </div>
 </template>
 <template id="p-mod" data-title="Modernization and integration">
   <div class="pi">
   <p class="pi-obj"><b>Control objective</b>No platform is replaced or integrated without requirements, a security review, a tested cutover and a named business owner.</p>
-  <div class="pi-stats"><div class="acc"><b>6 gates</b><span>from current state to hypercare</span></div><div><b>1 owner</b><span>business owner for the new platform</span></div><div><b>0</b><span>cutovers during registration peaks</span></div><div><b>90 days</b><span>to a requirements and options memo</span></div></div>
-  <div class="pi-panel"><h5>Modernization runway</h5><ol class="pi-flow six"><li><b>Baseline</b><span>Process maps, volumes, pain points and system inventory</span></li><li><b>Requirements</b><span>Must-have data, integrations, reports and controls</span></li><li><b>Market scan</b><span>RFI or RFP, demos, references and total cost</span></li><li><b>Risk review</b><span>Security, privacy, accessibility and HUIT architecture</span></li><li><b>Pilot</b><span>Test data, UAT, parallel run and rollback</span></li><li><b>Cutover</b><span>Hypercare, training and benefits tracking</span></li></ol></div>
-  <div class="pi-panel"><h5>HUIT alignment — design partner from day one</h5><table class="pi-t"><thead><tr><th>HUIT gate</th><th>What I bring</th><th>When</th></tr></thead><tbody>
+  <div class="pi-stats"><div class="acc"><b>6 stages</b><span>from current state to hypercare</span></div><div><b>1 owner</b><span>business owner for the new platform</span></div><div><b>0</b><span>cutovers during registration peaks</span></div><div><b>90 days</b><span>to a requirements and options memo</span></div></div>
+  <div class="pi-panel"><h5>Modernization runway</h5><ol class="pi-flow six"><li><b>Baseline</b><span>Process maps, volumes, pain points and system inventory</span></li><li><b>Requirements</b><span>Must-have data, integrations, reports and controls</span></li><li><b>Market scan</b><span>RFI or RFP, demos, references and total cost</span></li><li><b>Risk review</b><span>Security, privacy, accessibility and HUIT architecture</span></li><li><b>Pilot</b><span>Test data, UAT, parallel run and rollback</span></li><li><b>Cutover</b><span>Hypercare, training and benefits tracking</span></li></ol><p class="pi-note">These are six delivery stages. The five release-gate checks in the sample report are a separate control — do not compare the counts.</p></div>
+  <div class="pi-panel"><h5>HUIT alignment — design partner from day one</h5><table class="pi-t"><thead><tr><th>HUIT checkpoint</th><th>What I bring</th><th>When</th></tr></thead><tbody>
   <tr><td><b>Enterprise Architecture / HEART</b></td><td>Integration map, options memo, architecture fit</td><td>Before RFI and contract</td></tr>
   <tr><td><b>ITCRB / MYTP</b></td><td>Business case, cost, benefits and multi-year plan</td><td>Funding cycle</td></tr>
   <tr><td><b>Security and privacy</b></td><td>Data classification, HUIT server security standard, vendor risk</td><td>Before pilot</td></tr>
@@ -1003,7 +1093,6 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
   <div class="pi-panel"><h5>AI-assisted triage — controlled pilot, not a live adviser</h5><div class="pi-pills"><span>Public content only</span><span>RAG with citations</span><span>No SEVIS or PII</span><span>Human handoff</span><span>HUIT AI Sandbox / API Portal</span><span>Weekly evaluation</span></div><p class="pi-note">Use it for navigation, document checklists and “which page or form” questions. It must not answer status, eligibility or case-specific questions. Pilot with 50 real public questions; measure answer accuracy, containment, escalation and wrong-answer rate; OGC and HUIT review before launch.</p></div>
   <div class="pi-row"><div class="pi-two"><div class="do"><h5>What I would run</h5><ul><li>One requirements brief signed by the Director, HUIT, Campus Services Finance and the Schools</li><li>An integration map: source → field → validation → system of record → reporting layer</li><li>A decision memo with options, cost, risk and a recommendation</li></ul></div><div class="ctl"><h5>The control that keeps it right</h5><ul><li>No contract before the Director sees the trade-offs</li><li>No cutover during August, September or January</li><li>Business ownership assigned before go-live, not after</li></ul></div></div>
   <div class="pi-panel"><h5>90-day decision</h5><p class="pi-note" style="margin:0">By day 90: current-state map, requirements, integration map and options memo. No procurement until the Director and HUIT agree the evaluation criteria.</p></div></div>
-  <div class="pi-ev"><h5>Where I have done this</h5><ul><li>Led two platform conversions, Raiser’s Edge to SunGard Advance (now Ellucian) at UAMS and Raiser’s Edge to Agilon at Phillips Academy, working with vendors through migration, testing and cutover.</li><li>Oversaw the FAS Faculty DataHub pilot, which joined seven sources including SIS and the Registrar, and worked on its data dictionary.</li></ul></div>
   <p class="ex">See the sample <a href="#e" data-rep="test" data-close>release test report</a>.</p>
   </div>
 </template>
@@ -1014,20 +1103,18 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
   <div class="pi-panel"><h5>From School file to form</h5><ol class="pi-flow"><li><b>Receive</b><span>Slate or SIS export</span></li><li><b>Crosswalk</b><span>School codes to SEVIS codes</span></li><li><b>Validate</b><span>Name, birth date, dates, funding</span></li><li><b>Draft</b><span>I-20 or DS-2019 by an advisor</span></li></ol></div>
   <div class="pi-row"><div class="pi-two"><div class="do"><h5>What I would run</h5><ul><li>One crosswalk per School program</li><li>Funding checked before any form</li><li>Every manual fix logged</li></ul></div><div class="ctl"><h5>The control that keeps it right</h5><ul><li>Two quality measures: automatic match rate and first-pass validation rate</li><li>A repeat error goes back to the School with the fix</li><li>Templates fixed at the source</li></ul></div></div>
   <div class="pi-panel"><h5>School staff training, before each intake</h5><div class="pi-pills"><span>What each field means</span><span>Top five errors</span><span>Who to call</span><span>One-page guide per School</span></div><p class="pi-note">Repeat issues are fixed in the training, not only in the file.</p></div></div>
-  <div class="pi-ev"><h5>Where I have done this</h5><ul><li>Oversaw priorities and quality control for the FAS Faculty DataHub pilot, which joined seven sources, and worked on its data dictionary.</li><li>Trained users at each of three system conversions, including the move to HART self-service for deans, chairs and administrators.</li></ul></div>
   <p class="ex">See the <a href="#xw" data-close>crosswalk walkthrough</a> and the sample <a href="#e" data-rep="xch" data-close>reconciliation report</a>.</p>
   </div>
 </template>
 <template id="p-rep" data-title="Reporting and analytics">
   <div class="pi">
   <p class="pi-obj"><b>Control objective</b>One number is used everywhere, and every legal or compliance answer is logged and reviewed before it leaves the office.</p>
-  <div class="pi-stats"><div class="acc"><b>300 to 400</b><span>ad-hoc requests a year, before</span></div><div><b>under 100</b><span>after reusable reports</span></div><div><b>50+</b><span>departments served</span></div><div><b>7</b><span>sources in the DataHub</span></div></div>
+  <div class="pi-stats"><div class="acc"><b>18</b><span>saved views in this plan</span></div><div><b>under 100</b><span>ad-hoc target a year</span></div><div><b>7</b><span>sources mapped</span></div><div><b>1</b><span>definition per measure</span></div></div>
   <div class="pi-panel"><h5>What the Director sees each week</h5><div class="pi-pills"><span>Registration by School</span><span>OPT volume and turnaround</span><span>Service levels</span><span>Billing against plan</span><span>Three-year outlook</span><span>Decisions due</span></div></div>
   <div class="pi-panel"><h5>Legal, compliance and institutional requests</h5><ol class="pi-flow"><li><b>Intake</b><span>Requester, purpose, deadline and legal basis</span></li><li><b>Scope</b><span>Minimum data needed, with the Office of the General Counsel</span></li><li><b>Extract</b><span>Saved SQL view; validate row counts and definitions</span></li><li><b>Review</b><span>Counsel and Director approve before release</span></li><li><b>Log</b><span>Request, response, retention and requester</span></li></ol><p class="pi-note">This covers requests from the Office of the President, University leadership, external entities and legal counsel, and keeps a defensible audit trail.</p></div>
   <div class="pi-panel"><h5>One central data repository</h5><div class="pi-pills"><span>Data dictionary</span><span>One saved definition per measure</span><span>Versioned SQL views</span><span>Source-to-report lineage</span><span>Retention schedule</span><span>Survey and program data</span></div><p class="pi-note">The repository is the single source for recurring reports, year-end statistics and ad hoc requests; each number carries its definition, owner and last refresh.</p></div>
   <div class="pi-two"><div class="do"><h5>What I would run</h5><ul><li>A weekly leadership dashboard</li><li>Saved SQL views for requests that repeat</li><li>Year-end statistics that match HIO’s published counts</li><li>Survey design and analysis where program data needs it</li></ul></div><div class="ctl"><h5>The control that keeps it right</h5><ul><li>Every number ties to a saved query</li><li>Legal and compliance answers logged and reviewed</li><li>Decisions listed at the bottom of the dashboard</li></ul></div></div>
   <div class="pi-panel"><h5>Tools</h5><div class="pi-pills"><span>SQL</span><span>Python</span><span>R</span><span>SAS</span><span>SPSS</span><span>Oracle BI</span><span>Power BI</span><span>Crystal Reports</span></div></div>
-  <div class="pi-ev"><h5>Where I have done this</h5><ul><li>All Faculty Affairs reporting and meeting materials for deans, visiting committees and the governance office.</li><li>Back-end reports for 50+ departments, and 360° evaluation surveys analyzed in SAS and SPSS at the UAMS College of Medicine.</li></ul></div>
   <p class="ex">See the sample <a href="#e" data-rep="lead" data-close>leadership dashboard</a>.</p>
   </div>
 </template>
@@ -1038,7 +1125,6 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
   <div class="pi-panel"><h5>From service to cash</h5><ol class="pi-flow"><li><b>Validate</b><span>Matches a completed ISSM case</span></li><li><b>Confirm</b><span>Hospital confirms before invoice</span></li><li><b>Invoice</b><span>References the case and agreement</span></li><li><b>Accrue</b><span>Quarter end, to Campus Services Finance</span></li><li><b>Resolve</b><span>Routine disputes settled directly</span></li></ol></div>
   <div class="pi-row"><div class="pi-panel"><h5>How and when fees are collected</h5><table class="pi-t"><tbody><tr><td><b>Individual fees</b></td><td>Online at request, automatic receipt</td></tr><tr><td><b>Department fees</b></td><td>Internal billing when the DS-2019 request arrives</td></tr><tr><td><b>Hospital fees</b></td><td>Invoice after the hospital confirms</td></tr></tbody></table><p class="pi-note">Fee schedule, refund rules and payment page reviewed yearly with the Director and Campus Services Finance.</p></div>
   <div class="pi-two"><div class="do"><h5>What I would run</h5><ul><li>Monthly receivables aging</li><li>Routine disputes resolved directly, from the agreement, the service log and the billing history</li><li>Card disputes assessed and documented for the bank</li></ul></div><div class="ctl"><h5>The control that keeps it right</h5><ul><li>Only sensitive or precedent-setting cases go to the Director</li><li>Every invoice ties to a completed case</li><li>Payer experience measured: paid at request, days to pay, refunds</li></ul></div></div></div>
-  <div class="pi-ev"><h5>Where I have done this</h5><ul><li>Campaign reporting reconciled to the General Ledger with the Comptroller’s office at Phillips Academy.</li><li>20,000+ transactions a year at UAMS, and piloted and managed online giving with iModules and CyberSource, front end and back end.</li></ul></div>
   <p class="ex">See the sample <a href="#e" data-rep="bill" data-close>billing and accruals report</a>.</p>
   </div>
 </template>
@@ -1054,7 +1140,6 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
   </tbody></table><p class="pi-note">Exact titles and headcount would be confirmed with the Director; this is a capacity model, not a claim about HIO’s current structure.</p></div>
   <div class="pi-row"><div class="pi-two"><div class="do"><h5>What I would run</h5><ul><li>One queue with owners and ages; a weekly huddle on priorities</li><li>Hiring and onboarding for term, temporary and student staff</li><li>Goals tied to the ten measures; mid-year and year-end reviews</li><li>Cross-training matrix and named backups for batches and billing</li></ul></div><div class="ctl"><h5>The control that keeps it right</h5><ul><li>Performance issues raised early and documented</li><li>No critical process with one trained person</li><li>Onboarding checklist: access, training, buddy, 30/60/90 goals</li><li>Offboarding: access removed within a week, records handed over</li></ul></div></div>
   <div class="pi-panel"><h5>Office operations owned through the team</h5><div class="pi-pills"><span>Onboarding and offboarding with HR and HUIT</span><span>Technology refresh</span><span>Records retention and archiving</span><span>Invoice processing</span><span>Appointment scheduling</span></div><p class="pi-note"><b>Critical Operations Personnel:</b> available for critical operations during closures, with an on-call rota for failed batches and a same-day brief to the Director.</p></div></div>
-  <div class="pi-ev"><h5>Where I have done this</h5><ul><li>As Associate Director at UAMS from 2008 to 2016 — eight years — hired, supervised, reviewed and mentored staff.</li><li>Led a team of three through a campaign and a database conversion at the same time; trained users at three system conversions.</li></ul></div>
   <p class="ex">See the sample <a href="#e" data-rep="team" data-close>team weekly</a>.</p>
   </div>
 </template>
@@ -1065,8 +1150,7 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
   <div class="pi-panel"><h5>Security operating model — HIO data security lead with the Security Insiders group</h5><div class="pi-pills"><span>Classify · passport, immigration status, financial, dependent records</span><span>Prevent · least privilege, MFA, vendor time limits</span><span>Detect · audit logs, HUIT alerts, quarterly access review</span><span>Respond · contain, notify HUIT and the Privacy Office, post-incident review</span><span>Train · annual plus role-based, phishing exercise, tabletop before peak</span></div><p class="pi-note">Data minimization applies to every report and legal request: use the least data needed, then delete or archive on schedule.</p></div>
   <div class="pi-panel"><h5>Access cycle</h5><ol class="pi-flow"><li><b>Review</b><span>Every ISSM account against its role, quarterly</span></li><li><b>Remove</b><span>Within a week of a role change, with HR and HUIT</span></li><li><b>Train</b><span>Yearly, tracked to completion</span></li><li><b>Log</b><span>Vendor access time-limited and logged</span></li><li><b>Test</b><span>Tabletop incident exercise before the fall peak</span></li></ol></div>
   <div class="pi-row"><div class="pi-two"><div class="do"><h5>What I would run</h5><ul><li>Least privilege by role; School contacts read only, own students</li><li>Security Insiders working group and a named incident owner</li><li>Vendor security reviews before renewal, not after</li><li>Access removal clock: one week for role changes, same day for departures</li></ul></div><div class="ctl"><h5>The control that keeps it right</h5><ul><li>Quarterly access review with exceptions named</li><li>Multi-factor sign-in for every account</li><li>Patches tested before production</li><li>Incident log with containment, notification and lessons learned</li></ul></div></div>
-  <div class="pi-panel"><h5>Standards I have written policy to</h5><div class="pi-pills"><span>IRS</span><span>FASB/GASB</span><span>CASE</span><span>HIPAA</span><span>FERPA-aware data handling</span></div></div></div>
-  <div class="pi-ev"><h5>Where I have done this</h5><ul><li>Protected confidential faculty records at FAS with role- and hierarchy-based access approved by the Dean of Faculty Affairs.</li><li>Wrote record-keeping policies at UAMS and documented the controls auditors reviewed.</li></ul></div>
+  <div class="pi-panel"><h5>Standards the model applies</h5><div class="pi-pills"><span>IRS</span><span>FASB/GASB</span><span>CASE</span><span>HIPAA</span><span>FERPA-aware data handling</span></div></div></div>
   <p class="ex">See the sample <a href="#e" data-rep="sec" data-close>data security review</a>.</p>
   </div>
 </template>
@@ -1384,7 +1468,7 @@ LEFT   JOIN cost_estimate c
     },
     'p-mod': {
       s: 'Replace or integrate only after requirements, an architecture review and a tested cutover.',
-      m: 'Six gates from baseline to hypercare; options memo by day 90.',
+      m: 'Six stages from baseline to hypercare; options memo by day 90.',
       a: 'HUIT/HEART, ITCRB/MYTP, security, accessibility and vendor review.',
       r: 'ISSM is the system of record for immigration status and batches.',
       t: 'Discovery in weeks 4–10; no cutover during August, September or January.',
@@ -1787,6 +1871,39 @@ LEFT   JOIN cost_estimate c
   const PROJ = [['School crosswalk and import validation', 8, 3, 6, 'Associate Director, HUIT'], ['ISSM release gate and test register', 6, 3, 7, 'Associate Director, vendor'], ['Modernization discovery and integration map', 10, 4, 10, 'Associate Director, HUIT'], ['Leadership dashboard, version 1', 5, 4, 8, 'Associate Director'], ['Billing tied to the service log', 4, 5, 8, 'Operations, Campus Services Finance'], ['Automation 1 · School file import', 6, 6, 9, 'Operations'], ['Automation 2 · registration checks', 5, 8, 11, 'Operations']];
   const gt = $('#gantt');
   if (gt) gt.innerHTML = `<div class="gt"><div class="gt-h"><span>Project</span><span class="gt-wk">${Array.from({length: 12}, (_, i) => `<i>${i + 1}</i>`).join('')}</span><span>Effort</span><span>Owner</span></div>${PROJ.map(p => `<div class="gt-r"><span>${E(p[0])}</span><span class="gt-wk">${Array.from({length: 12}, (_, i) => `<i class="${i + 1 >= p[2] && i + 1 <= p[3] ? 'on' : ''}"></i>`).join('')}</span><span><b>${p[1]}</b> days</span><span>${E(p[4])}</span></div>`).join('')}<div class="gt-r tot"><span><b>Total</b></span><span class="gt-wk"></span><span><b>${PROJ.reduce((a, p) => a + p[1], 0)}</b> days</span><span>weeks 3 to 11</span></div></div>`;
+
+  // ================= section pager =================
+  const pagerSections = $$('main > section[data-s]');
+  const pager = $('#pageNav');
+  if (pager && pagerSections.length) {
+    const prev = $('#pagePrev'), next = $('#pageNext'), count = $('#pageCount'), title = $('#pageTitle');
+    let current = -1;
+    const update = () => {
+      const sec = pagerSections[current];
+      if (!sec) return;
+      count.textContent = `${current + 1} / ${pagerSections.length}`;
+      title.textContent = sec.dataset.s || 'Section';
+      prev.disabled = current === 0;
+      next.disabled = current === pagerSections.length - 1;
+    };
+    const go = (i, smooth = true) => {
+      const target = Math.max(0, Math.min(pagerSections.length - 1, i));
+      current = target;
+      update();
+      pagerSections[target].scrollIntoView({ behavior: smooth && !matchMedia('(prefers-reduced-motion: reduce)').matches ? 'smooth' : 'auto', block: 'start' });
+    };
+    prev.addEventListener('click', () => go(current - 1));
+    next.addEventListener('click', () => go(current + 1));
+    const sync = () => {
+      const y = scrollY + ($('.top')?.getBoundingClientRect().height || 0) + 24;
+      let idx = 0;
+      pagerSections.forEach((sec, i) => { if (sec.offsetTop <= y) idx = i; });
+      if (idx !== current) { current = idx; update(); }
+    };
+    addEventListener('scroll', sync, { passive: true });
+    addEventListener('resize', sync);
+    sync();
+  }
 
   // ================= index dropdowns =================
   const dd = $('#dd');
