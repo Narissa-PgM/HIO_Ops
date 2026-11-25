@@ -111,6 +111,7 @@ h1{font-size:38px;line-height:1.15;margin:0 0 12px;letter-spacing:-.01em;max-wid
 .nq-progress{height:5px;background:#e8ecec;width:64px;overflow:hidden;margin-bottom:2px}.nq-progress i{display:block;height:100%;background:var(--teal)}
 .nq-unassigned{color:#8a283b;font-weight:700}.nq tr[hidden]{display:none}
 .svc{font-size:12px}.svc td:first-child{width:21%}.svc td:nth-child(3){width:30%}.svc th,.svc td{padding:6px 8px}
+.xw{font-size:11.5px}.xw th,.xw td{padding:5px 7px}.xw td:first-child{width:26%}.xw td:nth-child(2){width:24%}
 @media(max-width:800px){.nq-sum{grid-template-columns:1fr 1fr}.nq-sum div:nth-child(5){grid-column:1/-1;border-left:0;border-top:1px solid var(--line)}}
 .areas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .area{position:relative;text-align:left;background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--slate);padding:14px 16px 14px;display:grid;gap:5px;align-content:start;color:var(--ink)}
@@ -667,8 +668,8 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
 <!-- ================= S ================= -->
 <section id="s" class="sec wrap" data-s="Work areas">
   <p class="kick">Work areas</p>
-  <h2>The role in eight work areas</h2>
-  <p class="lede sm">Each card names the control objective. Open one for an infographic of how I would run it, the control that keeps it right, and the artifacts it produces.</p>
+  <h2>The role in eight operating areas</h2>
+  <p class="lede sm">Each card names the control objective. Open one for an infographic of how I would run it, the control that keeps it right, and the artifacts it produces. The role language names twelve responsibilities. The eight areas group them, and the crosswalk below shows where each one lives.</p>
   <p class="src"><b>SMARTER lives inside each area.</b> Every work-area popup ends with the same seven-point check: Specific, Measurable, Achievable, Relevant, Time-bound, Evaluate, Readjust. The framework is the checklist, not the navigation.</p>
   <div class="area-portfolio" id="areaPortfolio"></div>
   <div class="areas">
@@ -681,6 +682,38 @@ body.rp-print .ig-pr{grid-template-columns:200px 1fr 50px!important}body.rp-prin
     <button class="area" id="area-team" data-s="Team and office operations" data-pop="p-team"><i>07</i><b>Team and office operations</b><em class="obj">Objective · Every person has a plan and a named backup</em><span class="chips"><small>3 to 5 staff</small><small>Development</small><small>Office ops</small><small>Critical ops</small></span></button>
     <button class="area" id="area-security" data-s="Data security" data-pop="p-sec"><i>08</i><b>Data security</b><em class="obj">Objective · Least privilege, incident-ready, reviewed every quarter</em><span class="chips"><small>Access review</small><small>Incident response</small><small>Training</small><small>Vendors</small></span></button>
   </div>
+
+  <h3 class="h2" id="area-crosswalk" data-s="12 to 8 map">Twelve responsibilities, eight operating areas</h3>
+  <p class="lede sm">The role language names twelve responsibilities. The work sample keeps eight command centers because several duties share one control objective. This crosswalk shows where every responsibility lives, including the three that are embedded rather than standalone.</p>
+  <div class="rp-tw"><table class="score xw">
+    <thead><tr><th>Responsibility from the role</th><th>Work area</th><th>Where it shows up</th></tr></thead>
+    <tbody>
+      <tr><td><b>Regulatory compliance and data integrity</b></td><td>01 · SEVIS data integrity</td><td>SEVIS validation, exception routing and the federal deadline gate</td></tr>
+      <tr><td><b>Business system ownership</b></td><td>02 · Systems and vendors</td><td>Release gate, test register, vendor accountability and rollback evidence</td></tr>
+      <tr><td><b>Data exchange with Schools</b></td><td>04 · School data exchange</td><td>Crosswalk, first-pass validation and School training</td></tr>
+      <tr><td><b>Systems and processes modernization</b></td><td>03 · Modernization and integration</td><td>Current-state map, requirements, options memo and cutover plan</td></tr>
+      <tr><td><b>Data analytics and reporting</b></td><td>05 · Reporting and analytics</td><td>Leadership dashboard, data dictionary and saved views</td></tr>
+      <tr><td><b>Legal and compliance inquiries</b></td><td>05 · Reporting and analytics</td><td>OGC intake, minimum-necessary extract and release log</td></tr>
+      <tr><td><b>Revenue and fee processes</b></td><td>06 · Billing and finance</td><td>Service-to-cash, fee schedule, accrual and receivables</td></tr>
+      <tr><td><b>Dispute resolution</b></td><td>06 · Billing and finance</td><td>Dispute steps, delegated credit limit and decision memo</td></tr>
+      <tr><td><b>Process improvement</b></td><td>03 and 07 · Modernization, team</td><td>SOPs, automation, improvement backlog and backup coverage</td></tr>
+      <tr><td><b>Team leadership</b></td><td>07 · Team and office operations</td><td>RACI, development plans and cross-training</td></tr>
+      <tr><td><b>Office operations</b></td><td>07 · Team and office operations</td><td>Onboarding, records retention and technology refresh</td></tr>
+      <tr><td><b>Data security</b></td><td>08 · Data security</td><td>Access review, incident tabletop and vendor evidence</td></tr>
+    </tbody>
+  </table></div>
+  <p class="src"><b>Why eight, not twelve?</b> Legal inquiries sit inside reporting because the control is the release, not the request. Disputes sit inside billing because the evidence is the same service log. Process improvement is the cross-cutting layer that turns every gate finding into a backlog item with an owner and a measure.</p>
+
+  <h3 class="h3" id="improvement" data-s="Improvement backlog">Process improvement, made visible</h3>
+  <div class="rp-tw"><table class="score xw">
+    <thead><tr><th>Signal</th><th>Improvement</th><th>Owner</th><th>Measure</th><th>Gate</th></tr></thead>
+    <tbody>
+      <tr><td><b>School file rework</b></td><td>Fix the crosswalk and train the contact</td><td>Operations</td><td>First-pass validation rate</td><td>School data gate</td></tr>
+      <tr><td><b>Release defects</b></td><td>Add the failing path to the regression suite</td><td>Associate Director</td><td>Critical escapes to production</td><td>ISSM release gate</td></tr>
+      <tr><td><b>Invoice exceptions</b></td><td>Fix the service-log field or the confirmation step</td><td>Operations</td><td>Exceptions per 100 invoices</td><td>Q3 billing close</td></tr>
+      <tr><td><b>Backup gaps</b></td><td>Cross-train a named second person</td><td>Associate Director</td><td>Two backups per critical process</td><td>Bench coverage gate</td></tr>
+    </tbody>
+  </table></div>
 
   <h3 class="h2" id="nq" data-s="Newcomer queue">Newcomer services queue — who is waiting, who owns the next step</h3>
   <p class="lede sm">One view of every newcomer in the service pipeline: intake owner, assigned advisor, current stage, progress and the next action. Unassigned records are deliberately visible, not buried in an inbox.</p>

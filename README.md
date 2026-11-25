@@ -10,6 +10,7 @@ Work sample by Narissara Khomkhai for the Harvard International Office **Associa
 - Section-by-section paging: scroll-snap stops at each section, with a fixed previous/next pager and section count
 - `application/` contains the tailored HIO resume and cover letter in DOCX and PDF, plus the reusable generator script
 - `CLONE.md` explains how to reuse the work sample for another organization, role or project
+- Work areas include a 12-to-8 crosswalk showing where each role responsibility lives, plus a process-improvement backlog
 - First 90 days includes a detailed 13-week calendar, an eight-area gate register and daily/weekly/monthly/gate reporting cadence
 - Common issues redesigned as an issue register: summary counts, category index, status, problem, repeatable response, decision owner and closure evidence
 - Scope section includes a proposed decision-rights table: what the Associate Director owns, what is recommended to the Director, and what stays with HUIT, Finance, OGC or ITCRB
